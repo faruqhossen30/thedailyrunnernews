@@ -7,13 +7,14 @@ use App\Http\Controllers\Backend\Location\DivisionController;
 use App\Http\Controllers\Backend\Location\UpazilaController;
 use App\Http\Controllers\Backend\Location\LoactionAjaxController;
 use App\Http\Controllers\Admin\Setting\SettingController;
+use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\Blog\Post\CategoryController;
 use App\Http\Controllers\Backend\Blog\Post\NewsController;
 use App\Http\Controllers\Backend\Blog\Post\TagsController;
 use App\Http\Controllers\Backend\Dashboard\DashboardController as DashboardDashboardController;
 use App\Http\Controllers\Backend\Roles\RolesController;
 use App\Http\Controllers\Backend\Setting\SiteController;
-
+use App\Http\Controllers\Backend\Users\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,23 @@ use App\Http\Controllers\Backend\Setting\SiteController;
 
 Route::group(['prefix' => 'admin'], function () {
     //---------------------DASHBOARD----------------------------
-    // Route::get('dashboard', [DashboardController::class, 'index']);
+
     Route::get('dashboard',[DashboardDashboardController::class,'index'])->name('admin.dashboard');
-    Route::resource('roles',RolesController::class ,['name'=>'admin']);
+    Route::resource('roles',RolesController::class ,['name'=>'admin.roles']);
+    Route::resource('users',UsersController::class ,['name'=>'admin.users']);
+
+
+    // --------------Login Routes---------------
+    Route::get('/login',[LoginController::class,'showLoginForm'])->name('admin.login');
+    Route::post('/login/submit',[loginController::class,'login'])->name('admin.login.submit');
+
+    //-------------- Logout Routes--------------
+    Route::post('/logout/submit',[loginController::class,'logout'])->name('admin.logout.submit');
+
+    // --------------------Forget Password Routes----------------
+    Route::get('/password/reset',[ForgetPasswordController::class,'showLinkRequestForm'])->name('admin.password.request');
+    Route::post('/login/reset/submit',[ForgetPasswordController::class,'reset'])->name('admin.password.update');
+
     // ---------------------LOCATION-----------------------------
     Route::resource('division', DivisionController::class);
     Route::resource('district', DistrictController::class);

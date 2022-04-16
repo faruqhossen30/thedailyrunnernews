@@ -75,8 +75,8 @@
                         <span> Dashboard </span>
                     </a>
                 </li>
-                <li>
-                    <a href="#sidebarRole" data-bs-toggle="collapse" aria-expanded="false"
+                {{-- <li>
+                    <a href="#sidebarUser" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarRole">
                         <i class="mdi mdi-account-circle"></i>
                         <span>Role  & Permissions</span>
@@ -90,15 +90,50 @@
                             <li>
                                 <a href="{{route('roles.create')}}">Add Roll & Permissions</a>
                             </li>
-
-
+                        </ul>
+                    </div>
+                </li> --}}
+                <li>
+                    <a href="#sidebarRoles" data-bs-toggle="collapse" aria-expanded="false"
+                        aria-controls="sidebarRoles">
+                        <i class="mdi mdi-lock-minus"></i>
+                        <span>Role  & Permissions</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarRoles">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('roles.index')}}">All Roless</a>
+                            </li>
+                            <li>
+                                <a href="{{route('roles.create')}}">Add Roll & Permissions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarUser" data-bs-toggle="collapse" aria-expanded="false"
+                        aria-controls="sidebarUser">
+                        <i class="mdi mdi-account-circle"></i>
+                        <span>Uers</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarUser">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('users.index')}}">All Users</a>
+                            </li>
+                            <li>
+                                <a href="{{route('users.create')}}">Add Users</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
                 <li>
                     <a href="#sidebarBlog" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarBlog">
-                        <i class="mdi mdi-account-circle"></i>
+                        <i class="mdi mdi-blogger"></i>
+                        
                         <span>Blog </span>
                         <span class="menu-arrow"></span>
                     </a>
