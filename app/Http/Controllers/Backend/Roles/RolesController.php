@@ -102,7 +102,10 @@ class RolesController extends Controller
         // $role = Role::create(['name' => $request->name]);
         $role = Role::findById($id,);
         $permissions = $request->input('permissions');
+        
         if (!empty($permissions)) {
+            $role->name = $request->name;
+            $role->save();
             $role->syncPermissions($permissions);
         }
         session()->flash('success', 'Role has been Updated !!');
