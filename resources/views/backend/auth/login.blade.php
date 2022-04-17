@@ -36,7 +36,7 @@ Login | Admin Panel
                                 @csrf
                                 <div class="mb-2">
                                     <label for="emailaddress" class="form-label">Email address</label>
-                                    <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                    <input class="form-control" type="text" name="email" id="emailaddress" required=""
                                         placeholder="Enter your email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">

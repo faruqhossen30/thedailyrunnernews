@@ -95,19 +95,19 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#sidebarUser" data-bs-toggle="collapse" aria-expanded="false"
-                        aria-controls="sidebarUser">
+                    <a href="#sidebarAdmin" data-bs-toggle="collapse" aria-expanded="false"
+                        aria-controls="sidebarAdmin">
                         <i class="mdi mdi-account-circle"></i>
-                        <span>Uers</span>
+                        <span>Admins</span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarUser">
+                    <div class="collapse" id="sidebarAdmin">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('users.index')}}">All Users</a>
+                                <a href="{{route('admins.index')}}">All Admins</a>
                             </li>
                             <li>
-                                <a href="{{route('users.create')}}">Add Users</a>
+                                <a href="{{route('admins.create')}}">Add Admins</a>
                             </li>
                         </ul>
                     </div>
