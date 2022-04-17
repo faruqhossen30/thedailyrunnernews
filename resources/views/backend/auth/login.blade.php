@@ -16,8 +16,8 @@ Login | Admin Panel
                                 <div class="auth-logo">
                                     <a href="index.html" class="logo logo-dark text-center">
                                         <span class="logo-lg">
-                                            <img src="{{ asset('backend/assets/images/images/logo-dark.png') }}" alt=""
-                                                height="22">
+                                            <img src="{{ asset('backend/assets/images/images/daily runner for heshelghor-01.png') }}" alt=""
+                                             height="50"  >
                                         </span>
                                     </a>
 
@@ -31,7 +31,7 @@ Login | Admin Panel
                                 <p class="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.
                                 </p>
                             </div>
-
+                            @include('backend.message.error')
                             <form method="POST" action="{{ route('admin.login.submit') }}">
                                 @csrf
                                 <div class="mb-2">

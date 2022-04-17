@@ -16,3 +16,12 @@
 @endif
 
 
+
+
+@if (Session::has('error'))
+    <div class="alert alert-danger">
+        <div>
+            <p>{{ Session::get('error') }}</p>
+        </div>
+    </div>
+@endif
