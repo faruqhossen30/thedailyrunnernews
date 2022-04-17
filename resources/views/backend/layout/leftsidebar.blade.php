@@ -75,24 +75,7 @@
                         <span> Dashboard </span>
                     </a>
                 </li>
-                {{-- <li>
-                    <a href="#sidebarUser" data-bs-toggle="collapse" aria-expanded="false"
-                        aria-controls="sidebarRole">
-                        <i class="mdi mdi-account-circle"></i>
-                        <span>Role  & Permissions</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarRole">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{route('roles.index')}}">All Roles</a>
-                            </li>
-                            <li>
-                                <a href="{{route('roles.create')}}">Add Roll & Permissions</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> --}}
+
                 <li>
                     <a href="#sidebarRoles" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarRoles">
@@ -133,7 +116,7 @@
                     <a href="#sidebarBlog" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarBlog">
                         <i class="mdi mdi-blogger"></i>
-                        
+
                         <span>Blog </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -186,12 +169,12 @@
                 </li>
 
                 <li>
-                    <a class="dropdown-item notify-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="ri-logout-box-line"></i>
+                    <a class="dropdown-item notify-item" href="{{ route('admin.logout.submit') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="mdi mdi-logout"></i>
                         <span>{{ __('Logout') }}</span>
                         </a>
 
-                        <form id="logout-form" action="#" method="POST" class="d-none">
+                        <form id="logout-form" action="{{ route('admin.logout.submit') }}" method="POST" class="d-none">
                             @csrf
                         </form>
                 </li>
