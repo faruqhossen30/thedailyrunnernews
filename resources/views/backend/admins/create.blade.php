@@ -43,13 +43,13 @@
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label class="mb-1" for="exampleInputEmail1">Admin Name</label>
                                         <input type="text" class="form-control" name="name" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Enter a user name">
+                                            aria-describedby="emailHelp" placeholder="Enter a user name" required>
                                     </div>
 
                                     <div class="form-group col-md-6 col-sm-12 ">
                                         <label class="mb-1" for="exampleInputEmail1">Admin Email</label>
                                         <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Enter a user email">
+                                            aria-describedby="emailHelp" placeholder="Enter a user email" required>
                                     </div>
                                 </div>
 
@@ -57,18 +57,18 @@
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label for="password">Password</label>
                                         <input type="password" class="form-control" id="password" name="password"
-                                            placeholder="Enter Password">
+                                            placeholder="Enter Password" required>
                                     </div>
                                     <div class="form-group col-md-6 col-sm-12 mt-1">
                                         <label for="password_confirmation">Confirm Password</label>
                                         <input type="password" class="form-control" id="password_confirmation"
-                                            name="password_confirmation" placeholder="Enter Password">
+                                            name="password_confirmation" placeholder="Enter Password" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-sm-6">
                                         <label for="roles">Assign Roles</label>
-                                        <select name="roles[]" id="roles" class="form-control select2" multiple>
+                                        <select name="roles[]" id="roles" class="form-control select2" multiple required>
                                             @foreach ($roles as $role)
                                                 <option value="{{ $role->name }}">{{ $role->name }}</option>
                                             @endforeach
@@ -80,7 +80,7 @@
                                             aria-describedby="emailHelp" placeholder="Enter a username" required>
                                     </div>
                                 </div>
-
+                                
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Save Admin</button>
                             </form>
                         </div> <!-- end card body-->
@@ -118,4 +118,8 @@
     <!-- Validation init js-->
     <script src="{{asset('backend') }}/assets/js/pages/form-validation.init.js"></script>
     <script src="{{asset('backend') }}/assets/js/pages/form-advanced.init.js"></script>
+
+    <script src="{{asset('backend/assets/libs/jquery.js')}}"></script>
+	<script src="{{asset('backend/assets/libs/jquery.validate.js')}}"></script>
 @endpush
+

@@ -1,0 +1,41 @@
+.col-md-9 {
+    width: 75%;
+}
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+.breadcrumb li a {
+    color: #b30f0f;
+}
+.breadcrumb>li {
+    display: inline-block;
+}
+ul.social-media.custom-social-share {
+    display: inline-flex;
+    list-style: none;
+    float: right;
+    padding: 0 100px;
+    border-radius: -9;
+}
+.marginTopBottom20 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+i.fa.fa-facebook {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    /* color: inherit; */
+}
