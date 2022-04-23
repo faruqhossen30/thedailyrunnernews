@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\Location\DivisionController;
 use App\Http\Controllers\Backend\Location\UpazilaController;
 use App\Http\Controllers\Backend\Location\LoactionAjaxController;
 use App\Http\Controllers\Admin\Setting\SettingController;
+use App\Http\Controllers\Backend\Admins\AdminsController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\Blog\Post\CategoryController;
 use App\Http\Controllers\Backend\Blog\Post\NewsController;
@@ -35,6 +36,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard',[DashboardDashboardController::class,'index'])->name('admin.dashboard');
     Route::resource('roles',RolesController::class ,['name'=>'admin.roles']);
     Route::resource('users',UsersController::class ,['name'=>'admin.users']);
+    
+    Route::resource('admins',AdminsController::class ,['name'=>'admin.admins']);
 
 
     // --------------Login Routes---------------

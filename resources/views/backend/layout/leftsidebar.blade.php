@@ -1,3 +1,7 @@
+@php
+$usr = Auth::guard('admin')->user();
+@endphp
+
 <div class="left-side-menu">
 
     <!-- LOGO -->
@@ -69,13 +73,37 @@
             <ul id="side-menu">
 
 
-                <li>
+                {{-- <li>
                     <a href="#">
                         <i class="mdi mdi-youtube-studio"></i>
                         <span> Dashboard </span>
                     </a>
+                </li> --}}
+                {{-- @if ($usr->can('dashboard.view')) --}}
+                <li class="active">
+                    <a href="javascript:void(0)" aria-expanded="true"><i class="mdi mdi-view-dashboard"></i><span>Dashboard</span></a>
+                    <ul class="collapse">
+                        <li class="active"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                    </ul>
                 </li>
 
+                <li>
+                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-tasks"></i><span>
+                        Roles & Permissions
+                    </span></a>
+                    <ul class="collapse ">
+
+                            <li class="#"><a href="{{route('roles.index')}}">All Roles</a></li>
+
+
+                            <li class="#"><a href="{{route('roles.create')}}">Create Role</a></li>
+
+                    </ul>
+                </li>
+
+
+                {{-- @endif --}}
+       {{--
                 <li>
                     <a href="#sidebarRoles" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarRoles">
@@ -93,25 +121,57 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
+                @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete'))
                 <li>
-                    <a href="#sidebarUser" data-bs-toggle="collapse" aria-expanded="false"
-                        aria-controls="sidebarUser">
+                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-tasks"></i><span>
+                        Roles & Permissions
+                    </span></a>
+                    <ul class="collapse {{ Route::is('roles.create') || Route::is('roles.index') || Route::is('roles.edit') || Route::is('roles.show') ? 'in' : '' }}">
+                        @if ($usr->can('role.view'))
+                            <li class="{{ Route::is('roles.index')  || Route::is('roles.edit') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">All Roles</a></li>
+                        @endif
+                        @if ($usr->can('role.create'))
+                            <li class="{{ Route::is('roles.create')  ? 'active' : '' }}"><a href="{{ route('roles.create') }}">Create Role</a></li>
+                        @endif
+                    </ul>
+                </li>
+                @endif
+                {{-- <li>
+                    <a href="#sidebarAdmin" data-bs-toggle="collapse" aria-expanded="false"
+                        aria-controls="sidebarAdmin">
                         <i class="mdi mdi-account-circle"></i>
-                        <span>Uers</span>
+                        <span>Admins</span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarUser">
+                    <div class="collapse" id="sidebarAdmin">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('users.index')}}">All Users</a>
+                                <a href="{{route('admins.index')}}">All Admins</a>
                             </li>
                             <li>
-                                <a href="{{route('users.create')}}">Add Users</a>
+                                <a href="{{route('admins.create')}}">Add Admins</a>
                             </li>
                         </ul>
                     </div>
+                </li> --}}
+                @if ($usr->can('admin.create') || $usr->can('admin.view') ||  $usr->can('admin.edit') ||  $usr->can('admin.delete'))
+                <li>
+                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
+                        Admins
+                    </span></a>
+                    <ul class="collapse {{ Route::is('admins.create') || Route::is('admins.index') || Route::is('admins.edit') || Route::is('admins.show') ? 'in' : '' }}">
+
+                        @if ($usr->can('admins.index'))
+                            <li class="{{ Route::is('admins.index')  || Route::is('admins.edit') ? 'active' : '' }}"><a href="{{ route('admins.index') }}">All Admins</a></li>
+                        @endif
+
+                        @if ($usr->can('admin.create'))
+                            <li class="{{ Route::is('admins.create')  ? 'active' : '' }}"><a href="{{ route('admins.create') }}">Create Admin</a></li>
+                        @endif
+                    </ul>
                 </li>
+                @endif
                 <li>
                     <a href="#sidebarBlog" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarBlog">
