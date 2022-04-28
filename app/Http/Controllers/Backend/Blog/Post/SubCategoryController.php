@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Backend\Blog\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog\Category;
+use App\Models\Blog\SubCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-class CategoryController extends Controller
+use Illuminate\Support\Facades\Auth;
+
+class SubCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +18,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('backend.blogs.categories.category_list',compact('categories'));
+
+
+        $subcategories = SubCategory::with('category')->latest()->get();
+        // return $subcategories;
+       return view('backend.blogs.subcategory.index',compact('subcategories'));
     }
 
     /**
@@ -27,9 +32,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        // return $category;
+        $subcategory = SubCategory::all();
         $categories = Category::all();
-        return view('backend.blogs.categories.category_create',compact('categories'));
+        // return $subcategory;
+        return view('backend.blogs.subcategory.create',compact('categories','categories'));
     }
 
     /**
@@ -49,14 +55,15 @@ class CategoryController extends Controller
             'description.required' => 'please enter your description',
         ]);
 
-        Category::create([
+        SubCategory::create([
             'name'        => $request->name,
-            'slug'        => SlugService::createSlug(Category::class, 'slug', $request->name, ['unique' => true]),
+            'slug'        => SlugService::createSlug(SubCategory::class, 'slug', $request->name, ['unique' => true]),
             'description' => $request->description,
-            'author_id'   => 1,
+            'category_id' => $request->category_id,
+            'author_id'   => Auth::guard('admin')->user()->id,
 
         ]);
-        return redirect()->route('category.index')->with('success', 'Successfully Data delete');
+        return redirect()->route('subcategory.index')->with('success', 'Successfully Data delete');
     }
 
     /**
@@ -77,9 +84,9 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        $category = Category::where('id', $id)->get()->first();
-        return view('backend.blogs.categories.category_edit', compact('category'));
+    {   $categories = Category::all();
+        $subcategory = SubCategory::where('id', $id)->get()->first();
+        return view('backend.blogs.subcategory.edit', compact('subcategory','categories'));
     }
 
     /**
@@ -91,15 +98,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-       Category :: findOrFail($id)->update([
+
+       SubCategory :: findOrFail($id)->update([
         'name'        => $request->name,
-        'slug'        => SlugService::createSlug(Category::class, 'slug', $request->name, ['unique' => true]),
+        'slug'        => SlugService::createSlug(SubCategory::class, 'slug', $request->name, ['unique' => true]),
         'description' => $request->description,
-        'update_author_id'   => 2,
+        'category_id' => $request->category_id,
+        'update_author_id'   => Auth::guard('admin')->user()->id,
        ]);
 
     //    return "ok";
-       return redirect()->route('category.index')->with('update', 'Successfully Data Updated');
+       return redirect()->route('subcategory.index')->with('update', 'Successfully Data Updated');
     }
 
     /**
@@ -110,7 +119,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
+
+        SubCategory::findOrFail($id)->delete();
         return redirect()->back()->with('delete', 'Successfully Data delete');
     }
 }

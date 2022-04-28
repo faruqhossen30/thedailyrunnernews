@@ -17,16 +17,18 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('content');
-            $table->string('excerpt');
-            $table->string('blog_meta_title');
-            $table->string('blog_slug');
-            $table->string('blog_meta_description');
-            $table->string('video_url');
-            $table->string('blog_tag');
-            $table->string('visibility');
-            $table->string('status');
-            $table->string('blog_image');
-            $table->string('gallery_image');
+            $table->string('meta_title')->nullable();
+            $table->string('slug');
+            $table->string('blog_meta_description')->nullable();
+            $table->string('video_url')->nullable();
+            $table->string('tags')->nullable();
+            $table->boolean('visibility')->default(true);
+            $table->boolean('status')->default(true);
+            $table->string('thumbnail')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('division_id')->nullable();
+            $table->unsignedBigInteger('district_id')->nullable();
+            $table->unsignedBigInteger('upzilla_id')->nullable();
             $table->timestamps();
         });
     }

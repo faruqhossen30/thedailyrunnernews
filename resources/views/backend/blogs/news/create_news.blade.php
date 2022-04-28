@@ -23,12 +23,12 @@
                 <!-- end page title -->
 
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <a href="#" class="btn btn-success mb-2"><i
+                                        <a href="{{route('news.index')}}" class="btn btn-success mb-2"><i
                                                 class="mdi mdi-format-list-bulleted me-1"></i> All News</a>
                                     </div>
                                 </div>
@@ -37,13 +37,19 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <form method="POST" action="" enctype="multipart/form-data" class="form-horizontal"
-                                            role="form">
+                                        <form method="POST" action="{{ route('news.store') }}"
+                                            enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
                                                 <label for="title">Title</label>
-                                                <input type="text" class="form-control" name="title" id="title"
+                                                <input type="text"  name="title"  class="form-control"id="title"
                                                     placeholder="Title" spellcheck="false" data-ms-editor="true">
+
+                                                @error('title')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
 
 
@@ -58,61 +64,84 @@
                                                     </div>
                                                 @enderror
                                             </div>
-                                            <div class="form-group mt-2">
-                                                <label>Excerpt<span class="text-danger">*</span></label>
-                                                <textarea id="bubble-editor" name="content" type="text" class="form-control @error('content') is-invalid @enderror"
-                                                    rows="5"
-                                                    placeholder="Enter location details">{{ old('content') }}</textarea>
-                                                @error('content')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-
                                             <div class="card mt-2">
                                                 <div class="card-header">
                                                     <h4>blog</h4>
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="mb-2 row">
-                                                        <label class="col-md-2 col-form-label" for="simpleinput">
-                                                            Meta Title</label>
-                                                        <div class="col-md-10">
-                                                            <input name="title" type="text"
-                                                                class="form-control  @error('title') is-invalid @enderror "
-                                                                placeholder="Please enter your meta title ">
-                                                            <div class="text-danger">
-                                                            </div>
-                                                        </div>
-                                                        @error('title')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
-                                                            </div>
-                                                        @enderror
-                                                    </div>
+
                                                     <div class="mb-2 row">
                                                         <label class="col-md-2 col-form-label" for="simpleinput">
                                                             Meta Tags</label>
                                                         <div class="col-md-10">
-                                                            <input name="title" type="text"
-                                                                class="form-control  @error('title') is-invalid @enderror "
-                                                                placeholder="Please enter your meta title ">
+                                                            <input name="meta_title" type="text"
+                                                                class="form-control  @error('meta_title') is-invalid @enderror "
+                                                                placeholder="Please enter your meta meta_title ">
                                                             <div class="text-danger">
                                                             </div>
                                                         </div>
-                                                        @error('title')
+                                                        @error('meta_title')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
-                                                    <div class="form-group mt-2">
-                                                        <label>Excerpt<span class="text-danger">*</span></label>
-                                                        <textarea id="bubble-editor" name="content" type="text" class="form-control @error('content') is-invalid @enderror"
+                                                    <div class="mb-2 row">
+                                                        <label class="col-md-2 col-form-label" for="simpleinput">
+                                                            Thumbnail</label>
+                                                        <div class="col-md-10">
+                                                            <input name="thumbnail" type="file"
+                                                                class="form-control  @error('thumbnail') is-invalid @enderror "
+                                                                placeholder="Please enter your meta thumbnail ">
+                                                            <div class="text-danger">
+                                                            </div>
+                                                        </div>
+                                                        @error('thumbnail')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="mb-2 row">
+                                                        <label class="col-md-2 col-form-label" for="simpleinput">
+                                                            video_url</label>
+                                                        <div class="col-md-10">
+                                                            <input name="video_url" type="text"
+                                                                class="form-control  @error('video_url') is-invalid @enderror "
+                                                                placeholder="Please enter your meta video_url ">
+                                                            <div class="text-danger">
+                                                            </div>
+                                                        </div>
+                                                        @error('video_url')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="mb-2 row">
+                                                        <label class="col-md-2 col-form-label" for="simpleinput">
+                                                            tags</label>
+                                                        <div class="col-md-10">
+                                                            <input name="tags" type="text"
+                                                                class="form-control  @error('tags') is-invalid @enderror "
+                                                                placeholder="Please enter your meta tags ">
+                                                            <div class="text-danger">
+                                                            </div>
+                                                        </div>
+                                                        @error('tags')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group my-2">
+                                                        <label>blog_meta_description<span
+                                                                class="text-danger">*</span></label>
+                                                        <textarea id="bubble-editor" name="blog_meta_description" type="text"
+                                                            class="form-control @error('blog_meta_description') is-invalid @enderror"
                                                             rows="5"
-                                                            placeholder="Enter your blog meta description details">{{ old('content') }}</textarea>
-                                                        @error('content')
+                                                            placeholder="Enter your blog meta description details">{{ old('blog_meta_description') }}</textarea>
+                                                        @error('blog_meta_description')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
                                                             </div>
@@ -120,19 +149,120 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="card mt-2">
+                                                <div class="card-header">
+                                                    <h4>Categories </h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-2 row">
+                                                        <label class="col-md-2 col-form-label" for="simpleinput">
+                                                            Category</label>
+                                                        <div class="col-md-10">
+                                                            <select
+                                                                class="form-select @error('category_id') is-invalid @enderror"
+                                                                name="category_id">
+                                                                <option selected value="">Select Category</option>
+                                                                @foreach ($categories as $category)
+                                                                    <option value="{{ $category->id }}">
+                                                                        {{ $category->name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    @error('category_id')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="card mt-2">
+                                                <div class="card-header">
+                                                    <h4>Location </h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-2 row">
+                                                        <label class="col-md-2 col-form-label" for="simpleinput">
+                                                            Divission</label>
+                                                        <div class="col-md-10">
+                                                            <select
+                                                                class="form-select @error('division_id') is-invalid @enderror"
+                                                                name="division_id">
+                                                                <option selected value="">Select Divission</option>
+                                                                @foreach ($divissions as $divission)
+                                                                    <option value="{{ $divission->id }}">
+                                                                        {{ $divission->name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
 
-                                            <button type="submit" class="btn btn-success">Add
-                                                News</button>
-                                        </form>
+                                                        @error('division_id')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="mb-2 row">
+                                                        <label class="col-md-2 col-form-label" for="simpleinput">
+                                                            District</label>
+                                                        <div class="col-md-10">
+                                                            <select
+                                                                class="form-select @error('district_id') is-invalid @enderror"
+                                                                name="district_id">
+                                                                <option selected value="">Select District</option>
+                                                                @foreach ($districts as $district)
+                                                                    <option value="{{ $district->id }}">
+                                                                        {{ $district->name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
 
-                                    </div><!-- end col -->
+                                                        @error('district_id')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="mb-2 row">
+                                                        <label class="col-md-2 col-form-label" for="simpleinput">
+                                                            Upzilla</label>
+                                                        <div class="col-md-10">
+                                                            <select
+                                                                class="form-select @error('upzilla_id') is-invalid @enderror"
+                                                                name="upzilla_id">
+                                                                <option selected value="">Select District</option>
+                                                                @foreach ($upzillas as $upzilla)
+                                                                    <option value="{{ $upzilla->id }}">
+                                                                        {{ $upzilla->name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+
+                                                        @error('upzilla_id')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                    </div>
                                 </div>
-                                <!-- end row -->
-
                             </div>
-                        </div>
+
+                            <button type="submit" class="btn btn-success">Add News</button>
+                            </form>
+
+                        </div><!-- end col -->
                     </div>
-                    <div class="col-md-4">
+                    <!-- end row -->
+
+                </div>
+            </div>
+        </div>
+        {{-- <div class="col-md-4">
 
                         <div class="row">
                             <div class="col-lg-12">
@@ -411,14 +541,14 @@
                             </div>
                         </div>
 
-                    </div>
-                </div>
-                <!-- end row -->
+                    </div> --}}
+    </div>
+    <!-- end row -->
 
 
-            </div> <!-- container -->
+    </div> <!-- container -->
 
-        </div> <!-- content -->
+    </div> <!-- content -->
 
     </div>
 @endsection

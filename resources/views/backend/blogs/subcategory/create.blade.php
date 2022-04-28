@@ -28,8 +28,8 @@
                             <div class="card-body">
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <a href="{{ route('category.index') }}" class="btn btn-success mb-2"><i
-                                                class="mdi mdi-format-list-bulleted me-1"></i> Category List</a>
+                                        <a href="{{ route('subcategory.index') }}" class="btn btn-success mb-2"><i
+                                                class="mdi mdi-format-list-bulleted me-1"></i>Sub Category List</a>
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -37,7 +37,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <form action="{{ route('category.store') }}" method="POST"
+                                        <form action="{{ route('subcategory.store') }}" method="POST"
                                             enctype="multipart/form-data" class="form-horizontal" role="form">
                                             @csrf
                                             <div class="form-group">
@@ -50,6 +50,17 @@
                                                             {{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('category_id')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Sub Category name<span class="text-danger">*</span></label>
+                                                <input name="name" type="name"
+                                                    class="form-control  @error('name') is-invalid @enderror "
+                                                    placeholder="Category name" value="{{ old('name') }}">
                                                 @error('name')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -67,7 +78,7 @@
                                                     </div>
                                                 @enderror
                                             </div>
-                                            <button type="submit" class="btn btn-success">Add
+                                            <button type="submit" class="btn btn-success">Add sub
                                                 Category</button>
                                         </form>
 

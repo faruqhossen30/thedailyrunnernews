@@ -57,10 +57,13 @@
                                                 @endforeach
                                             </td>
                                             <td>
+
+                                                @if (Auth::guard('admin')->user()->can('admin.edit'))
                                                 <a class="btn btn-success text-white"
                                                     href="{{ route('users.edit', $user->id) }}">Edit</a>
+                                                @endif
 
-
+                                                @if (Auth::guard('admin')->user()->can('admin.delete'))
                                                 <a class="btn btn-danger text-white"
                                                     href="{{ route('users.destroy', $user->id) }}"
                                                     onclick="event.preventDefault(); document.getElementById('delete-form-{{ $user->id }}').submit();">
@@ -72,6 +75,7 @@
                                                     @method('DELETE')
                                                     @csrf
                                                 </form>
+                                                @endif
 
                                             </td>
 

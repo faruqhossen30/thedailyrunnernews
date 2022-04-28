@@ -21,6 +21,8 @@
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/asset/css/singlepost.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/asset/css/categorypost.css') }}">
     <title>Thedailyrunnernews</title>
 </head>
 

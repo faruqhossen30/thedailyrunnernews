@@ -6,8 +6,10 @@
                     <div class="top-bar-link ">
                         <ul>
                             <li> ঢাকা</li>
-                            <li>বৃহস্পতিবার, ১০ মার্চ, ২০২২</li>
-                            <li>৩০ শে ভাদ্র ১৪২৭ বঙ্গাব্দ</li>
+                            <li>
+                             {{$englishDate}}
+                            </li>
+                            <li>{{$banglahDate}}</li>
                             <li>২৫শে মহর্ররম ১৪৪২</li>
                         </ul>
                     </div>
@@ -41,8 +43,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="কী খুঁজতে চান ?"
                                 aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" type="button"
-                                id="button-addon2">সার্স</button>
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">সার্স</button>
                         </div>
                     </form>
                 </div>

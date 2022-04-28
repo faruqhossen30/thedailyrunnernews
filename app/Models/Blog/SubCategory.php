@@ -5,8 +5,7 @@ namespace App\Models\Blog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-
-class Category extends Model
+class SubCategory extends Model
 {
     use HasFactory, Sluggable;
 
@@ -14,6 +13,7 @@ class Category extends Model
         'name',
         'description',
         'author_id',
+        'category_id',
         'update_author_id'
 
     ];
@@ -26,8 +26,10 @@ class Category extends Model
         ];
     }
 
-    public function news()
+    public function category()
     {
-        return $this->hasMany(News::class, 'category_id', 'id');
+        return $this->hasOne(Category::class, 'id', 'category_id');
     }
+
+
 }

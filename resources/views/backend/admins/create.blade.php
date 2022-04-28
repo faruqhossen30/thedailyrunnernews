@@ -80,7 +80,7 @@
                                             aria-describedby="emailHelp" placeholder="Enter a username" required>
                                     </div>
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Save Admin</button>
                             </form>
                         </div> <!-- end card body-->

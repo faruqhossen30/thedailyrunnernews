@@ -37,19 +37,31 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <form action="{{ route('category.store') }}" method="POST"
+                                        <form action="{{ route('subcategory.update',$subcategory->id) }}" method="POST"
                                             enctype="multipart/form-data" class="form-horizontal" role="form">
                                             @csrf
+                                            @method('PUT')
                                             <div class="form-group">
                                                 <label>Category name<span class="text-danger">*</span></label>
                                                 <select class="form-select @error('category_id') is-invalid @enderror"
                                                     name="category_id">
                                                     <option selected value="">Select Category</option>
                                                     @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}">
+                                                        <option value="{{ $category->id }}" @if ($category->id == $subcategory->category_id) selected @endif>
                                                             {{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('category_id')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Sub Category name<span class="text-danger">*</span></label>
+                                                <input name="name" type="name"
+                                                    class="form-control  @error('name') is-invalid @enderror "
+                                                    placeholder="Category name" value="{{ $subcategory->name}}">
                                                 @error('name')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -60,14 +72,14 @@
                                                 <label>Description <span class="text-danger">*</span></label>
                                                 <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="example-textarea"
                                                     rows="5"
-                                                    placeholder="Category description...">{{ old('description') }}</textarea>
-                                                @error('name')
+                                                    placeholder="Category description...">{{ $subcategory->description}}</textarea>
+                                                @error('description')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
                                             </div>
-                                            <button type="submit" class="btn btn-success">Add
+                                            <button type="submit" class="btn btn-success">Update sub
                                                 Category</button>
                                         </form>
 

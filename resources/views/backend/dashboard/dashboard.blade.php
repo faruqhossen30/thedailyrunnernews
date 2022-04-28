@@ -1,6 +1,4 @@
 @extends('backend.layout.app')
-
-
 @section('content')
     <!-- Start Content-->
     <div class="container-fluid">

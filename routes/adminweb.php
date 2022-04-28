@@ -11,6 +11,8 @@ use App\Http\Controllers\Backend\Admins\AdminsController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\Blog\Post\CategoryController;
 use App\Http\Controllers\Backend\Blog\Post\NewsController;
+use App\Http\Controllers\Backend\Blog\Post\SinglePageController;
+use App\Http\Controllers\Backend\Blog\Post\SubCategoryController;
 use App\Http\Controllers\Backend\Blog\Post\TagsController;
 use App\Http\Controllers\Backend\Dashboard\DashboardController as DashboardDashboardController;
 use App\Http\Controllers\Backend\Roles\RolesController;
@@ -34,30 +36,31 @@ Route::group(['prefix' => 'admin'], function () {
     //---------------------DASHBOARD----------------------------
 
     Route::get('dashboard',[DashboardDashboardController::class,'index'])->name('admin.dashboard');
+
     Route::resource('roles',RolesController::class ,['name'=>'admin.roles']);
     Route::resource('users',UsersController::class ,['name'=>'admin.users']);
-    
+
     Route::resource('admins',AdminsController::class ,['name'=>'admin.admins']);
 
 
-    // --------------Login Routes---------------
+    // ------------------------------------------Login Routes---------------------------------
     Route::get('/login',[LoginController::class,'showLoginForm'])->name('admin.login');
     Route::post('/login/submit',[loginController::class,'login'])->name('admin.login.submit');
 
-    //-------------- Logout Routes--------------
+    //------------------------------------------ Logout Routes------------------------------
     Route::post('/logout/submit',[loginController::class,'logout'])->name('admin.logout.submit');
 
-    // --------------------Forget Password Routes----------------
+    // ------------------------------------------Forget Password Routes----------------
     Route::get('/password/reset',[ForgetPasswordController::class,'showLinkRequestForm'])->name('admin.password.request');
     Route::post('/login/reset/submit',[ForgetPasswordController::class,'reset'])->name('admin.password.update');
 
-    // ---------------------LOCATION-----------------------------
+    // ---------------------------------------------LOCATION-----------------------------
     Route::resource('division', DivisionController::class);
     Route::resource('district', DistrictController::class);
     Route::resource('upazila', UpazilaController::class);
     Route::get('upazila-from-district/{id}', [LoactionAjaxController::class, 'upazilaFromDistrict'])->name('upazilaFromDistrict');
     Route::get('district-from-division/{id}', [LoactionAjaxController::class, 'districtFromDivision'])->name('districtFromDivision');
-
+//----------------------------------------------------setting----------------------------------
     Route::get('setting', [SiteController::class, 'index'])->name('admin.setting.index');
     Route::get('setting/create', [SiteController::class, 'create'])->name('admin.setting.create');
     Route::post('setting', [SiteController::class, 'store'])->name('admin.setting.store');
@@ -65,5 +68,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::resource('news', NewsController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('subcategory', SubCategoryController::class);
     Route::resource('tags', TagsController::class);
+
 });
+

@@ -1,3 +1,6 @@
+@php
+    $news   = App\Models\Blog\News::get();
+@endphp
 <section>
     <div class="container">
         <div class="col-md-12">
@@ -13,51 +16,14 @@
                                     <marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()"
                                         scrolldelay="1" scrollamount="3">
                                         <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212024">তরুণীকে
-                                                নির্যাতনে আটকের
-                                                পর মেম্বার ছাড়া পাওয়ার নেপথ্যে
-                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        @foreach ($news as $item )
+                                        <span class="ticker"><a href="details.php?id=212024">
+                                            {{$item->title}}
+                                        </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        @endforeach
+
                                         <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212023">যশোরে আজ
-                                                টিসিবির পণ্য
-                                                পাচ্ছে ৩০ হাজার
-                                                পরিবার</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212022">মাগুরায় নসিমনের
-                                                ধাক্কায়
-                                                শিশুর মৃত্যু</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212021">ছুটির দিনেও
-                                                সারাদেশে ৫৫
-                                                সহস্রাধিক টিকাদান</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212020">তাইওয়ান ইস্যুতে
-                                                যুক্তরাষ্ট্রের অন্যায্য আচরণ সহ্য করবে না
-                                                চীন</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212019">সাহাবুদ্দীন
-                                                আহমদের
-                                                প্রতি শ্রদ্ধা : রোববার বন্ধ থাকবে সুপ্রিম কোর্ট
-                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212018">একমাস আগে
-                                                নিখোঁজ
-                                                প্রতিবন্ধী লাভলির লাশ উদ্ধার হলো
-                                                আশুলিয়ায়</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212017">ভারতকে হারিয়ে
-                                                আরেকটি
-                                                স্বর্ণ বাংলাদেশের</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212016">ইউক্রেন সংকট
-                                                নিরসনে
-                                                রাশিয়া-যুক্তরাষ্ট্র সংলাপ চায়
-                                                চীন</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        <!-- End Page-->
-                                        <span class="ticker"><a href="details.php?id=212015">ইউক্রেনে
-                                                হাইপারসনিক
-                                                মিসাইল ছোঁড়ার কথা স্বীকার
-                                                রাশিয়ার</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
                                     </marquee>
                                 </td>
                             </tr>

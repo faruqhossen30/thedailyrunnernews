@@ -20,7 +20,7 @@ class Division extends Model
     }
 
 
-    public function districts()
+    public function getDistricts()
     {
         return $this->hasMany(District::class, 'division_id', 'id');
     }

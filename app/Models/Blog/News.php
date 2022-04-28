@@ -2,26 +2,60 @@
 
 namespace App\Models\Blog;
 
+use App\Models\District;
+use App\Models\Division;
+use App\Models\Upazila;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Cviebrock\EloquentSluggable\Sluggable;
 class News extends Model
 {
-    use HasFactory;
+    use HasFactory ,Sluggable;
     protected $fillable = [
 
         'title',
         'content',
-        'excerpt',
-        'blog_meta_title',
-        'blog_slug',
+        'meta_title',
+        'slug',
         'blog_meta_description',
         'video_url',
-        'blog_tag',
+        'tags',
         'visibility',
         'status',
-        'blog_image',
-        'gallery_image',
+        'thumbnail',
+        'category_id',
+        'division_id',
+        'district_id',
+        'upzilla_id'
 
     ];
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+    public function getDistrict()
+    {
+        return $this->hasOne(District::class, 'id', 'district_id');
+    }
+
+    public function getDivision()
+    {
+        return $this->hasOne(Division::class, 'id', 'division_id');
+    }
+
+    public function getUpazila()
+    {
+        return $this->hasOne(Upazila::class, 'id', 'upazila_id');
+    }
+
 }

@@ -55,18 +55,20 @@
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <a class="btn btn-success text-white"
-                                                    href="{{ route('roles.edit', $role->id) }}">Edit</a>
-
-
-                                                <a class="btn btn-danger text-white" href="{{ route('roles.destroy', $role->id) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $role->id }}').submit();">
-                                                        Delete
-                                                    </a>
-                                                    <form id="delete-form-{{ $role->id }}" action="{{ route('roles.destroy', $role->id) }}" method="POST" style="display: none;">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                    </form>
+                                                @if (Auth::guard('admin')->user()->can('admin.edit'))
+                                                      <a class="btn btn-success text-white"
+                                                      href="{{ route('roles.edit', $role->id) }}">Edit</a>
+                                                @endif
+                                                @if (Auth::guard('admin')->user()->can('admin.delete'))
+                                                    <a class="btn btn-danger text-white" href="{{ route('roles.destroy', $role->id) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $role->id }}').submit();">
+                                                            Delete
+                                                        </a>
+                                                        <form id="delete-form-{{ $role->id }}" action="{{ route('roles.destroy', $role->id) }}" method="POST" style="display: none;">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                        </form>
+                                                 @endif
 
                                             </td>
 

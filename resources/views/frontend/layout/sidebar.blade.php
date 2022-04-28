@@ -17,176 +17,22 @@
                     <button id="most_read_news_button">সর্বাধিক পঠিত</button>
                 </div>
                 <div id="latest_news" class="news-feed-latest mt-4">
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href=""> ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
+                        @foreach ( $latestnews as $latest )
+                        <div class="row">
+                            <div class="col-9">
+                                <a href="">{{$latest->title}}</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
+                        @endforeach
                 </div>
                 <div id="most_read_news" style="display: none;" class="news-feed-latest mt-4">
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
+                    @foreach (  $latestnews as $latest  )
+                        <div class="row">
+                            <div class="col-9">
+                                <a href="">{{$latest->title}}</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="news_feed_all_news_button">
                     <button>সব খবর</button>
@@ -202,7 +48,7 @@
                         <h4>জেলার খবর</h4>
                     </div>
                     <div class="card-body">
-                        <img src="/img/bangladesh.svg" width="390px" height="300px" class="img-fluid"
+                        <img src="{{asset('frontend/asset/img/bangladesh.svg')}}" width="390px" height="300px" class="img-fluid"
                             alt="map">
                         <div class="row">
                             <div class="col-6">
@@ -304,7 +150,7 @@
                         <div class="card-body">
                             <a href="">
                                 <div class="col-md-12">
-                                    <img src="/img/epaper img 1.png" width="280px" alt="">
+                                    <img src="{{asset('frontend/asset/img/epaper img 1.png')}}" width="280px" alt="">
                                 </div>
                             </a>
 
