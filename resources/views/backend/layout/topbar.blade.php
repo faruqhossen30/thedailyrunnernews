@@ -61,7 +61,7 @@
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <div class="notify-icon">
-                                <img src="{{asset('backend/assets/images/users/avatar-2.jpg')}}" class="img-fluid rounded-circle"
+                                <img src="" class="img-fluid rounded-circle"
                                     alt="" />
                             </div>
                             <p class="notify-details">Mario Drummond</p>
@@ -73,7 +73,7 @@
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <div class="notify-icon">
-                                <img src="{{asset('backend/assets/images/users/avatar-4.jpg')}}" class="img-fluid rounded-circle"
+                                <img src="{{asset('backend/assets/images/images/users/avatar-4.jpg')}}" class="img-fluid rounded-circle"
                                     alt="" />
                             </div>
                             <p class="notify-details">Karen Robinson</p>
@@ -128,7 +128,7 @@
                 <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                     data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                     aria-expanded="false">
-                    <img src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}" alt="user-image"
+                    <img src="" alt="user-image"
                         class="rounded-circle">
                     <span class="pro-user-name ms-1">
                      {{Auth::guard('admin')->user()->name}}

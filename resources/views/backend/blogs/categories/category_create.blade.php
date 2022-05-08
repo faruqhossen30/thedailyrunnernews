@@ -42,14 +42,9 @@
                                             @csrf
                                             <div class="form-group">
                                                 <label>Category name<span class="text-danger">*</span></label>
-                                                <select class="form-select @error('category_id') is-invalid @enderror"
-                                                    name="category_id">
-                                                    <option selected value="">Select Category</option>
-                                                    @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}">
-                                                            {{ $category->name }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <input name="name" type="name"
+                                                    class="form-control  @error('name') is-invalid @enderror "
+                                                    placeholder="Category name" value="{{ old('name') }}">
                                                 @error('name')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}

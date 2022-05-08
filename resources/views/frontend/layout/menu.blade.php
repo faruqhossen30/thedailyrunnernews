@@ -1,5 +1,7 @@
 @php
+// use App\Http\Controllers\Frontend\CategoryNewsController;
 $categories = App\Models\Blog\Category::get();
+
 @endphp
 <div class="main-menu header-sticky" style="background-color: #215837; ">
     <div class="container-fluid my-1">
@@ -12,7 +14,7 @@ $categories = App\Models\Blog\Category::get();
                     </a>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     জাতীয়
@@ -22,15 +24,13 @@ $categories = App\Models\Blog\Category::get();
                                     <li><a class="dropdown-item" href="#">দুই</a></li>
                                     <li><a class="dropdown-item" href="#">তিন</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             @foreach ($categories as $category)
                                 <li class="nav-item">
-                                    <a class="nav-link " aria-current="page" href="#">{{ $category->name }}</a>
+                                    <a class="nav-link " aria-current="page" href="{{route('category.news',$category->id)}}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
-
-
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     জাতীয়
@@ -40,7 +40,7 @@ $categories = App\Models\Blog\Category::get();
                                     <li><a class="dropdown-item" href="#">দুই</a></li>
                                     <li><a class="dropdown-item" href="#">তিন</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <div class="col-lg-2 ps-0 ps-md-3">
@@ -51,7 +51,6 @@ $categories = App\Models\Blog\Category::get();
                         </div>
                     </div>
                 </div>
-
                 <!-- mega menu  section-start -->
                 <div class="row mega-menu" id="mega-menu" style="display: none; ">
                     <div class="col-lg-12">
@@ -61,9 +60,6 @@ $categories = App\Models\Blog\Category::get();
                                     <a href="">{{ $category->name }}</a>
                                 </div>
                             @endforeach
-
-
-
 
                         </div>
                         <div class="row mega-menu-bottom">

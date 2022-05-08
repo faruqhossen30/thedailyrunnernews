@@ -21,10 +21,7 @@ class HomepageController extends Controller
         $natinoal     = News::take(6)->get();
         $categorynews = Category::with('news')->get();
 
-        # For Bangla date
-        $bangladatetime = new BnDateTime('now', new DateTimeZone('Asia/Dhaka'));
-        $englishDate =  $bangladatetime->getDateTime()->format('l | jS F Y'); // English Date
-        $banglahDate = $bangladatetime->format('jS F Y');
+
 
         //Set Bengali date
         // $bongabda->setDate(1405, 1, 1);
@@ -34,7 +31,7 @@ class HomepageController extends Controller
 
 
            return view('frontend.homepage',
-           compact('news', 'latestnews','natinoal','categorynews', 'lastnews', 'englishDate', 'banglahDate'));
+           compact('news', 'latestnews','natinoal','categorynews', 'lastnews'));
 
     }
 

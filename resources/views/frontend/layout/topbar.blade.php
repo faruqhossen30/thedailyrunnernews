@@ -1,3 +1,14 @@
+@php
+
+use EasyBanglaDate\Types\BnDateTime;
+
+    $bangladatetime = new BnDateTime('now', new DateTimeZone('Asia/Dhaka'));
+    $englishDate = $bangladatetime->getDateTime()->format('l | jS F Y'); // English Date
+    $banglahDate = $bangladatetime->format('jS F Y');
+
+@endphp
+
+
 <section>
     <div class="header-top">
         <div class="container top-bar-container">
@@ -7,9 +18,9 @@
                         <ul>
                             <li> ঢাকা</li>
                             <li>
-                             {{$englishDate}}
+                                {{ $englishDate }}
                             </li>
-                            <li>{{$banglahDate}}</li>
+                            <li>{{ $banglahDate }}</li>
                             <li>২৫শে মহর্ররম ১৪৪২</li>
                         </ul>
                     </div>

@@ -29,4 +29,4 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/news/{id}',[SingleNewsController::class,'singlenews'])->name('singlenews');
-Route::get('/category/{id}',[CategoryNewsController::class,'categoryNews'])->name('category');
+Route::get('/category/{id}',[CategoryNewsController::class,'categoryNews'])->name('category.news');

@@ -67,7 +67,7 @@
                                             </td>
                                             <td>
                                                 <h5 class="m-0 d-inline-block align-middle"><a href="#"
-                                                        class="text-dark">{{ $item->get_category->name }}</a></h5>
+                                                        class="text-dark">{{ $item->category->name }}</a></h5>
                                             </td>
                                             <td>Published</td>
 

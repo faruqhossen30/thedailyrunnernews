@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/singlepost.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/categorypost.css') }}">
+
+  
+
     <title>Thedailyrunnernews</title>
 </head>
 

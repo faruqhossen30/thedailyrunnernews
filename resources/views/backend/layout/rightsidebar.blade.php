@@ -62,7 +62,7 @@
                         <div class="d-flex align-items-start">
                             <div class="position-relative me-2">
                                 <span class="user-status"></span>
-                                <img src="{{asset('backend')}}/assets/images/users/avatar-10.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                <img src="{{asset('backend/assets/images/images/users/avatar-10.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h6 class="mt-0 mb-1 font-14">Andrew Mackie</h6>
@@ -77,7 +77,7 @@
                         <div class="d-flex align-items-start">
                             <div class="position-relative me-2">
                                 <span class="user-status"></span>
-                                <img src="{{asset('backend')}}/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                <img src="" class="rounded-circle avatar-sm" alt="user-pic">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h6 class="mt-0 mb-1 font-14">Rory Dalyell</h6>
@@ -92,7 +92,7 @@
                         <div class="d-flex align-items-start">
                             <div class="position-relative me-2">
                                 <span class="user-status busy"></span>
-                                <img src="{{asset('backend')}}/assets/images/users/avatar-9.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                <img src="{{asset('backend/assets/images/images/users/avatar-9.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h6 class="mt-0 mb-1 font-14">Jaxon Dunhill</h6>
@@ -111,7 +111,7 @@
                         <div class="d-flex align-items-start">
                             <div class="position-relative me-2">
                                 <span class="user-status online"></span>
-                                <img src="{{asset('backend')}}/assets/images/users/avatar-2.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                <img src="" class="rounded-circle avatar-sm" alt="user-pic">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h6 class="mt-0 mb-1 font-14">Jackson Therry</h6>
@@ -126,7 +126,7 @@
                         <div class="d-flex align-items-start">
                             <div class="position-relative me-2">
                                 <span class="user-status away"></span>
-                                <img src="{{asset('backend')}}/assets/images/users/avatar-4.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                <img src="{{asset('backend/assets/images/images/users/avatar-4.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h6 class="mt-0 mb-1 font-14">Charles Deakin</h6>
@@ -141,7 +141,7 @@
                         <div class="d-flex align-items-start">
                             <div class="position-relative me-2">
                                 <span class="user-status online"></span>
-                                <img src="{{asset('backend')}}/assets/images/users/avatar-5.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                <img src="{{asset('backend/assets/images/images/users/avatar-5.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h6 class="mt-0 mb-1 font-14">Ryan Salting</h6>
@@ -156,7 +156,7 @@
                         <div class="d-flex align-items-start">
                             <div class="position-relative me-2">
                                 <span class="user-status online"></span>
-                                <img src="{{asset('backend')}}/assets/images/users/avatar-6.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                <img src="" class="rounded-circle avatar-sm" alt="user-pic">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h6 class="mt-0 mb-1 font-14">Sean Howse</h6>
@@ -171,7 +171,7 @@
                         <div class="d-flex align-items-start">
                             <div class="position-relative me-2">
                                 <span class="user-status busy"></span>
-                                <img src="{{asset('backend')}}/assets/images/users/avatar-7.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                <img src="{{asset('backend/assets/images/images/users/avatar-7.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h6 class="mt-0 mb-1 font-14">Dean Coward</h6>
@@ -186,7 +186,7 @@
                         <div class="d-flex align-items-start">
                             <div class="position-relative me-2">
                                 <span class="user-status away"></span>
-                                <img src="{{asset('backend')}}/assets/images/users/avatar-8.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                <img src="{{asset('backend/assets/images/images/users/avatar-8.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h6 class="mt-0 mb-1 font-14">Hayley East</h6>

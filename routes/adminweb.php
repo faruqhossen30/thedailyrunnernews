@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\Dashboard\DashboardController as DashboardDashb
 use App\Http\Controllers\Backend\Roles\RolesController;
 use App\Http\Controllers\Backend\Setting\SiteController;
 use App\Http\Controllers\Backend\Users\UsersController;
+use Database\Seeders\LocationSeeder;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,9 +59,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('division', DivisionController::class);
     Route::resource('district', DistrictController::class);
     Route::resource('upazila', UpazilaController::class);
-    Route::get('upazila-from-district/{id}', [LoactionAjaxController::class, 'upazilaFromDistrict'])->name('upazilaFromDistrict');
-    Route::get('district-from-division/{id}', [LoactionAjaxController::class, 'districtFromDivision'])->name('districtFromDivision');
-//----------------------------------------------------setting----------------------------------
+    //----------------------------------------------------setting----------------------------------
     Route::get('setting', [SiteController::class, 'index'])->name('admin.setting.index');
     Route::get('setting/create', [SiteController::class, 'create'])->name('admin.setting.create');
     Route::post('setting', [SiteController::class, 'store'])->name('admin.setting.store');
@@ -73,3 +72,11 @@ Route::group(['prefix' => 'admin'], function () {
 
 });
 
+// Route::get('/upazila-from-district/{id}', [LoactionAjaxController::class, 'upazilaFromDistrict'])->name('upazilaFromDistrict');
+// Route::get('district-from-division/{id}', [LoactionAjaxController::class, 'districtFromDivision'])->name('districtFromDivision');
+
+
+Route::get('district-from-division/{id}', [LoactionAjaxController::class, 'districtFromDivision'])->name('districtFromDivision');
+Route::get('/upazila-from-district/{id}', [LoactionAjaxController::class, 'upazilaFromDistrict'])->name('upazilaFromDistrict');
+
+Route::get('/district-division/{id}', [LoactionAjaxController::class, 'districtDivision'])->name('districtDivision');

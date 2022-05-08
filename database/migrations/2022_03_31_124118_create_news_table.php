@@ -16,10 +16,10 @@ class CreateNewsTable extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('content');
+            $table->longText('content');
             $table->string('meta_title')->nullable();
             $table->string('slug');
-            $table->string('blog_meta_description')->nullable();
+            $table->longText('blog_meta_description')->nullable();
             $table->string('video_url')->nullable();
             $table->string('tags')->nullable();
             $table->boolean('visibility')->default(true);

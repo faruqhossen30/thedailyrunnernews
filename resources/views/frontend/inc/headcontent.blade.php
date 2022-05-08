@@ -8,8 +8,8 @@
                         <div class="first_lead_news margin-top-15">
                             <a class="news_top_link" href="{{route('singlenews', $lastnews->id)}}"
                                 title="দুর্নীতিবিরোধী বার্তা দেবেন প্রধানমন্ত্রী"></a>
-                            <div class="ld_news_image">
-                                <img src="{{ asset('storage/images/' . $lastnews->thumbnail) }}"  class="img-responsive" alt="{{ $lastnews->thumbnail }}">
+                            <div class="ld_news_image imageresize">
+                                <img src="{{ asset('storage/images/' . $lastnews->thumbnail) }}"  class="img-responsive  " alt="{{ $lastnews->thumbnail }}" >
                             </div>
                             <div class="ld_news_content">
                                 <h5 class="home_subtitle"></h5>
@@ -25,12 +25,12 @@
             <div class="col-sm-6">
                 <div class="row">
                     @foreach ($latestnews as $latest)
-                        <div class="col-sm-6" style="padding-top: 20px;">
+                        <div class="col-sm-6" style="padding-top: 20px;" >
                             <div class="first_lead_news margin-top-15">
                                 <a class="news_top_link" href="{{route('singlenews', $latest->id)}}"
                                     title="উৎসবস্থল ‘জয় বাংলা’ স্লোগানে মুখর"></a>
-                                <div class="ld_news_image">
-                                    <img src="{{ asset('storage/images/' . $latest->thumbnail) }}"  class="img-responsive" alt="{{ $latest->thumbnail }}">
+                                <div class="ld_news_image imagesize ">
+                                    <img src="{{ asset('storage/images/' . $latest->thumbnail) }}"  class="img-responsive " alt="{{ $latest->thumbnail }}" >
                                 </div>
                                 <div class="ld_news_content">
                                     <h1>{{ $latest->title }}</h1>
@@ -43,3 +43,9 @@
         </div>
     </div>
 </main>
+<style>
+    .image-resize{
+        height: 300px;
+        object-fit: fill;
+    }
+</style>

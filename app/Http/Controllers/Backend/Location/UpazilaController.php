@@ -80,10 +80,10 @@ class UpazilaController extends Controller
      */
     public function edit($id)
     {
-        $upazila = Upazila::findOrFail($id);
+        $upazilas = Upazila::findOrFail($id);
         $districts = District::get();
         $all_division =Division::all();
-        return view('backend.location.upazila.upazila_edit', compact('upazila','all_division','districts'));
+        return view('backend.location.upazila.upazila_edit', compact('upazilas','all_division','districts'));
     }
 
     /**
@@ -95,9 +95,11 @@ class UpazilaController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        return $request->all();
         Upazila::where('id',$id)->update([
             'name'=> $request->name,
-            'slug' => SlugService::createSlug(Division::class, 'slug', $request->name),
+            'slug' => SlugService::createSlug(Upazila::class, 'slug', $request->name),
         ]);
         return redirect()->route('upazila.index')->with('update', 'Successfully Data Updated');
     }

@@ -58,4 +58,8 @@ class News extends Model
         return $this->hasOne(Upazila::class, 'id', 'upazila_id');
     }
 
+    public function tags()
+    {
+        return $this->hasOne(tags::class, 'id', 'tags');
+    }
 }

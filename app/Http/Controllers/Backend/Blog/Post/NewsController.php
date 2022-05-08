@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Blog\Post;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\Category;
 use App\Models\Blog\News;
+use App\Models\Blog\Tags;
 use App\Models\District;
 use App\Models\Division;
 use App\Models\Upazila;
@@ -21,7 +22,7 @@ class NewsController extends Controller
     public function index()
     {
 
-        $news = News::with('get_Category')->latest()->get();
+        $news = News::with('category')->latest()->get();
         // return $news;
         return view('backend.blogs.news.news_list', compact('news'));
     }
@@ -41,10 +42,12 @@ class NewsController extends Controller
         $districts = District::all();
         // return $district;
         $upzillas = Upazila::all();
+
+        $tags = Tags::all();
         // return $upzilla;
         $news = News::latest()->get();
-        // return  $news;
-        return view('backend.blogs.news.create_news', compact('news', 'divissions', 'districts', 'upzillas', 'categories'));
+        // return  $tags;
+        return view('backend.blogs.news.create_news', compact('news', 'divissions', 'districts', 'upzillas', 'categories','tags'));
     }
 
     /**

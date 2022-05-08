@@ -8,18 +8,18 @@ $usr = Auth::guard('admin')->user();
     <div class="logo-box">
         <a href="index.html" class="logo logo-dark text-center">
             <span class="logo-sm">
-                <img src="{{ asset('backend/assets/images/logo-sm-dark.png') }}" alt="" height="24">
+                <img src="{{ asset('backend/assets/images/images/logo-sm-dark.png') }}" alt="" height="24">
                 <!-- <span class="logo-lg-text-light">Minton</span> -->
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="" height="20">
+                <img src="{{ asset('backend/assets/images/images/logo-dark.png') }}" alt="" height="20">
                 <!-- <span class="logo-lg-text-light">M</span> -->
             </span>
         </a>
 
         <a href="index.html" class="logo logo-light text-center">
             <span class="logo-sm">
-                <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="" height="24">
+                <img src="{{asset('backend/assets/images/images/logo-sm-dark.png')}}" alt="" height="24">
             </span>
             <span class="logo-lg">
                 <img src="{{ asset('backend/assets/images/images/logo-light.png')}}" alt="" height="20">
@@ -31,7 +31,7 @@ $usr = Auth::guard('admin')->user();
 
         <!-- User box -->
         <div class="user-box text-center">
-            <img src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}" alt="user-img" title="Mat Helme"
+            <img src="" alt="user-img" title="Mat Helme"
                 class="rounded-circle avatar-md">
             <div class="dropdown">
                 <a href="#" class="text-reset dropdown-toggle h5 mt-2 mb-1 d-block"

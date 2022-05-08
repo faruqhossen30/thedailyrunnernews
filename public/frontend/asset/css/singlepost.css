@@ -1,6 +1,12 @@
 .col-md-9 {
     width: 75%;
 }
+
+.single-block .img-box img {
+    position: relative;
+    height: 200px;
+}
+
 .breadcrumb {
     padding: 8px 15px;
     margin-bottom: 20px;

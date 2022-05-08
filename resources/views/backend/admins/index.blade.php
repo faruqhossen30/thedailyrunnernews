@@ -73,24 +73,7 @@
                                                 </form>
                                                 @endif
                                             </td>
-                                            {{-- <td>
-                                                <a class="btn btn-success text-white"
-                                                    href="{{ route('admins.edit', $admin->id) }}">Edit</a>
-
-
-                                                <a class="btn btn-danger text-white"
-                                                    href="{{ route('admins.destroy', $admin->id) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $admin->id }}').submit();">
-                                                    Delete
-                                                </a>
-                                                <form id="delete-form-{{ $admin->id }}"
-                                                    action="{{ route('admins.destroy', $admin->id) }}" method="POST"
-                                                    style="display: none;">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                </form>
-
-                                            </td> --}}
+                                           
 
                                         </tr>
                                     @endforeach
