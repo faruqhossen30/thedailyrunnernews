@@ -2,7 +2,7 @@
 @section('content')
 <section class="big_category_header hidden-xs" style="background-image: url()">
     <div class="container category_cat_head">
-        <h1><a href="https://dailyrunnernews.com/?cat=17">{{$category->name}}</a>
+        <h1><a href="{{route('category.news', $category->id)}}">{{$category->name}}</a>
 
         </h1>
 
@@ -51,12 +51,13 @@
                             <div class="col-sm-5">
                                 <div class="img-box">
                                      <img src="{{ asset('storage/images/' . $news->thumbnail) }}" class="img-responsive"
-                                    alt="{{ $news->thumbnail }}">
+                                    alt="{{ $news->thumbnail }}" style="">
                                 </div>
                             </div>
                             <div class="col-sm-7">
                                 <div class="paddingTop10 paddingRight10">
-                                    <h3 style="font-size:1.1em;"><a href="https://dailyrunnernews.com/?p=196"
+                                    <h3 style="font-size:1.1em; margin-top:18px">
+                                        <a href="https://dailyrunnernews.com/?p=196"
                                             title="দুর্নীতিবিরোধী বার্তা দেবেন প্রধানমন্ত্রী">দুর্নীতিবিরোধী বার্তা দেবেন
                                             প্রধানমন্ত্রী</a></h3>
                                 </div>
