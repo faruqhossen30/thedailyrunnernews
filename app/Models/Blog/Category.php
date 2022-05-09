@@ -9,7 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Category extends Model
 {
     use HasFactory, Sluggable;
-  
+
     protected $fillable = [
         'name',
         'description',
@@ -24,5 +24,10 @@ class Category extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function news()
+    {
+        return $this->hasMany(News::class, 'category_id', 'id');
     }
 }

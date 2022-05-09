@@ -43,7 +43,7 @@
                                         <div class="form-group">
                                             <label>Tag name<span class="text-danger">*</span></label>
                                             <input name="name" type="name"
-                                                class="form-control  @error('name')is-invalid @enderror " placeholder="Category name"
+                                                class="form-control  @error('name')is-invalid @enderror "   placeholder="Category name"
                                                 value="{{ old('name') }}">
                                             @error('name')
                                                 <div class="invalid-feedback">

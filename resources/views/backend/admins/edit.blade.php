@@ -1,6 +1,6 @@
 @extends('backend.layout.app')
 @section('title')
-    Admins Page - Admin Panel
+    Admin Page - Admin Panel
 @endsection
 @push('style')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
@@ -34,9 +34,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Create New Admins</h4>
+                            <h4 class="header-title">Edit Admins</h4>
                             @include('backend.message.error')
-                            <form action="{{ route('admins.update' ,$admin->id) }} " method="POST">
+                            <form action="{{ route('admins.update', $admin->id) }} " method="POST">
                                 @method('PUT')
                                 @csrf
                                 <br>
@@ -44,13 +44,13 @@
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label class="mb-1" for="exampleInputEmail1">Admin Name</label>
                                         <input type="text" class="form-control" name="name" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" value="{{$admin->name}}">
+                                            aria-describedby="emailHelp" value="{{ $admin->name }}">
                                     </div>
 
                                     <div class="form-group col-md-6 col-sm-12 mt-2">
                                         <label class="mb-1" for="exampleInputEmail1">Admin Email</label>
                                         <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp"value="{{$admin->email}}">
+                                            aria-describedby="emailHelp" value="{{ $admin->email }}">
                                     </div>
                                 </div>
 
@@ -63,26 +63,29 @@
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label for="password_confirmation">Confirm Password</label>
                                         <input type="password" class="form-control" id="password_confirmation"
-                                            name="password_confirmation" placeholder="Enter Password">
+                                            placeholder="Enter Password" name="password_confirmation">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-sm-12">
-                                        <label for="roles">Assign Roles</label>
+                                        <label for="password">Assign Roles</label>
                                         <select name="roles[]" id="roles" class="form-control select2" multiple>
                                             @foreach ($roles as $role)
-                                                <option value="{{ $role->name }}"  {{ $admin->hasRole($role->name) ? 'selected' : '' }}>{{ $role->name }}</option>
+                                                <option value="{{ $role->name }}"
+                                                    {{ $admin->hasRole($role->name) ? 'selected' : '' }}>
+                                                    {{ $role->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+
                                     <div class="form-group col-md-6 col-sm-6">
                                         <label class="mb-1" for="username">Admin Username</label>
                                         <input type="text" class="form-control" name="username" id="username"
-                                            aria-describedby="emailHelp" placeholder="Enter a username" required value="{{$admin->username}}">
+                                            aria-describedby="emailHelp" value="{{ $admin->username }}" required>
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Save Admin</button>
+                                <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Update Admin</button>
                             </form>
                         </div> <!-- end card body-->
                     </div> <!-- end card -->
@@ -99,5 +102,14 @@
             $('.select2').select2();
         })
     </script>
+
+    
 @endpush
-p
+@push('style')
+    <style>
+        .select2-container .select2-selection--multiple .select2-selection__choice {
+            color: #0056c1;
+        }
+
+    </style>
+@endpush

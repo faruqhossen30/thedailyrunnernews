@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <a href="{{route('category.index')}}" class="btn btn-success mb-2"><i
+                                        <a href="{{ route('category.index') }}" class="btn btn-success mb-2"><i
                                                 class="mdi mdi-format-list-bulleted me-1"></i> Category List</a>
                                     </div>
                                 </div>
@@ -37,14 +37,14 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <form action="{{route('category.store')}}"  method="POST"  enctype="multipart/form-data" class="form-horizontal"
-                                            role="form">
+                                        <form action="{{ route('category.store') }}" method="POST"
+                                            enctype="multipart/form-data" class="form-horizontal" role="form">
                                             @csrf
                                             <div class="form-group">
                                                 <label>Category name<span class="text-danger">*</span></label>
                                                 <input name="name" type="name"
-                                                    class="form-control  @error('name')is-invalid @enderror " placeholder="Category name"
-                                                    value="{{ old('name') }}">
+                                                    class="form-control  @error('name') is-invalid @enderror "
+                                                    placeholder="Category name" value="{{ old('name') }}">
                                                 @error('name')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -54,8 +54,8 @@
                                             <div class="form-group my-2">
                                                 <label>Description <span class="text-danger">*</span></label>
                                                 <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="example-textarea"
-                                                rows="5"
-                                                placeholder="Category description...">{{ old('description') }}</textarea>
+                                                    rows="5"
+                                                    placeholder="Category description...">{{ old('description') }}</textarea>
                                                 @error('name')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}

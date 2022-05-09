@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog\Tags;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\DocBlock\Tag;
 
 class TagsController extends Controller
@@ -49,9 +50,9 @@ class TagsController extends Controller
         Tags::create([
             'name'        => $request->name,
             'slug'        => SlugService::createSlug(Tags::class, 'slug', $request->name, ['unique' => true]),
-            'author_id'   => 1,
+            'author_id'   =>  Auth::guard('admin')->user()->id,
         ]);
-        return redirect()->route('category.index')->with('success', 'Successfully Data delete');
+        return redirect()->route('tags.index')->with('success', 'Successfully Data delete');
     }
 
     /**
@@ -89,7 +90,7 @@ class TagsController extends Controller
         Tags::findOrFail($id)->update([
             'name'        => $request->name,
             'slug'        => SlugService::createSlug(Tags::class, 'slug', $request->name, ['unique' => true]),
-            'update_author_id'   => 2,
+            'update_author_id'   => Auth::guard('admin')->user()->id,
            ]);
 
         //    return "ok";

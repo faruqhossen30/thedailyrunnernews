@@ -28,7 +28,8 @@ class CategoryController extends Controller
     public function create()
     {
         // return $category;
-        return view('backend.blogs.categories.category_create');
+        $categories = Category::all();
+        return view('backend.blogs.categories.category_create',compact('categories'));
     }
 
     /**

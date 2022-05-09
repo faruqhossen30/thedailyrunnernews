@@ -433,6 +433,15 @@ ul {
   display: block;
 }
 
+.ld_news_image.imageresize img {
+    object-fit: fill;
+    height: 350px;
+}
+
+.ld_news_image img {
+    height: 165px;
+    object-fit: fill;
+}
 /* =================================================sidebar ========================================================== */
 .sidebar-button-area button {
   border: none;

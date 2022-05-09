@@ -73,14 +73,12 @@
                                                                     <label class="col-md-2 col-form-label"
                                                                         for="simpleinput">Select District : </label>
                                                                     <div class="col-md-10" style="position: relative">
-                                                                        <select id="district"
+                                                                        <select
                                                                             class="form-select @error('district_id') is-invalid @enderror"
                                                                             name="district_id">
                                                                             <option selected value=""></option>
                                                                         </select>
-                                                                        <img id="loader" src="{{ asset('loading.gif') }}"
-                                                                            alt=""
-                                                                            style="width:20px; position:absolute; top:10px;left:30px">
+
                                                                         <div class="text-danger">
                                                                             @error('district_id')
                                                                                 <span>{{ $message }}</span>
@@ -149,41 +147,29 @@
     <script src="{{ asset('backend') }}/assets/libs/jquery-datatables-checkboxes/js/dataTables.checkboxes.min.js">
     </script>
     <!-- third party js ends -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    @push('script')
     <script>
-        $(document).ready(function() {
-            var division = $('select[name="division_id"]');
-            var district = $('select[name="district_id"]');
-            var loader = $('#loader');
-            loader.hide();
+        var division = $('select[name="division_id"]');
+        var district = $('select[name="district_id"]');
+        var upazila = $('select[name="upazila_id"]');
 
-            // district.attr('disabled', 'disabled');
+        $(document).on('change', 'select[name="division_id"]', function() {
+            let divisionid = $(this).val()
+            console.log(divisionid);
 
-            $(document).on('change', 'select[name="division_id"]', function() {
-                var divisionID = $(this).val();
-                // console.log(divisionID);
-                if (divisionID) {
-                    $.ajax({
-                        url: `/district-from-division/${divisionID}`,
-                        method: 'GET',
-                        // dataType: "JSON",
-                        success(data) {
-                            district.empty();
-                            data.map(function(distrcit){
-                                district.append( `<option selected value="${distrcit.id}">${distrcit.name}</option>`)
-                            });
+            $.ajax({
+                url: `/district-division/${divisionid}`,
+                type: 'GET',
+                success: function(data) {
+                    district.empty()
+                    district.append(data)
+                },
+            });
 
-                        },
-                        error(err) {
-                            console.log(err);
-                        }
-                    }); //End ajax
-                }
-            }); // End event
+        }); // change event end
 
 
-
-        });
     </script>
+
 @endpush

@@ -8,18 +8,18 @@ $usr = Auth::guard('admin')->user();
     <div class="logo-box">
         <a href="index.html" class="logo logo-dark text-center">
             <span class="logo-sm">
-                <img src="{{ asset('backend/assets/images/logo-sm-dark.png') }}" alt="" height="24">
+                <img src="{{ asset('backend/assets/images/images/logo-sm-dark.png') }}" alt="" height="24">
                 <!-- <span class="logo-lg-text-light">Minton</span> -->
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="" height="20">
+                <img src="{{ asset('backend/assets/images/images/logo-dark.png') }}" alt="" height="20">
                 <!-- <span class="logo-lg-text-light">M</span> -->
             </span>
         </a>
 
         <a href="index.html" class="logo logo-light text-center">
             <span class="logo-sm">
-                <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="" height="24">
+                <img src="{{asset('backend/assets/images/images/logo-sm-dark.png')}}" alt="" height="24">
             </span>
             <span class="logo-lg">
                 <img src="{{ asset('backend/assets/images/images/logo-light.png')}}" alt="" height="20">
@@ -31,7 +31,7 @@ $usr = Auth::guard('admin')->user();
 
         <!-- User box -->
         <div class="user-box text-center">
-            <img src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}" alt="user-img" title="Mat Helme"
+            <img src="" alt="user-img" title="Mat Helme"
                 class="rounded-circle avatar-md">
             <div class="dropdown">
                 <a href="#" class="text-reset dropdown-toggle h5 mt-2 mb-1 d-block"
@@ -72,112 +72,83 @@ $usr = Auth::guard('admin')->user();
 
             <ul id="side-menu">
 
-
-                {{-- <li>
-                    <a href="#">
-                        <i class="mdi mdi-youtube-studio"></i>
-                        <span> Dashboard </span>
-                    </a>
-                </li> --}}
-                {{-- @if ($usr->can('dashboard.view')) --}}
+                {{-- @if ($usr->can('dashboard.view'))
                 <li class="active">
                     <a href="javascript:void(0)" aria-expanded="true"><i class="mdi mdi-view-dashboard"></i><span>Dashboard</span></a>
+
                     <ul class="collapse">
-                        <li class="active"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                        @if ($usr->can('dashboard.view'))
+                        <li class="{{ Route::is('admin.dashboard')  ? 'active' : '' }}"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                        @endif
                     </ul>
                 </li>
+                @endif --}}
 
+                @if ($usr->can('dashboard.view'))
                 <li>
-                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-tasks"></i><span>
-                        Roles & Permissions
-                    </span></a>
-                    <ul class="collapse ">
-
-                            <li class="#"><a href="{{route('roles.index')}}">All Roles</a></li>
-
-
-                            <li class="#"><a href="{{route('roles.create')}}">Create Role</a></li>
-
-                    </ul>
+                    <a href="#sidebarDashboard" data-bs-toggle="collapse" aria-expanded="false"
+                        aria-controls="sidebarDashboard">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span>Dashboard</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse ">
+                        <ul class="nav-second-level ">
+                            @if ($usr->can('dashboard.view'))
+                                 <li class="{{ Route::is('admin.dashboard')  ? 'active' : '' }}"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                            @endif
+                        </ul>
+                    </div>
                 </li>
-
-
-                {{-- @endif --}}
-       {{--
+                @endif
+                @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete'))
                 <li>
                     <a href="#sidebarRoles" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarRoles">
                         <i class="mdi mdi-lock-minus"></i>
-                        <span>Role  & Permissions</span>
+                        <span>Role & Permissions</span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarRoles">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{route('roles.index')}}">All Roless</a>
-                            </li>
-                            <li>
-                                <a href="{{route('roles.create')}}">Add Roll & Permissions</a>
-                            </li>
+                    <div class="collapse {{ Route::is('roles.create') || Route::is('roles.index') || Route::is('roles.edit') || Route::is('roles.show') ? 'in' : '' }}" id="sidebarRoles">
+                        <ul class="nav-second-level ">
+                            @if ($usr->can('role.create'))
+                                 <li class="{{ Route::is('roles.create')  ? 'active' : '' }}"><a href="{{ route('roles.create') }}">Create Role</a></li>
+                            @endif
+                            @if ($usr->can('role.view'))
+                               <li class="{{ Route::is('roles.index')  || Route::is('roles.edit') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">All Roles</a></li>
+                            @endif
                         </ul>
                     </div>
-                </li> --}}
-                @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete'))
-                <li>
-                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-tasks"></i><span>
-                        Roles & Permissions
-                    </span></a>
-                    <ul class="collapse {{ Route::is('roles.create') || Route::is('roles.index') || Route::is('roles.edit') || Route::is('roles.show') ? 'in' : '' }}">
-                        @if ($usr->can('role.view'))
-                            <li class="{{ Route::is('roles.index')  || Route::is('roles.edit') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">All Roles</a></li>
-                        @endif
-                        @if ($usr->can('role.create'))
-                            <li class="{{ Route::is('roles.create')  ? 'active' : '' }}"><a href="{{ route('roles.create') }}">Create Role</a></li>
-                        @endif
-                    </ul>
                 </li>
                 @endif
-                {{-- <li>
+
+                @if ($usr->can('admin.create') || $usr->can('admin.view') ||  $usr->can('admin.edit') ||  $usr->can('admin.delete'))
+                 <li>
                     <a href="#sidebarAdmin" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarAdmin">
                         <i class="mdi mdi-account-circle"></i>
                         <span>Admins</span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarAdmin">
+                    <div class="collapse {{ Route::is('admins.create') || Route::is('admins.index') || Route::is('admins.edit') || Route::is('admin.show') ? 'in' : '' }}" id="sidebarAdmin">
                         <ul class="nav-second-level">
-                            <li>
-                                <a href="{{route('admins.index')}}">All Admins</a>
-                            </li>
-                            <li>
-                                <a href="{{route('admins.create')}}">Add Admins</a>
-                            </li>
+                            @if ($usr->can('admin.view'))
+                                <li class="{{ Route::is('admins.index')  || Route::is('admins.edit') ? 'active' : '' }}"><a href="{{ route('admins.index') }}">All Admins</a></li>
+                            @endif
+                            @if ($usr->can('admin.create'))
+                              <li class="{{ Route::is('admins.create')  ? 'active' : '' }}"><a href="{{ route('admins.create') }}">Create Admin</a></li>
+                            @endif
                         </ul>
                     </div>
-                </li> --}}
-                @if ($usr->can('admin.create') || $usr->can('admin.view') ||  $usr->can('admin.edit') ||  $usr->can('admin.delete'))
-                <li>
-                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
-                        Admins
-                    </span></a>
-                    <ul class="collapse {{ Route::is('admins.create') || Route::is('admins.index') || Route::is('admins.edit') || Route::is('admins.show') ? 'in' : '' }}">
-
-                        @if ($usr->can('admins.index'))
-                            <li class="{{ Route::is('admins.index')  || Route::is('admins.edit') ? 'active' : '' }}"><a href="{{ route('admins.index') }}">All Admins</a></li>
-                        @endif
-
-                        @if ($usr->can('admin.create'))
-                            <li class="{{ Route::is('admins.create')  ? 'active' : '' }}"><a href="{{ route('admins.create') }}">Create Admin</a></li>
-                        @endif
-                    </ul>
                 </li>
                 @endif
+
                 <li>
                     <a href="#sidebarBlog" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarBlog">
                         <i class="mdi mdi-blogger"></i>
 
-                        <span>Blog </span>
+                        <span>News </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarBlog">
@@ -187,6 +158,9 @@ $usr = Auth::guard('admin')->user();
                             </li>
                             <li>
                                 <a href="{{route('category.index')}}">Category</a>
+                            </li>
+                            <li>
+                                <a href="{{route('subcategory.index')}}">Sub Category</a>
                             </li>
                             <li>
                                 <a href="{{route('tags.index')}}">Tags</a>
