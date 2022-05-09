@@ -14,13 +14,13 @@ class RolesController extends Controller
     public $user;
 
 
-    // public function __construct()
-    // {
-    //     $this->middleware(function ($request, $next) {
-    //         $this->user = Auth::guard('admin')->user();
-    //         return $next($request);
-    //     });
-    // }
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user = Auth::guard('admin')->user();
+            return $next($request);
+        });
+    }
 
 
     /**
@@ -63,9 +63,9 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        // if (is_null($this->user) || !$this->user->can('role.create')) {
-        //     abort(403, 'Sorry !! You are Unauthorized to create any role !');
-        // }
+        if (is_null($this->user) || !$this->user->can('role.create')) {
+            abort(403, 'Sorry !! You are Unauthorized to create any role !');
+        }
 
         $request->validate([
             'name' => 'required|max:100|unique:roles'
