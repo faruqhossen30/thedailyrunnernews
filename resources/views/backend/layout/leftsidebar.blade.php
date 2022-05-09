@@ -84,7 +84,7 @@ $usr = Auth::guard('admin')->user();
                 </li>
                 @endif --}}
 
-                @if ($usr->can('dashboard.view'))
+                {{-- @if ($usr->can('dashboard.view')) --}}
                 <li>
                     <a href="#sidebarDashboard" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarDashboard">
@@ -94,13 +94,13 @@ $usr = Auth::guard('admin')->user();
                     </a>
                     <div class="collapse ">
                         <ul class="nav-second-level ">
-                            @if ($usr->can('dashboard.view'))
+                            {{-- @if ($usr->can('dashboard.view')) --}}
                                  <li class="{{ Route::is('admin.dashboard')  ? 'active' : '' }}"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            @endif
+                            {{-- @endif --}}
                         </ul>
                     </div>
                 </li>
-                @endif
+                {{-- @endif --}}
                 @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete'))
                 <li>
                     <a href="#sidebarRoles" data-bs-toggle="collapse" aria-expanded="false"
