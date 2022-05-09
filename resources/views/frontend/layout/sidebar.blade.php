@@ -1,5 +1,20 @@
 <div class="col-md-3">
     <div class="rightSideBar">
+
+
+
+        <div class="survey-area my-5">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <span>সরাসরি</span>
+                    <span class="text-danger fw-bold">&bull; Live</span>
+                </div>
+                {{-- <div class="card-body"> --}}
+                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/MSVPhMPtAk4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                {{-- </div> --}}
+            </div>
+        </div>
         <div class="col-sm-12 main-content custom-block">
             <!-- Sidebar button area start -->
             <div class="sidebar-button-area">

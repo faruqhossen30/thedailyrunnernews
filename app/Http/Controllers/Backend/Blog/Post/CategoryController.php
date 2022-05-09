@@ -53,7 +53,7 @@ class CategoryController extends Controller
             'name'        => $request->name,
             'slug'        => SlugService::createSlug(Category::class, 'slug', $request->name, ['unique' => true]),
             'description' => $request->description,
-            'author_id'   => 1,
+            'author_id'   =>  Auth::guard('admin')->user()->id,
 
         ]);
         return redirect()->route('category.index')->with('success', 'Successfully Data delete');
@@ -95,7 +95,7 @@ class CategoryController extends Controller
         'name'        => $request->name,
         'slug'        => SlugService::createSlug(Category::class, 'slug', $request->name, ['unique' => true]),
         'description' => $request->description,
-        'update_author_id'   => 2,
+        'update_author_id' => Auth::guard('admin')->user()->id,
        ]);
 
     //    return "ok";

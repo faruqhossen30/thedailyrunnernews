@@ -84,7 +84,7 @@ $usr = Auth::guard('admin')->user();
                 </li>
                 @endif --}}
 
-                @if ($usr->can('dashboard.view'))
+                {{-- @if ($usr->can('dashboard.view')) --}}
                 <li>
                     <a href="#sidebarDashboard" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarDashboard">
@@ -94,14 +94,14 @@ $usr = Auth::guard('admin')->user();
                     </a>
                     <div class="collapse ">
                         <ul class="nav-second-level ">
-                            @if ($usr->can('dashboard.view'))
+                            {{-- @if ($usr->can('dashboard.view')) --}}
                                  <li class="{{ Route::is('admin.dashboard')  ? 'active' : '' }}"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            @endif
+                            {{-- @endif --}}
                         </ul>
                     </div>
                 </li>
-                @endif
-                @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete'))
+                {{-- @endif --}}
+                {{-- @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete')) --}}
                 <li>
                     <a href="#sidebarRoles" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarRoles">
@@ -111,18 +111,18 @@ $usr = Auth::guard('admin')->user();
                     </a>
                     <div class="collapse {{ Route::is('roles.create') || Route::is('roles.index') || Route::is('roles.edit') || Route::is('roles.show') ? 'in' : '' }}" id="sidebarRoles">
                         <ul class="nav-second-level ">
-                            @if ($usr->can('role.create'))
+                            {{-- @if ($usr->can('role.create')) --}}
                                  <li class="{{ Route::is('roles.create')  ? 'active' : '' }}"><a href="{{ route('roles.create') }}">Create Role</a></li>
-                            @endif
-                            @if ($usr->can('role.view'))
+                            {{-- @endif --}}
+                            {{-- @if ($usr->can('role.view')) --}}
                                <li class="{{ Route::is('roles.index')  || Route::is('roles.edit') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">All Roles</a></li>
-                            @endif
+                            {{-- @endif --}}
                         </ul>
                     </div>
                 </li>
-                @endif
+                {{-- @endif --}}
 
-                @if ($usr->can('admin.create') || $usr->can('admin.view') ||  $usr->can('admin.edit') ||  $usr->can('admin.delete'))
+                {{-- @if ($usr->can('admin.create') || $usr->can('admin.view') ||  $usr->can('admin.edit') ||  $usr->can('admin.delete')) --}}
                  <li>
                     <a href="#sidebarAdmin" data-bs-toggle="collapse" aria-expanded="false"
                         aria-controls="sidebarAdmin">
@@ -132,16 +132,16 @@ $usr = Auth::guard('admin')->user();
                     </a>
                     <div class="collapse {{ Route::is('admins.create') || Route::is('admins.index') || Route::is('admins.edit') || Route::is('admin.show') ? 'in' : '' }}" id="sidebarAdmin">
                         <ul class="nav-second-level">
-                            @if ($usr->can('admin.view'))
+                            {{-- @if ($usr->can('admin.view')) --}}
                                 <li class="{{ Route::is('admins.index')  || Route::is('admins.edit') ? 'active' : '' }}"><a href="{{ route('admins.index') }}">All Admins</a></li>
-                            @endif
-                            @if ($usr->can('admin.create'))
+                            {{-- @endif --}}
+                            {{-- @if ($usr->can('admin.create')) --}}
                               <li class="{{ Route::is('admins.create')  ? 'active' : '' }}"><a href="{{ route('admins.create') }}">Create Admin</a></li>
-                            @endif
+                            {{-- @endif --}}
                         </ul>
                     </div>
                 </li>
-                @endif
+                {{-- @endif --}}
 
                 <li>
                     <a href="#sidebarBlog" data-bs-toggle="collapse" aria-expanded="false"

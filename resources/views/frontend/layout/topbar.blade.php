@@ -21,7 +21,7 @@ use EasyBanglaDate\Types\BnDateTime;
                                 {{ $englishDate }}
                             </li>
                             <li>{{ $banglahDate }}</li>
-                            <li>২৫শে মহর্ররম ১৪৪২</li>
+                            
                         </ul>
                     </div>
                 </div>

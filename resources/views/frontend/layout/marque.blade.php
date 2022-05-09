@@ -17,7 +17,7 @@
                                         scrolldelay="1" scrollamount="3">
                                         <!-- End Page-->
                                         @foreach ($news as $item )
-                                        <span class="ticker"><a href="details.php?id=212024">
+                                        <span class="ticker"><a href="{{route('singlenews',  $item->id)}}">
                                             {{$item->title}}
                                         </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                         @endforeach

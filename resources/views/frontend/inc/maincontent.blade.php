@@ -11,10 +11,10 @@
                             <h2 class="catTitleBlock catTitleBackground">
                                 <span class="left">
                                     <span class="catName">
-                                        <a href="https://dailyrunnernews.com/?cat=3">{{ $category->name }}</a>
+                                        <a href="{{route('category.news', $category->id)}}">{{ $category->name }}</a>
                                     </span>
                                 </span>
-                                <a href="https://dailyrunnernews.com/?cat=3" class="right">আরও <i
+                                <a href="{{route('category.news', $category->id)}}" class="right">আরও <i
                                         class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                             </h2>
 
@@ -29,7 +29,8 @@
                                         </a>
                                     </div>
                                     <div class="details">
-                                        <h4><a href="{{route('singlenews', $news->id)}}">{{$news->title}}</a>
+                                        <h4 class="p-2">
+                                            <a href="{{route('singlenews', $news->id)}}">{{$news->title}}</a>
                                         </h4>
                                     </div>
                                 </div>
