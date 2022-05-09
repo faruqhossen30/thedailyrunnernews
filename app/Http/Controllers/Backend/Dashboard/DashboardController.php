@@ -21,9 +21,9 @@ class DashboardController extends Controller
 
    public function index(){
 
-    if (is_null($this->user) || !$this->user->can('dashboard.view')) {
-        abort(403, 'Sorry !! You are Unauthorized to view any dashboard !');
-    }
+    // if (is_null($this->user) || !$this->user->can('dashboard.view')) {
+    //     abort(403, 'Sorry !! You are Unauthorized to view any dashboard !');
+    // }
 
        return view('backend.dashboard.dashboard');
    }

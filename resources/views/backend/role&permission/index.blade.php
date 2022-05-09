@@ -55,11 +55,11 @@
                                                 @endforeach
                                             </td>
                                             <td>
-                                                @if (Auth::guard('admin')->user()->can('admin.edit'))
+                                                {{-- @if (Auth::guard('admin')->user()->can('admin.edit')) --}}
                                                       <a class="btn btn-success text-white"
                                                       href="{{ route('roles.edit', $role->id) }}">Edit</a>
-                                                @endif
-                                                @if (Auth::guard('admin')->user()->can('admin.delete'))
+                                                {{-- @endif --}}
+                                                {{-- @if (Auth::guard('admin')->user()->can('admin.delete')) --}}
                                                     <a class="btn btn-danger text-white" href="{{ route('roles.destroy', $role->id) }}"
                                                         onclick="event.preventDefault(); document.getElementById('delete-form-{{ $role->id }}').submit();">
                                                             Delete
@@ -68,7 +68,7 @@
                                                             @method('DELETE')
                                                             @csrf
                                                         </form>
-                                                 @endif
+                                                 {{-- @endif --}}
 
                                             </td>
 
