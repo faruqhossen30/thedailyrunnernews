@@ -55,7 +55,7 @@
                                                 @enderror
                                             </div>
 
-                                                {{-- <div id="summernote"></div> --}}
+                                            {{-- <div id="summernote"></div> --}}
                                             <div class="form-group mt-2">
                                                 <div class="form-group">
                                                     <textarea class="form-control" name="content" id="summernote"></textarea>
@@ -134,7 +134,7 @@
                                                     <div class="form-group my-2">
                                                         <label>blog_meta_description<span
                                                                 class="text-danger">*</span></label>
-                                                        <textarea name="blog_meta_description"  id="summernote" type="text"
+                                                        <textarea name="blog_meta_description" id="summernote" type="text"
                                                             class="form-control @error('blog_meta_description') is-invalid @enderror"
                                                             rows="5"
                                                             placeholder="Enter your blog meta description details">{{ old('blog_meta_description') }}</textarea>
@@ -143,7 +143,7 @@
                                                                 {{ $message }}
                                                             </div>
                                                         @enderror
-                                                    </div> 
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="card mt-2">
@@ -319,27 +319,25 @@
 
         }); // change event end
     </script>
-
-
 @endpush
 
 
 
 @push('summernote')
-<script>
-    $('#summernote').summernote({
-      placeholder: 'Hello stand alone ui',
-      tabsize: 2,
-      height: 120,
-      toolbar: [
-        ['style', ['style']],
-        ['font', ['bold', 'underline', 'clear']],
-        ['color', ['color']],
-        ['para', ['ul', 'ol', 'paragraph']],
-        ['table', ['table']],
-        ['insert', ['link', 'picture', 'video']],
-        ['view', ['fullscreen', 'codeview', 'help']]
-      ]
-    });
-  </script>
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Hello stand alone ui',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
 @endpush
