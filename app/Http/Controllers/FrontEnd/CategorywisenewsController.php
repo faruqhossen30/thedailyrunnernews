@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog\Category;
 use App\Models\Blog\News;
 use Illuminate\Http\Request;
 
-class CategoryNewsController extends Controller
+class CategorywisenewsController extends Controller
 {
     public function categoryNews(Request $request, $id)
     {
