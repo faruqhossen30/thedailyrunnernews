@@ -6,9 +6,10 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Location\DivisionController;
 use App\Http\Controllers\Frontend\CategoryNewsController;
 use App\Http\Controllers\FrontEnd\HomepageController;
-use App\Http\Controllers\Frontend\SingleNewsController;
 use App\Http\Controllers\Frontend\SinglePage\SinglePageController;
 use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\FrontEnd\SinglenewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,5 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/news/{id}',[App\Http\Controllers\Frontend\SingleNewsController::class,'singlenews'])->name('singlenews');
+Route::get('/news/{id}',[SinglenewsController::class,'singlenews'])->name('singlenews');
 Route::get('/category/{id}',[App\Http\Controllers\Frontend\CategoryNewsController::class,'categoryNews'])->name('category.news');
