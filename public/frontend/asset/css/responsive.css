@@ -1,0 +1,31 @@
+@media screen and (max-width: 576px) {
+    .mobile {
+        width: 100% !important;
+    }
+    .sidebar-button-area button {
+        width: 49% !important;
+        margin: 1px;
+        float: right;
+    }
+    .card iframe {
+        height: 300px;
+    }
+    .news-feed-area {
+        padding-top: 80px;
+    }
+
+}
+@media screen and (max-width: 768px) {
+
+}
+@media screen and (max-width: 992px) {
+
+}
+@media screen and (max-width: 1200px) {
+    .sidebar-button-area button {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1400px) {
+
+}
