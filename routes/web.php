@@ -28,5 +28,5 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/news/{id}',[SingleNewsController::class,'singlenews'])->name('singlenews');
-Route::get('/category/{id}',[CategoryNewsController::class,'categoryNews'])->name('category.news');
+Route::get('/news/{id}',[App\Http\Controllers\Frontend\SingleNewsController::class,'singlenews'])->name('singlenews');
+Route::get('/category/{id}',[App\Http\Controllers\Frontend\CategoryNewsController::class,'categoryNews'])->name('category.news');

@@ -38,6 +38,9 @@
     color: #a2a2a2;
     margin-top: 18px;
 }
+.featured-image img {
+    width: 100%;
+}
 .single-block a:first-child {
     max-height: inherit;
 }

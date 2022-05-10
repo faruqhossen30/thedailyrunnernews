@@ -1,9 +1,6 @@
-<div class="col-md-3">
+<div class="col-sm-12 col-md-3">
     <div class="rightSideBar">
-
-
-
-        <div class="survey-area my-5">
+        <div class="survey-area my-1">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <span>সরাসরি</span>
@@ -15,7 +12,7 @@
                 {{-- </div> --}}
             </div>
         </div>
-        <div class="col-sm-12 main-content custom-block">
+        <div class="col-sm-12 main-content custom-block ">
             <!-- Sidebar button area start -->
             <div class="sidebar-button-area">
                 <button><i class="fa-solid fa-chart-line"></i> শেয়ার বাজার</button>
@@ -165,7 +162,7 @@
                         <div class="card-body">
                             <a href="">
                                 <div class="col-md-12">
-                                    <img src="{{asset('frontend/asset/img/epaper img 1.png')}}" width="280px" alt="">
+                                    <img src="{{asset('frontend/asset/img/epaper img 1.png')}}" style="width:100%" alt="">
                                 </div>
                             </a>
 
