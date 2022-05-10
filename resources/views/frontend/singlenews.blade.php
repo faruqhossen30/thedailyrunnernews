@@ -1,3 +1,15 @@
+@php
+
+use EasyBanglaDate\Types\BnDateTime;
+
+$bongabda = new BnDateTime( $news->created_at , new DateTimeZone('Asia/Dhaka'));
+// $postdate= $bongabda->getDateTime()->format('l jS F Y b h:i:s')
+$postdate= $bongabda->getDateTime()->format('l jS F Y')
+
+// echo $news->created_at;
+
+@endphp
+
 @extends('frontend.layout.app')
 
 @section('content')
@@ -7,7 +19,7 @@
                 <div class="box-white marginBottom20 visible-xs hidden-print">
                     <ol class="breadcrumb">
                         <li><a href="https://dailyrunnernews.com"> <i class="fa fa-home text-danger"></i></a></li>/
-                        <li><a href="https://dailyrunnernews.com/?cat=4"> {{$news->category->name}} </a></li>
+                        <li><a href="https://dailyrunnernews.com/?cat=4"> {{ $news->category->name }} </a></li>
                     </ol>
                 </div>
                 <article class="box-white">
@@ -21,16 +33,12 @@
 
                         <h1 class="no-margin" style="margin-bottom:15px !important">{{ $news->title }}</h1>
                         <!-- start -->
-                        <div class="row">
-                            <div class="col-sm-4 justify_col ">
-                                <a class="visible-print"> <span> | </span> Admin</a>
-                            </div>
+                        <div class="row mb-2">
                             <div class="col-sm-8">
                                 <span class="small text-muted time-with-author">
+                                    <i class="fa fa fa-clock-o text-danger"></i> {{$postdate}} <br>
 
-                                    <i class="fa fa fa-clock-o text-danger"></i> প্রকাশিত: ১:৫৪ অপরাহ্ণ, জানুয়ারি ১৯,
-                                    ২০১৯
-                                    | <i class="fa fa fa-clock-o text-danger"></i> আপডেট: ১:৫৫:অপরাহ্ণ, জানুয়ারি ১৯, ২০১৯
+
 
                                 </span>
                             </div>
@@ -41,14 +49,14 @@
 
                     <div class="paddingTop10">
                         <div class="featured-image">
-                            <img src="{{ asset('storage/images/' . $news->thumbnail) }}" class="img-responsive"
+                            <img src="{{ asset('storage/images/' . $news->thumbnail) }}" class="img-fluid"
                                 alt="{{ $news->thumbnail }}">
                         </div>
                         <div class="caption"> </div>
 
                     </div>
                     <div class="content-details">
-                        {!!  $news->content !!}
+                        {!! $news->content !!}
                     </div>
 
                     <!-- Advertisement B -->
@@ -63,7 +71,7 @@
 
 
             </div>
-{{-- sidebar --}}
+            {{-- sidebar --}}
             <div class="col-md-4 main-content custom-block">
                 <div class="news-feed-area mt-4">
                     <div class="news-feed-nav">
@@ -251,5 +259,3 @@
         </div>
     </div>
 @endsection
-
-

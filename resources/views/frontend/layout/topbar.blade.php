@@ -16,12 +16,10 @@ use EasyBanglaDate\Types\BnDateTime;
                 <div class="col-md-6">
                     <div class="top-bar-link ">
                         <ul>
-                            <li> ঢাকা</li>
-                            <li>
-                                {{ $englishDate }}
-                            </li>
+                            <li>যশোর</li>
+                            <li>{{ $englishDate }}</li>
                             <li>{{ $banglahDate }}</li>
-                            
+
                         </ul>
                     </div>
                 </div>

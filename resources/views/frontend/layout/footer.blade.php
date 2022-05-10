@@ -7,7 +7,7 @@
                     ভারপ্রাপ্ত সম্পাদক : <br>
                     বোরহানশাহ রোড, ৫৮ কারবালা যশোর।<br>
                     ফোনঃ88 02477763843 বিজ্ঞাপন : ফ্যাক্স : , ই-মেইল : news@dailyrunnernews.com<br>
-                    <a target="_blank" href="http://www.i2softbd.com"><span
+                    <a target="_blank" href="https://www.facebook.com/dailyrunnernews"><span
                             style="color: #000; font-family: Arial; font-size: 14px; color: #666">Design and
                             Developed by catalystswings</span></a>
                 </div>

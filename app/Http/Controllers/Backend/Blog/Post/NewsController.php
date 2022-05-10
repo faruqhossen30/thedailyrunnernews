@@ -47,7 +47,7 @@ class NewsController extends Controller
         // return $upzilla;
         $news = News::latest()->get();
         // return  $tags;
-        return view('backend.blogs.news.create_news', compact('news', 'divissions', 'districts', 'upzillas', 'categories','tags'));
+        return view('backend.blogs.news.create_news', compact('news', 'divissions', 'districts', 'upzillas', 'categories', 'tags'));
     }
 
     /**
@@ -64,13 +64,13 @@ class NewsController extends Controller
             'title'                 => 'required',
             'content'               => 'required',
             'meta_title'            => 'required',
+            'category_id'           => 'required',
             'blog_meta_description' => 'required',
             'thumbnail'             => 'required',
         ], [
             ' title.required'                => 'please enter your title',
             'content.required'               => 'please enter your content',
             'meta_title.required'            => 'please enter your meta_title',
-            ' slug.required'                 => 'please enter your slug',
             'blog_meta_description.required' => 'please enter your blog_meta_description',
             ' video_url.required'            => 'please enter your video_url',
             ' tags.required'                 => 'please enter your tags',
