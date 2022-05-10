@@ -22,9 +22,10 @@
         type="text/css" id="bs-dark-stylesheet"/>
     <link href="{{ asset('backend/assets/css/material/app-material-dark.min.css') }}" rel="stylesheet" type="text/css"
         id="app-dark-stylesheet" />
-
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+        {{-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> --}}
+        <link rel="stylesheet" href="/public/backend/assets/css/material/bootstrap_limitless.min.css">
+        <link rel="stylesheet" href="/public/backend/assets/css/material/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <!-- icons -->
     <link href="{{ asset('backend') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
@@ -70,6 +71,8 @@
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
     <!-- Vendor js -->
+
+    <script src="/public/backend/assets/js/pages/jquery.min.js"></script>
     <script src="{{ asset('backend/assets/js/vendor.min.js') }}"></script>
     <!-- App js -->
     <script src="{{ asset('backend/assets/js/app.min.js') }}"></script>
@@ -81,12 +84,14 @@
     <!-- Init js-->
     {{-- <script src="{{ asset('backend/assets/js/pages/form-quilljs.init.js') }}"></script> --}}
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" ></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
+    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
+
+    <script src="/public/backend/assets/js/pages/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     @stack('script')
     @stack('summernote')
 

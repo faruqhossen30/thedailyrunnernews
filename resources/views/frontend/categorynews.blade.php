@@ -34,7 +34,7 @@
                             <div class="col-sm-4">
                                 <div class="paddingRight10 paddingTop20">
                                     <h1 style="font-size:2.5em;line-height:34px;margin-bottom:10px;"><a
-                                            href="https://dailyrunnernews.com/?p=300">{{$news->title}}</a></h1>{{$news->meta_title}}
+                                            href="{{route('singlenews',$news->id)}}">{{$news->title}}</a></h1>{{$news->meta_title}}
                                 </div>
                             </div>
                         </div>
@@ -50,16 +50,17 @@
                         <div class="row">
                             <div class="col-sm-5">
                                 <div class="img-box">
-                                     <img src="{{ asset('storage/images/' . $news->thumbnail) }}" class="img-responsive"
+                                   <a href="{{route('singlenews',$news->id)}}">
+                                    <img src="{{ asset('storage/images/' . $news->thumbnail) }}" class="img-fluid"
                                     alt="{{ $news->thumbnail }}" style="">
+                                   </a>
                                 </div>
                             </div>
                             <div class="col-sm-7">
                                 <div class="paddingTop10 paddingRight10">
                                     <h3 style="font-size:1.1em; margin-top:18px">
-                                        <a href="https://dailyrunnernews.com/?p=196"
-                                            title="দুর্নীতিবিরোধী বার্তা দেবেন প্রধানমন্ত্রী">দুর্নীতিবিরোধী বার্তা দেবেন
-                                            প্রধানমন্ত্রী</a></h3>
+                                        <a href="{{route('singlenews',$news->id)}}"
+                                            title="দুর্নীতিবিরোধী বার্তা দেবেন প্রধানমন্ত্রী">{{$news->title}}</a></h3>
                                 </div>
                             </div>
                         </div>

@@ -57,7 +57,7 @@ $categories = App\Models\Blog\Category::get();
                         <div class="row">
                             @foreach ($categories as $category)
                                 <div class="col-lg-2">
-                                    <a href="">{{ $category->name }}</a>
+                                    <a href="{{route('category.news',$category->id)}}">{{ $category->name }}</a>
                                 </div>
                             @endforeach
 
