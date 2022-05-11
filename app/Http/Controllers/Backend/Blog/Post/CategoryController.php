@@ -40,7 +40,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
+        $slug =  make_slug($request->name);
         $request->validate([
             'name'        => 'required',
             'description' => 'required',
@@ -51,7 +51,8 @@ class CategoryController extends Controller
 
         Category::create([
             'name'        => $request->name,
-            'slug'        => SlugService::createSlug(Category::class, 'slug', $request->name, ['unique' => true]),
+            // 'slug'        => SlugService::createSlug(Category::class, 'slug',  $slug, ['unique' => true]),
+            'slug'        => make_slug($request->name),
             'description' => $request->description,
             'author_id'   =>  Auth::guard('admin')->user()->id,
 

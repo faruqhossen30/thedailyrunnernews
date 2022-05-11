@@ -3,8 +3,9 @@
 }
 
 .single-block .img-box img {
-    position: relative;
-    height: 200px;
+	position: relative;
+	height: 300px;
+	object-fit: fill;
 }
 
 .breadcrumb {

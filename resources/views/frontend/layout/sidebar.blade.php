@@ -32,7 +32,7 @@
                         @foreach ( $latestnews as $latest )
                         <div class="row">
                             <div class="col-9">
-                                <a href="">{{$latest->title}}</a>
+                                <a href="{{route('singlenews',$latest->id)}}">{{$latest->title}}</a>
                             </div>
                         </div>
                         @endforeach

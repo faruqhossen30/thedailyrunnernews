@@ -22,14 +22,6 @@ class HomepageController extends Controller
         $categorynews = Category::with('news')->get();
 
 
-
-        //Set Bengali date
-        // $bongabda->setDate(1405, 1, 1);
-        //Get english date in bangla
-        //Get english date in english
-        // echo $bongabda->getDateTime()->enFormat('l jS F Y h:i:s');
-
-
            return view('frontend.homepage',
            compact('news', 'latestnews','natinoal','categorynews', 'lastnews'));
 

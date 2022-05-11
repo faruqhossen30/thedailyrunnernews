@@ -45,9 +45,12 @@
     max-height: inherit;
 }
 .single-block.cat-block {
-    height: 90px;
+    /* height: 90px; */
     min-height: 0;
     overflow: hidden;
+}
+.img-box.single-post img {
+	height: 100px;
 }
 .single-block .img-box {
     position: relative;
