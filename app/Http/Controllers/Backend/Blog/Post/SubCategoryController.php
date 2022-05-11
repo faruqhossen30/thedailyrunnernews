@@ -57,7 +57,8 @@ class SubCategoryController extends Controller
 
         SubCategory::create([
             'name'        => $request->name,
-            'slug'        => SlugService::createSlug(SubCategory::class, 'slug', $request->name, ['unique' => true]),
+            // 'slug'        => SlugService::createSlug(SubCategory::class, 'slug', $request->name, ['unique' => true]),
+            'slug'        => make_slug($request->name),
             'description' => $request->description,
             'category_id' => $request->category_id,
             'author_id'   => Auth::guard('admin')->user()->id,
@@ -101,7 +102,8 @@ class SubCategoryController extends Controller
 
        SubCategory :: findOrFail($id)->update([
         'name'        => $request->name,
-        'slug'        => SlugService::createSlug(SubCategory::class, 'slug', $request->name, ['unique' => true]),
+        // 'slug'        => SlugService::createSlug(SubCategory::class, 'slug', $request->name, ['unique' => true]),
+        'slug'        => make_slug($request->name),
         'description' => $request->description,
         'category_id' => $request->category_id,
         'update_author_id'   => Auth::guard('admin')->user()->id,

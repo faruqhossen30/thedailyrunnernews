@@ -49,7 +49,8 @@ class TagsController extends Controller
 
         Tags::create([
             'name'        => $request->name,
-            'slug'        => SlugService::createSlug(Tags::class, 'slug', $request->name, ['unique' => true]),
+            // 'slug'        => SlugService::createSlug(Tags::class, 'slug', $request->name, ['unique' => true]),
+            'slug'        => make_slug($request->name),
             'author_id'   =>  Auth::guard('admin')->user()->id,
         ]);
         return redirect()->route('tags.index')->with('success', 'Successfully Data delete');
@@ -89,7 +90,8 @@ class TagsController extends Controller
     {
         Tags::findOrFail($id)->update([
             'name'        => $request->name,
-            'slug'        => SlugService::createSlug(Tags::class, 'slug', $request->name, ['unique' => true]),
+            // 'slug'        => SlugService::createSlug(Tags::class, 'slug', $request->name, ['unique' => true]),
+            'slug'        => make_slug($request->name),
             'update_author_id'   => Auth::guard('admin')->user()->id,
            ]);
 

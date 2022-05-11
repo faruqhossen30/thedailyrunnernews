@@ -21,14 +21,16 @@
             @foreach (array_slice(json_decode($allnews), 0,1) as $news)
             <div class="row">
                 <div class="col-sm-12">
-
-
-                    <div class="single-block">
+                    <div class="single-block single-block-thumbnail">
                         <div class="row">
                             <div class="col-sm-8">
-                                <div class="img-box">
-                                    <img src="{{ asset('storage/images/' . $news->thumbnail) }}" class="img-responsive"
-                                    alt="{{ $news->thumbnail }}">
+                                <div class="img-box post-thumbnail">
+                                    <a href="{{route('singlenews',$news->id)}}">
+                                        <img src="{{ asset('storage/images/' . $news->thumbnail) }}" class="img-responsive"
+                                        alt="{{ $news->thumbnail }}">
+
+                                    </a>
+
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -49,7 +51,7 @@
                     <div class="single-block cat-block ">
                         <div class="row">
                             <div class="col-sm-5">
-                                <div class="img-box">
+                                <div class="img-box single-post">
                                    <a href="{{route('singlenews',$news->id)}}">
                                     <img src="{{ asset('storage/images/' . $news->thumbnail) }}" class="img-fluid"
                                     alt="{{ $news->thumbnail }}" style="">
