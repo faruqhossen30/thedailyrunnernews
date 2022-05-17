@@ -54,7 +54,7 @@
 
                                             <div class="form-group mt-2">
                                                 <label>Content<span class="text-danger">*</span></label>
-                                                <textarea id="snow-editor" name="content" type="text" class="form-control @error('content') is-invalid @enderror"
+                                                <textarea id="snow-editor" name="content" id="summernote" type="text" class="form-control @error('content') is-invalid @enderror"
                                                     rows="10"
                                                    >{!!$news->content!!}</textarea>
                                                 @error('content')

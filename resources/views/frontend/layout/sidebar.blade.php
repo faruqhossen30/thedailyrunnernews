@@ -7,9 +7,11 @@
                     <span class="text-danger fw-bold">&bull; Live</span>
                 </div>
                 {{-- <div class="card-body"> --}}
-                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/MSVPhMPtAk4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="auto" src="https://www.youtube.com/embed/MSVPhMPtAk4"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
 
-                {{-- </div> --}}
             </div>
         </div>
         <div class="col-sm-12 main-content custom-block ">
@@ -29,19 +31,19 @@
                     <button id="most_read_news_button">সর্বাধিক পঠিত</button>
                 </div>
                 <div id="latest_news" class="news-feed-latest mt-4">
-                        @foreach ( $latestnews as $latest )
+                    @foreach ($latestnews as $latest)
                         <div class="row">
                             <div class="col-9">
-                                <a href="{{route('singlenews',$latest->id)}}">{{$latest->title}}</a>
+                                <a href="{{ route('singlenews', $latest->id) }}">{{ $latest->title }}</a>
                             </div>
                         </div>
-                        @endforeach
+                    @endforeach
                 </div>
                 <div id="most_read_news" style="display: none;" class="news-feed-latest mt-4">
-                    @foreach (  $latestnews as $latest  )
+                    @foreach ($latestnews as $latest)
                         <div class="row">
                             <div class="col-9">
-                                <a href="">{{$latest->title}}</a>
+                                <a href="">{{ $latest->title }}</a>
                             </div>
                         </div>
                     @endforeach
@@ -60,8 +62,8 @@
                         <h4>জেলার খবর</h4>
                     </div>
                     <div class="card-body">
-                        <img src="{{asset('frontend/asset/img/bangladesh.svg')}}" width="390px" height="300px" class="img-fluid"
-                            alt="map">
+                        <img src="{{ asset('frontend/asset/img/bangladesh.svg') }}" width="390px" height="300px"
+                            class="img-fluid" alt="map">
                         <div class="row">
                             <div class="col-6">
                                 <select class="form-select">
@@ -119,33 +121,96 @@
                     <h4>অনলাইন জরিপ</h4>
                 </div>
                 <div class="card-body">
-                    <p>
-                        গৃহিণী শব্দটিকে ইংরেজিতে ‘হোমমেকার’, ‘স্টে অ্যাট হোম মাম’,
-                        ‘ফুলটাইম প্যারেন্ট’—যে নামেই ডাকা হোক না কেন,
-                        সারা বিশ্বেই কমবেশি এই গৃহিণীরাই আদিকাল থেকে এখন পর্যন্ত ঘরের সব কাজের দায়িত্বে
-                        থাকেন।
-                        বিশ্বব্যাপী সরাসরি অর্থনৈতিক কাজে জড়িত আছেন ৩৬ শতাংশ নারী।</p>
-                    <form action="#">
-                        <p>
-                            <input type="radio" id="test1" name="radio-group" checked>
-                            <label for="test1"> হ্যাঁ </label>
-                        </p>
-                        <p>
-                            <input type="radio" id="test2" name="radio-group">
-                            <label for="test2"> না</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="test3" name="radio-group">
-                            <label for="test3"> মন্তব্য নেই</label>
-                        </p>
-                    </form>
-                    <div class="opinion-btn my-3 text-center">
-                        <button type="submit" class="btn btn-success">মতামত দিন</button>
+                    @foreach ($vots as $vot)
+                        <p>{{ $vot->description }}</p>
+
+
+                    <div class="row">
+                        <div class="col-sm-12 mt-4">
+
+                            @if ($vot->yes > 0)
+                                <label for="">হ্যাঁ</label>
+                                <div class="row align-items-center g-0 mb-2 pb-1">
+                                    <div class="col">
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar" role="progressbar" style="width: 72%;"
+                                                aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <div class="fw-medium ms-2">
+                                            {{ sprintf('%.2f', (100 * $vot->yes) / $vot->total_vot) }}%</div>
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if ($vot->no > 0)
+                                <label for="">না</label>
+                                <div class="row align-items-center g-0 mb-2 pb-1">
+                                    <div class="col">
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 65%;"
+                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="0"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <div class="fw-medium ms-2">
+                                            {{ sprintf('%.2f', (100 * $vot->no) / $vot->total_vot) }}%</div>
+                                    </div>
+                                </div>
+                            @endif
+
+
+                            @if ($vot->no_comment > 0)
+                                <label for=""> মন্তব্য নেই</label>
+                                <div class="row align-items-center g-0 mb-2 pb-1">
+                                    <div class="col">
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 48%;"
+                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="0"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="fw-medium ms-2">
+                                            {{ sprintf('%.2f', (100 * $vot->no_comment) / $vot->total_vot) }}%</div>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
                     </div>
 
-                    <div class="survey-result">
-                        <a href="">পুরানো মতামত ></a>
-                    </div>
+                    <form class="mt-1 survey-hide" action="{{ route('vot.update', $vot->id) }}" method="post"
+                        id="surveyForm">
+
+                        @csrf
+                        @method('PUT')
+                        <table cellpadding="0" cellspacing="5" border="0" width="100%" class="survey-tbl mb-2">
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">
+                                        <input type="radio" name="vot" value="yes ">
+                                    </td>
+                                    <td>হ্যা </td>
+
+                                    <td class="text-center">
+                                        <input type="radio" name="vot" value="no ">
+                                    </td>
+                                    <td>না </td>
+
+                                    <td class="text-center">
+                                        <input type="radio" name="vot" value="no_comment ">
+                                    </td>
+                                    <td>মন্তব্য নেই</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="submit" class="btn btn-success p-2 "> মতামত দিন </button>
+
+                    </form>
+
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -162,7 +227,8 @@
                         <div class="card-body">
                             <a href="">
                                 <div class="col-md-12">
-                                    <img src="{{asset('frontend/asset/img/epaper img 1.png')}}" style="width:100%" alt="">
+                                    <img src="{{ asset('frontend/asset/img/epaper img 1.png') }}" style="width:100%"
+                                        alt="">
                                 </div>
                             </a>
 

@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\Dashboard\DashboardController as DashboardDashb
 use App\Http\Controllers\Backend\Roles\RolesController;
 use App\Http\Controllers\Backend\Setting\SiteController;
 use App\Http\Controllers\Backend\Users\UsersController;
+use App\Http\Controllers\Backend\Vot\VotController;
 use Database\Seeders\LocationSeeder;
 
 /*
@@ -69,6 +70,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('category', CategoryController::class);
     Route::resource('subcategory', SubCategoryController::class);
     Route::resource('tags', TagsController::class);
+
+    Route::resource('vot', VotController::class);
 
 });
 

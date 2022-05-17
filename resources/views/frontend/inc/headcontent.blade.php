@@ -1,7 +1,7 @@
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12 col-md-6">
                 <div class="row">
 
                     <div class="col-sm-12" style="padding-top: 20px;">
@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-12 col-md-6">
                 <div class="row">
                     @foreach ($latestnews as $latest)
                         <div class="col-sm-6" style="padding-top: 20px;" >

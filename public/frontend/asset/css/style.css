@@ -566,10 +566,6 @@ ul {
 /* --------e-paper end------------- */
 
 /* --------------.survey-area start -----------------*/
-.survey-area form {
-    display: flex;
-    justify-content: space-between;
-}
 
 .survey-result a {
     text-decoration: none;
@@ -582,6 +578,9 @@ ul {
     text-align: right;
 }
 
+button.btn.btn-success.p-2 {
+    margin-left: 90px;
+}
 /* --------------.survey-area end -----------------*/
 .navbar-inverse {
     background-color: #222;

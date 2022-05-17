@@ -29,6 +29,7 @@ class CreateNewsTable extends Migration
             $table->unsignedBigInteger('division_id')->nullable();
             $table->unsignedBigInteger('district_id')->nullable();
             $table->unsignedBigInteger('upzilla_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

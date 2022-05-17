@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-9 col-md-9 col-12 mobile">
+        <div class="col-sm-9 col-md-9 col-lg-9 col-12 mobile">
             @foreach ($categorynews as $category)
                 @if (count($category->news) > 0)
                     <section class="leadBox box-white paddingTop10 my-1">
@@ -28,7 +28,7 @@
                             <div class="row">
                                 @foreach (array_slice(json_decode($category->news), 0, 6) as $news)
                                     <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single-block">
+                                        <div class="single-block ">
 
                                             <div class="img-box">
                                                 <a href="{{ route('singlenews', $news->id) }}">
