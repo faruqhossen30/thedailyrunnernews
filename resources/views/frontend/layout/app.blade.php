@@ -28,6 +28,7 @@
 
 
     <title>Thedailyrunnernews</title>
+    @stack('style')
 </head>
 
 <body>

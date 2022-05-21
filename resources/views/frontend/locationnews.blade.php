@@ -17,9 +17,9 @@
                 <div class="col-sm-6">
                     <div class="page-title-right" style="float: right">
                         <ol class="breadcrumb p-4">
-                            <li class="breadcrumb-item"><a href="{{route('location.news')}}">বিভাগ</a></li>
+                            <li class="breadcrumb-item"><a href="#">বিভাগ</a></li>
                             <li class="breadcrumb-item"><a href="#">জেলা</a></li>
-                            <li class="breadcrumb-item active">থানা</li>
+                            <li class="breadcrumb-item ">থানা</li>
                         </ol>
                     </div>
                 </div>
