@@ -154,7 +154,7 @@ $usr = Auth::guard('admin')->user();
                     <div class="collapse" id="sidebarBlog">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('news.create')}}">Create blog</a>
+                                <a href="{{route('news.create')}}">Create News</a>
                             </li>
                             <li>
                                 <a href="{{route('category.index')}}">Category</a>

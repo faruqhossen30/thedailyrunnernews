@@ -36,7 +36,7 @@ Auth::routes();
 Route::get('/news/{id}',[SinglepostController::class,'singlenews'])->name('singlenews');
 Route::get('/category/{id}',[CategorywisenewsController::class,'categoryNews'])->name('category.news');
 
-Route::get('/location/{id}',[LocationwisenewsController::class,'locationWisenews'])->name('location.news');
+Route::get('/locationnews',[LocationwisenewsController::class,'locationWisenews'])->name('location.news');
 
 Route::get('search', [SearchController::class, 'search'])->name('search.page');
 

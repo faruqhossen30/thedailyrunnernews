@@ -79,7 +79,7 @@ $divissions = Division::all();
                         <img src="{{ asset('frontend/asset/img/bangladesh.svg') }}" width="390px" height="300px"
                             class="img-fluid" alt="map">
 
-                        <form action="{{route('location.news', '$news->upazila_id')}}" method="GET">
+                        <form action="{{route('location.news', $news->upazila_id)}}" method="GET">
                             <div class="row">
                                 <div class="col-6">
                                     <select class="form-select @error('division_id') is-invalid @enderror"

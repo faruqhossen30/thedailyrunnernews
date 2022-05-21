@@ -1,21 +1,35 @@
 @extends('frontend.layout.app')
 @section('content')
-    <section class="big_category_header hidden-xs d-flex " style="background-image: url() ">
-        <div class="container category_cat_head">
-            <h1><a href="#">সারাদেশ</a> </h1>
-        </div>
-        <div class="page-title-right">
-            <ol class="breadcrumb p-4">
-                <li class="breadcrumb-item"><a href="#">বিভাগ</a></li>
-                <li class="breadcrumb-item"><a href="#">জেলা</a></li>
-                <li class="breadcrumb-item active">থানা</li>
-            </ol>
-        </div>
+    @php
+    use App\Models\Division;
+    $divissions = Division::all();
 
+    @endphp
+    <section class="big_category_header hidden-xs d-flex " style="background-image: url() ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class=" category_cat_head">
+                        <h1><a href="{{route('location.news')}}">সারাদেশ</a> </h1>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="page-title-right" style="float: right">
+                        <ol class="breadcrumb p-4">
+                            <li class="breadcrumb-item"><a href="{{route('location.news')}}">বিভাগ</a></li>
+                            <li class="breadcrumb-item"><a href="#">জেলা</a></li>
+                            <li class="breadcrumb-item active">থানা</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <!-- Menu-body section-start -->
-    <div class="container" >
+    <div class="container">
         <div class="row">
             <div class="col-md-8 main-content" style="hight:90vh">
                 {{-- category page start --}}
@@ -45,6 +59,8 @@
                         </div>
                     @endforeach
                 </div>
+
+
                 {{-- category page end --}}
                 <div class="text-center paddingBottom20">
                     <ul class="pagination pagination-sm">
@@ -55,7 +71,7 @@
                         </li>
                     </ul>
                 </div>
-           </div>
+            </div>
             <div class="col-md-4 ">
                 <div class="news-feed-area mt-4">
                     <div class="news-feed-nav">
@@ -63,105 +79,30 @@
                         <button id="most_read_news_button">সর্বাধিক পঠিত</button>
                     </div>
                     <div id="latest_news" class="news-feed-latest mt-4">
-                        {{-- @foreach ($latestnews as $latest)
+                        @foreach ($latestnews as $latest)
                             <div class="row">
                                 <div class="col-9">
                                     <a href="{{ route('singlenews', $latest->id) }}">{{ $latest->title }}</a>
                                 </div>
                             </div>
-                        @endforeach --}}
+                        @endforeach
                     </div>
                     {{-- <div id="most_read_news" style="display: none;" class="news-feed-latest mt-4">
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-9">
-                            <a href="">সেনাঘাঁটিতে হামলায় ১৮০ বিদেশি ভাড়াটে যোদ্ধা নিহত: রাশিয়া</a>
-
-                        </div>
-                    </div>
-                </div> --}}
+                        @foreach ($latestnews as $latest)
+                            <div class="row">
+                                <div class="col-9">
+                                    <a href="">{{ $latest->title }}</a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div> --}}
                     <div class="news_feed_all_news_button">
                         <button>সব খবর</button>
                     </div>
                 </div>
+
             </div>
+
 
         </div>
     </div>
