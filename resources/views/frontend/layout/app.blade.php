@@ -48,7 +48,6 @@
             @yield('content')
 
 
-
     <!-- Menu-body section-end -->
 
 
@@ -71,6 +70,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="{{ asset('frontend/asset/js/script.js') }}"></script>
+
+    @stack('script')
 </body>
 
 </html>

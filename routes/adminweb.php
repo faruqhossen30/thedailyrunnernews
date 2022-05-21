@@ -83,3 +83,8 @@ Route::get('district-from-division/{id}', [LoactionAjaxController::class, 'distr
 Route::get('/upazila-from-district/{id}', [LoactionAjaxController::class, 'upazilaFromDistrict'])->name('upazilaFromDistrict');
 
 Route::get('/district-division/{id}', [LoactionAjaxController::class, 'districtDivision'])->name('districtDivision');
+
+
+//-------------------sidebar location Dependancy--------------
+Route::get('/district-side-division/{id}', [LoactionAjaxController::class, 'Divisiontodistrict'])->name('districttoDivision');
+Route::get('/upazila-side-district/{id}', [LoactionAjaxController::class, 'upazilatoDistrict'])->name('upazilatoDistrict');

@@ -1,52 +1,23 @@
 @extends('frontend.layout.app')
 @section('content')
-    <section class="big_category_header hidden-xs" style="background-image: url()">
+    <section class="big_category_header hidden-xs d-flex " style="background-image: url() ">
         <div class="container category_cat_head">
-            <h1><a href="{{ route('category.news', $category->id) }}">{{ $category->name }}</a>
-
-            </h1>
-
+            <h1><a href="#">সারাদেশ</a> </h1>
         </div>
-        <div class="sub_category_menu">
-            <div class="container">
-
-            </div>
+        <div class="page-title-right">
+            <ol class="breadcrumb p-4">
+                <li class="breadcrumb-item"><a href="#">বিভাগ</a></li>
+                <li class="breadcrumb-item"><a href="#">জেলা</a></li>
+                <li class="breadcrumb-item active">থানা</li>
+            </ol>
         </div>
+
     </section>
 
     <!-- Menu-body section-start -->
-    <div class="container">
+    <div class="container" >
         <div class="row">
-            <div class="col-md-8 main-content">
-
-                {{-- single page start --}}
-                @foreach (array_slice(json_decode($allnews), 0, 1) as $news)
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="single-block single-block-thumbnail">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="img-box post-thumbnail">
-                                        <a href="{{ route('singlenews', $news->id) }}">
-                                            <img src="{{ asset('storage/images/' . $news->thumbnail) }}"
-                                                class="img-responsive" alt="{{ $news->thumbnail }}">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="paddingRight10 paddingTop20">
-                                        <h1 style="font-size:2.5em;line-height:34px;margin-bottom:10px;"><a
-                                                href="{{ route('singlenews', $news->id) }}">{{ $news->title }}</a></h1>
-                                        {{ $news->meta_title }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-                {{-- single page ennd --}}
-
+            <div class="col-md-8 main-content" style="hight:90vh">
                 {{-- category page start --}}
                 <div class="row my-3" id="loadMoreContent">
                     @foreach ($allnews as $news)
@@ -84,7 +55,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+           </div>
             <div class="col-md-4 ">
                 <div class="news-feed-area mt-4">
                     <div class="news-feed-nav">
@@ -92,13 +63,13 @@
                         <button id="most_read_news_button">সর্বাধিক পঠিত</button>
                     </div>
                     <div id="latest_news" class="news-feed-latest mt-4">
-                        @foreach ($latestnews as $latest)
+                        {{-- @foreach ($latestnews as $latest)
                             <div class="row">
                                 <div class="col-9">
                                     <a href="{{ route('singlenews', $latest->id) }}">{{ $latest->title }}</a>
                                 </div>
                             </div>
-                        @endforeach
+                        @endforeach --}}
                     </div>
                     {{-- <div id="most_read_news" style="display: none;" class="news-feed-latest mt-4">
                     <div class="row">

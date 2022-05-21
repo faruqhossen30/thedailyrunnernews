@@ -1,3 +1,17 @@
+@php
+use App\Models\Vot\Vot;
+$vot = Vot::get()->last();
+$yes = sprintf('%.2f', (100 * $vot->yes) / $vot->total_vot);
+$no = sprintf('%.2f', (100 * $vot->no) / $vot->total_vot);
+$no_comment = sprintf('%.2f', (100 * $vot->no_comment) / $vot->total_vot);
+@endphp
+
+@php
+use App\Models\Division;
+$divissions = Division::all();
+
+@endphp
+
 <div class="col-sm-12 col-md-3">
     <div class="rightSideBar">
         <div class="survey-area my-1">
@@ -64,51 +78,42 @@
                     <div class="card-body">
                         <img src="{{ asset('frontend/asset/img/bangladesh.svg') }}" width="390px" height="300px"
                             class="img-fluid" alt="map">
-                        <div class="row">
-                            <div class="col-6">
-                                <select class="form-select">
-                                    <option>বিভাগ</option>
-                                    <option>খুলনা</option>
-                                    <option>রাজশাহী</option>
-                                    <option>সিলেট</option>
-                                    <option>বরিশাল</option>
-                                    <option>চিটাগাং</option>
-                                    <option>রংপুর</option>
-                                    <option>দিনাজপুর</option>
-                                </select>
-                            </div>
-                            <div class="col-6">
-                                <select class="form-select">
-                                    <option>জেলা</option>
-                                    <option>খুলনা</option>
-                                    <option>রাজশাহী</option>
-                                    <option>সিলেট</option>
-                                    <option>বরিশাল</option>
-                                    <option>চিটাগাং</option>
-                                    <option>রংপুর</option>
-                                    <option>দিনাজপুর</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <select class="form-select mt-2">
-                                    <option>থানা</option>
-                                    <option>খুলনা</option>
-                                    <option>রাজশাহী</option>
-                                    <option>সিলেট</option>
-                                    <option>বরিশাল</option>
-                                    <option>চিটাগাং</option>
-                                    <option>রংপুর</option>
-                                    <option>দিনাজপুর</option>
-                                </select>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-grid">
-                                    <button class="btn btn-danger mt-2">অনুসন্ধান করুন</button>
+
+                        <form action="{{route('location.news', '$news->upazila_id')}}" method="GET">
+                            <div class="row">
+                                <div class="col-6">
+                                    <select class="form-select @error('division_id') is-invalid @enderror"
+                                        name="division_id">
+                                        <option selected value="">বিভাগ
+                                        </option>
+                                        @foreach ($divissions as $divission)
+                                            <option value="{{ $divission->id }}">
+                                                {{ $divission->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <select class="form-select @error('district_id') is-invalid @enderror"
+                                        name="district_id">
+                                        <option selected value="">জেলা</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <select class="form-select @error('upazila_id') is-invalid @enderror"
+                                        name="upazila_id">
+                                        <option selected value="">উপজেলা</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-danger mt-2">অনুসন্ধান করুন</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
@@ -121,8 +126,8 @@
                     <h4>অনলাইন জরিপ</h4>
                 </div>
                 <div class="card-body">
-                    @foreach ($vots as $vot)
-                        <p>{{ $vot->description }}</p>
+
+                    <p>{{ $vot->description }}</p>
 
 
                     <div class="row">
@@ -133,14 +138,15 @@
                                 <div class="row align-items-center g-0 mb-2 pb-1">
                                     <div class="col">
                                         <div class="progress progress-sm">
-                                            <div class="progress-bar" role="progressbar" style="width: 72%;"
-                                                aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-success" role="progressbar"
+                                                style="width:{{ $yes }}%;" aria-valuenow="7" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="col-auto">
 
                                         <div class="fw-medium ms-2">
-                                            {{ sprintf('%.2f', (100 * $vot->yes) / $vot->total_vot) }}%</div>
+                                            {{ $yes }}%</div>
                                     </div>
                                 </div>
                             @endif
@@ -150,14 +156,15 @@
                                 <div class="row align-items-center g-0 mb-2 pb-1">
                                     <div class="col">
                                         <div class="progress progress-sm">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 65%;"
-                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="0"></div>
+                                            <div class="progress-bar bg-danger" role="progressbar"
+                                                style="width:{{ $no }}%;" aria-valuenow="0" aria-valuemin="0"
+                                                aria-valuemax="0"></div>
                                         </div>
                                     </div>
                                     <div class="col-auto">
 
                                         <div class="fw-medium ms-2">
-                                            {{ sprintf('%.2f', (100 * $vot->no) / $vot->total_vot) }}%</div>
+                                            {{ $no }}%</div>
                                     </div>
                                 </div>
                             @endif
@@ -168,13 +175,14 @@
                                 <div class="row align-items-center g-0 mb-2 pb-1">
                                     <div class="col">
                                         <div class="progress progress-sm">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 48%;"
-                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="0"></div>
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                style="width: {{ $no_comment }}%;" aria-valuenow="0"
+                                                aria-valuemin="0" aria-valuemax="0"></div>
                                         </div>
                                     </div>
                                     <div class="col-auto">
                                         <div class="fw-medium ms-2">
-                                            {{ sprintf('%.2f', (100 * $vot->no_comment) / $vot->total_vot) }}%</div>
+                                            {{ $no_comment }}%</div>
                                     </div>
                                 </div>
                             @endif
@@ -192,7 +200,7 @@
                                     <td class="text-center">
                                         <input type="radio" name="vot" value="yes ">
                                     </td>
-                                    <td>হ্যা </td>
+                                    <td>হ্যাঁ </td>
 
                                     <td class="text-center">
                                         <input type="radio" name="vot" value="no ">
@@ -210,7 +218,7 @@
 
                     </form>
 
-                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -240,3 +248,47 @@
         <!-- sidebar epaper area end -->
     </div>
 </div>
+@push('script')
+    <script>
+        var division = $('select[name="division_id"]');
+        var district = $('select[name="district_id"]');
+        var upazila = $('select[name="upazila_id"]');
+
+        $(document).on('change', 'select[name="division_id"]', function() {
+            let divisionid = $(this).val()
+            console.log(divisionid);
+
+            $.ajax({
+                url: `/district-side-division/${divisionid}`,
+                type: 'GET',
+                success: function(data) {
+                    district.empty()
+                    district.append(data)
+                },
+            });
+
+        }); // change event end
+    </script>
+@endpush
+@push('script')
+    <script>
+        var division = $('select[name="division_id"]');
+        var district = $('select[name="district_id"]');
+        var upazila = $('select[name="upazila_id"]');
+
+        $(document).on('change', 'select[name="district_id"]', function() {
+            let districtid = $(this).val()
+            console.log(districtid);
+
+            $.ajax({
+                url: `/upazila-side-district/${districtid}`,
+                type: 'GET',
+                success: function(data) {
+                    upazila.empty()
+                    upazila.append(data)
+                },
+            });
+
+        }); // change event end
+    </script>
+@endpush

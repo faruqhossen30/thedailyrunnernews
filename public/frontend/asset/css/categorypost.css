@@ -4,9 +4,11 @@
     background-repeat: no-repeat;
     background-size: contain;
 
-
+    height: 60px;
     object-fit: fill;
+    padding: 0px 5px;
 }
+
 
 
 .category_cat_head h1 a {
@@ -14,7 +16,7 @@
     text-decoration: none;
     padding: 20px 0px;
     display: inline-block;
-    margin-top: 0px;
+    margin-top: -6px;
     font-size: 30px;
 }
 .category_cat_head h1 {

@@ -11,6 +11,7 @@ use App\Models\Division;
 use App\Models\Upazila;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -221,8 +222,9 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-
-        News::findOrFail($id)->delete();
-        return redirect()->back()->with('delete', 'Successfully Data delete');
+        $news = News::findOrFail($id);
+        Storage::disk('public')->delete('images/' . $news->image);
+        $news->delete();
+        return redirect(route('news.index'));
     }
 }

@@ -16,7 +16,8 @@ class VotController extends Controller
      */
     public function index()
     {
-        $vots = Vot::latest()->get();
+        // $vots = Vot::latest()->get();
+        $vots = Vot::first()->get();
 
         return view('backend.vot.index', compact('vots'));
     }
