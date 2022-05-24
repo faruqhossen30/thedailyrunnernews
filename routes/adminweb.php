@@ -92,5 +92,5 @@ Route::get('/district-side-division/{id}', [LoactionAjaxController::class, 'Divi
 Route::get('/upazila-side-district/{id}', [LoactionAjaxController::class, 'upazilatoDistrict'])->name('upazilatoDistrict');
 
 
-//--------------------------------category dependency
+//--------------------------------category dependency-----------------
 Route::get('/category-to-subcategory/{id}', [CategoryajaxController::class, 'CategorytoSubcategory'])->name('categorytosubcategory');

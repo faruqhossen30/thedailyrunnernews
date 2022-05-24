@@ -51,7 +51,6 @@ class CategoryController extends Controller
 
         Category::create([
             'name'        => $request->name,
-            // 'slug'        => SlugService::createSlug(Category::class, 'slug',  $slug, ['unique' => true]),
             'slug'        => make_slug($request->name),
             'description' => $request->description,
             'author_id'   =>  Auth::guard('admin')->user()->id,

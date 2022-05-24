@@ -581,6 +581,7 @@ ul {
 button.btn.btn-success.p-2 {
     margin-left: 90px;
 }
+
 /* --------------.survey-area end -----------------*/
 .navbar-inverse {
     background-color: #222;
@@ -663,3 +664,56 @@ element.style {
 
 
 
+
+.main-menu li {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+}
+
+.main-menu li a {
+    text-transform: capitalize;
+    display: block;
+    /* padding: 15px 10px; */
+}
+
+.main-menu .main-menu li:hover ul.submenu {
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+}
+
+.main-menu li ul.submenu {
+    transition: .5s;
+    background: #215837;
+    /* background: #000; */
+    width: 150px;
+    margin: 0;
+    opacity: 0;
+    top: 130%;
+    position: absolute;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.main-menu li ul.submenu li:hover {
+    background: #005e26
+}
+
+.main-menu li ul.submenu li {
+    list-style: none;
+    display: block;
+    /* padding: 5px 10px; */
+    transition: .5s;
+    border-top: 1px solid #ddd;
+}
+
+.main-menu li ul.submenu li a {
+    font-size: 15px !important;
+    /* padding: 5px 10px; */
+    transition: .5s;
+}
+
+.main-menu li ul.submenu li:hover a {
+    margin-left: 10px;
+}
