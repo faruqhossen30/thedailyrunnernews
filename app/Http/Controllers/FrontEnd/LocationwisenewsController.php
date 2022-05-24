@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog\Category;
 use App\Models\Blog\News;
 use App\Models\Division;
+use App\Models\Upazila;
 use App\Models\Vot\Vot;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,8 @@ class LocationwisenewsController extends Controller
         $divisionid = $request->division_id;
         $districtid = $request->district_id;
         $upzilaid = $request->upazila_id;
+        $upzilla = Upazila::with('getDistrict','getDivision')->where('id',$upzilaid)->first();
+        // return $upzilla;
 
         $allnews = News::where('division_id', $divisionid)
             ->when($districtid, function ($query, $districtid) {
@@ -28,9 +31,10 @@ class LocationwisenewsController extends Controller
                 return $query->where('upazila_id', $upzilaid);
             })
             ->get();
+            // return $allnews;
 
-            $latestnews   = News::take(4)->get();
-
-        return view('frontend.locationnews', compact('allnews','latestnews'));
+            $latestnews   = News::get();
+            $division = Division::all();
+        return view('frontend.locationnews', compact('allnews','latestnews','division','upzilla'));
     }
 }

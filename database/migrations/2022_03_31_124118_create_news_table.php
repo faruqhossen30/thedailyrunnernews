@@ -26,6 +26,7 @@ class CreateNewsTable extends Migration
             $table->boolean('status')->default(true);
             $table->string('thumbnail')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('sub_category_id')->nullable();
             $table->unsignedBigInteger('division_id')->nullable();
             $table->unsignedBigInteger('district_id')->nullable();
             $table->unsignedBigInteger('upazila_id')->nullable();

@@ -26,7 +26,9 @@ class HomepageController extends Controller
         $vots          = Vot::take(1)->get();
         $divissions = Division::all();
         // return $vot;
-           return view('frontend.homepage',compact('news', 'latestnews','natinoal','categorynews', 'lastnews','vots','divissions'));
 
+
+
+        return view('frontend.homepage', compact('news', 'latestnews', 'natinoal', 'categorynews', 'lastnews', 'vots', 'divissions'));
     }
 }

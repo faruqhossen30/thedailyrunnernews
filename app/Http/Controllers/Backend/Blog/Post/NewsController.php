@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Blog\Post;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\Category;
 use App\Models\Blog\News;
+use App\Models\Blog\SubCategory;
 use App\Models\Blog\Tags;
 use App\Models\District;
 use App\Models\Division;
@@ -44,11 +45,15 @@ class NewsController extends Controller
         // return $district;
         $upzillas = Upazila::all();
 
+        $subcategories = SubCategory::all();
+
+        // return   $subcategoey;
+
         $tags = Tags::all();
         // return $upzilla;
         $news = News::latest()->get();
         // return  $tags;
-        return view('backend.blogs.news.create_news', compact('news', 'divissions', 'districts', 'upzillas', 'categories', 'tags'));
+        return view('backend.blogs.news.create_news', compact('news', 'divissions', 'districts', 'upzillas', 'categories', 'subcategories', 'tags'));
     }
 
     /**
@@ -66,6 +71,7 @@ class NewsController extends Controller
             'content'               => 'required',
             'meta_title'            => 'required',
             'category_id'           => 'required',
+            'sub_category_id'       => 'required',
             'blog_meta_description' => 'required',
             'thumbnail'             => 'required',
         ], [
@@ -78,9 +84,10 @@ class NewsController extends Controller
             'status.required'                => 'please enter your status',
             ' thumbnail.required'            => 'please enter your thumbnail',
             ' category_id.required'          => 'please enter your category_id',
+            ' sub_category_id.required'      => 'please enter your category_id',
             ' division_id.required'          => 'please enter your division_id',
             'district_id.required'           => 'please enter your district_id',
-            'upzilla_id.required'            => 'please enter your upzilla_id'
+            'upazila_id.required'            => 'please enter your upazila_id',
         ]);
 
 
@@ -93,16 +100,16 @@ class NewsController extends Controller
                 'title'                 => $request->title,
                 'content'               => $request->content,
                 'meta_title'            => $request->meta_title,
-                // 'slug'               => SlugService::createSlug(News::class, 'slug', $request->title, ['unique' => true]),
                 'slug'                  => make_slug($request->name),
                 'blog_meta_description' => $request->blog_meta_description,
                 'video_url'             => $request->video_url,
-                'tags'                  => $request->tags,
+                'tags'                  => json_encode($request->tags),
                 'thumbnail'             => $name,
                 'category_id'           => $request->category_id,
+                'sub_category_id'       => $request->sub_category_id,
                 'division_id'           => $request->division_id,
                 'district_id'           => $request->district_id,
-                'upzilla_id'            => $request->upzilla_id,
+                'upazila_id'            => $request->upazila_id,
             ]);
             return redirect()->route('news.index')->with('success', 'successfully data added');
         } else {
@@ -110,16 +117,15 @@ class NewsController extends Controller
                 'title'                 => $request->title,
                 'content'               => $request->content,
                 'meta_title'            => $request->meta_title,
-                // 'slug'               => SlugService::createSlug(News::class, 'slug', $request->title, ['unique' => true]),
                 'slug'                  => make_slug($request->name),
                 'blog_meta_description' => $request->blog_meta_description,
                 'video_url'             => $request->video_url,
-                'tags'                  => $request->tags,
-                'status'                => $request->status,
+                'tags'                  => json_encode($request->tags),
                 'category_id'           => $request->category_id,
+                'sub_category_id'       => $request->sub_category_id,
                 'division_id'           => $request->division_id,
                 'district_id'           => $request->district_id,
-                'upzilla_id'            => $request->upzilla_id,
+                'upazila_id'            => $request->upazila_id,
             ]);
             return redirect()->route('brand.index')->with('success', 'successfully data added');
         }
@@ -148,17 +154,18 @@ class NewsController extends Controller
     public function edit($id)
     {
         $categories = Category::all();
+        $subcategories = SubCategory::all();
 
         $divissions = Division::all();
         // return $divission;
         $districts = District::all();
         // return $district;
-        $upzillas = Upazila::all();
+        $upazilas = Upazila::all();
         $news = News::firstWhere('id', $id);
-
+        $tags = Tags::all();
         // return $news;
 
-        return view('backend.blogs.news.news_edit', compact('news', 'categories', 'divissions', 'districts', 'upzillas'));
+        return view('backend.blogs.news.news_edit', compact('news', 'categories', 'divissions', 'districts', 'upazilas', 'tags', 'subcategories'));
     }
 
     /**
@@ -179,17 +186,17 @@ class NewsController extends Controller
                 'title'                 => $request->title,
                 'content'               => $request->content,
                 'meta_title'            => $request->meta_title,
-                // 'slug'               => SlugService::createSlug(News::class, 'slug', $request->title, ['unique' => true]),
                 'slug'                  => make_slug($request->name),
                 'blog_meta_description' => $request->blog_meta_description,
                 'video_url'             => $request->video_url,
-                'tags'                  => $request->tags,
+                'tags'                  => json_encode($request->tags),
                 'status'                => $request->status,
                 'thumbnail'             => $name,
                 'category_id'           => $request->category_id,
+                'sub_category_id'       => $request->sub_category_id,
                 'division_id'           => $request->division_id,
                 'district_id'           => $request->district_id,
-                'upzilla_id'            => $request->upzilla_id,
+                'upazila_id'            => $request->upazila_id,
             ]);
             return redirect()->route('news.index')->with('success', 'successfully data added');
         } else {
@@ -198,16 +205,17 @@ class NewsController extends Controller
                 'title'                 => $request->title,
                 'content'               => $request->content,
                 'meta_title'            => $request->meta_title,
-                // 'slug'               => SlugService::createSlug(News::class, 'slug', $request->title, ['unique' => true]),
+
                 'slug'                  => make_slug($request->name),
                 'blog_meta_description' => $request->blog_meta_description,
                 'video_url'             => $request->video_url,
-                'tags'                  => $request->tags,
+                'tags'                  => json_encode($request->tags),
                 'status'                => $request->status,
                 'category_id'           => $request->category_id,
+                'sub_category_id'       => $request->sub_category_id,
                 'division_id'           => $request->division_id,
                 'district_id'           => $request->district_id,
-                'upzilla_id'            => $request->upzilla_id,
+                'upazila_id'            => $request->upazila_id,
 
             ]);
             return redirect()->route('news.index')->with('success', 'successfully data added');

@@ -6,26 +6,28 @@
 
     @endphp
     <section class="big_category_header hidden-xs d-flex " style="background-image: url() ">
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <div class=" category_cat_head">
-                        <h1><a href="{{route('location.news')}}">সারাদেশ</a> </h1>
+                        <h1><a href="{{ route('location.news') }}">সারাদেশ</a> </h1>
                     </div>
 
                 </div>
                 <div class="col-sm-6">
                     <div class="page-title-right" style="float: right">
                         <ol class="breadcrumb p-4">
-                            <li class="breadcrumb-item"><a href="#">বিভাগ</a></li>
-                            <li class="breadcrumb-item"><a href="#">জেলা</a></li>
-                            <li class="breadcrumb-item ">থানা</li>
+                            <li class="breadcrumb-item"> বিভাগ > {{ $upzilla->getDivision->name ?? '' }}</li>
+                            <li class="breadcrumb-item"> জেলা > {{ $upzilla->getDistrict->name ?? '' }}</li>
+                            <li class="breadcrumb-item "> থানা > {{ $upzilla->name ?? ''}}</li>
                         </ol>
                     </div>
                 </div>
             </div>
 
         </div>
+
     </section>
 
     <!-- Menu-body section-start -->

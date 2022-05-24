@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\Location\LoactionAjaxController;
 use App\Http\Controllers\Admin\Setting\SettingController;
 use App\Http\Controllers\Backend\Admins\AdminsController;
 use App\Http\Controllers\Backend\Auth\LoginController;
+use App\Http\Controllers\Backend\Blog\Post\CategoryajaxController;
 use App\Http\Controllers\Backend\Blog\Post\CategoryController;
 use App\Http\Controllers\Backend\Blog\Post\NewsController;
 use App\Http\Controllers\Backend\Blog\Post\SinglePageController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Backend\Roles\RolesController;
 use App\Http\Controllers\Backend\Setting\SiteController;
 use App\Http\Controllers\Backend\Users\UsersController;
 use App\Http\Controllers\Backend\Vot\VotController;
+use App\Http\Controllers\FrontEnd\CategorywisenewsController;
 use Database\Seeders\LocationSeeder;
 
 /*
@@ -88,3 +90,7 @@ Route::get('/district-division/{id}', [LoactionAjaxController::class, 'districtD
 //-------------------sidebar location Dependancy--------------
 Route::get('/district-side-division/{id}', [LoactionAjaxController::class, 'Divisiontodistrict'])->name('districttoDivision');
 Route::get('/upazila-side-district/{id}', [LoactionAjaxController::class, 'upazilatoDistrict'])->name('upazilatoDistrict');
+
+
+//--------------------------------category dependency
+Route::get('/category-to-subcategory/{id}', [CategoryajaxController::class, 'CategorytoSubcategory'])->name('categorytosubcategory');

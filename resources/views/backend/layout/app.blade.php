@@ -92,8 +92,25 @@
 
     <script src="/public/backend/assets/js/pages/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script src="{{ asset('backend/assets/css/material/select2.min.css') }}"></script>
+    <script src="{{ asset('backend/assets/js/pages/form_select2.js') }}"></script>
     @stack('script')
-    @stack('summernote')
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Post Description',
+            tabsize: 2,
+              height: 250,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
 
 
 </body>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FrontEnd;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\Category;
 use App\Models\Blog\News;
+use App\Models\Blog\SubCategory;
 use Illuminate\Http\Request;
 
 class CategorywisenewsController extends Controller
@@ -19,4 +20,6 @@ class CategorywisenewsController extends Controller
 
         return view('frontend.categorynews', compact('category', 'allnews','latestnews'));
     }
+
+
 }

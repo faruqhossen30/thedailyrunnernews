@@ -25,9 +25,10 @@ class News extends Model
         'status',
         'thumbnail',
         'category_id',
+        'sub_category_id',
         'division_id',
         'district_id',
-        'upzilla_id',
+        'upazila_id',
         'user_id'
 
     ];
@@ -44,6 +45,10 @@ class News extends Model
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+    public function subcategory()
+    {
+        return $this->hasOne(SubCategory::class, 'id', 'sub_category_id');
     }
     public function getDistrict()
     {
