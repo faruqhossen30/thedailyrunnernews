@@ -8,7 +8,7 @@ use App\Models\Blog\News;
 use App\Models\Blog\SubCategory;
 use Illuminate\Http\Request;
 
-class SubcategorywiseController extends Controller
+class SubcategorypostController extends Controller
 {
     public function subcategoryNews(Request $request, $id){
 
