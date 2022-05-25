@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\Http\Controllers\FrontEnd\SinglepostController;
+use App\Http\Controllers\Frontend\SubcategorypostController;
 use App\Http\Controllers\Frontend\SubCategorywiseController;
 
 /*
@@ -38,7 +39,7 @@ Route::get('/news/{id}',[SinglepostController::class,'singlenews'])->name('singl
 
 Route::get('/category/{id}',[CategorywisenewsController::class,'categoryNews'])->name('category.news');
 
-Route::get('/subcategory/{id}',[SubcategorywiseController::class,'subcategoryNews'])->name('subcategory.news');
+Route::get('/subcategory/{id}',[SubcategorypostController::class,'subcategoryNews'])->name('subcategory.news');
 
 Route::get('/locationnews',[LocationwisenewsController::class,'locationWisenews'])->name('location.news');
 
