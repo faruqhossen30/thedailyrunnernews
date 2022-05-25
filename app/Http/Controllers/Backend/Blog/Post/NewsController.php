@@ -71,20 +71,16 @@ class NewsController extends Controller
             'content'               => 'required',
             'meta_title'            => 'required',
             'category_id'           => 'required',
-            'sub_category_id'       => 'required',
-            'blog_meta_description' => 'required',
             'thumbnail'             => 'required',
         ], [
             ' title.required'                => 'please enter your title',
             'content.required'               => 'please enter your content',
             'meta_title.required'            => 'please enter your meta_title',
-            'blog_meta_description.required' => 'please enter your blog_meta_description',
             ' video_url.required'            => 'please enter your video_url',
             ' tags.required'                 => 'please enter your tags',
             'status.required'                => 'please enter your status',
             ' thumbnail.required'            => 'please enter your thumbnail',
             ' category_id.required'          => 'please enter your category_id',
-            ' sub_category_id.required'      => 'please enter your category_id',
             ' division_id.required'          => 'please enter your division_id',
             'district_id.required'           => 'please enter your district_id',
             'upazila_id.required'            => 'please enter your upazila_id',
@@ -92,7 +88,6 @@ class NewsController extends Controller
 
 
         if ($request->hasFile('thumbnail')) {
-
             $name = $request->thumbnail->getClientOriginalName();
             $request->thumbnail->storeAs('images', $name, 'public');
 
