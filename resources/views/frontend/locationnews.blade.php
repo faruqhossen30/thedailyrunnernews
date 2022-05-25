@@ -52,7 +52,7 @@
                                         <div class="paddingTop10 paddingRight10">
                                             <h3 style="font-size:1.1em; margin-top:18px">
                                                 <a href="{{ route('singlenews', $news->id) }}"
-                                                    title="দুর্নীতিবিরোধী বার্তা দেবেন প্রধানমন্ত্রী">{{ $news->title }}</a>
+                                                    title="{{ $news->title }}">{{ $news->title }}</a>
                                             </h3>
                                         </div>
                                     </div>

@@ -40,7 +40,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $slug =  make_slug($request->name);
+   
         $request->validate([
             'name'        => 'required',
             'description' => 'required',
