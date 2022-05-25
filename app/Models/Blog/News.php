@@ -29,7 +29,8 @@ class News extends Model
         'division_id',
         'district_id',
         'upazila_id',
-        'user_id'
+        'user_id',
+        'view_count',
 
     ];
     public function sluggable(): array

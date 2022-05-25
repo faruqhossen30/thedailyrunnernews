@@ -13,6 +13,7 @@ class SinglepostController extends Controller
 
         $news = News::firstWhere('id', $id);
         $latestnews   = News::take(6)->get();
+        
         return view('frontend.singlenews', compact('news','latestnews'));
     }
 
