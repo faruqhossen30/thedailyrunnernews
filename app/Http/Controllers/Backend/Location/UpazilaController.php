@@ -56,7 +56,7 @@ class UpazilaController extends Controller
             'division_id' => $request->division_id,
             'district_id' => $request->district_id,
             'name'        => $request->name,
-            'slug' => SlugService::createSlug(Division::class, 'slug', $request->name),
+            'slug' => make_slug($request->name),
         ]);
         return redirect()->route('upazila.index')->with('success', 'successfully data added');
     }
@@ -99,7 +99,7 @@ class UpazilaController extends Controller
         return $request->all();
         Upazila::where('id',$id)->update([
             'name'=> $request->name,
-            'slug' => SlugService::createSlug(Upazila::class, 'slug', $request->name),
+            'slug' => make_slug($request->name),
         ]);
         return redirect()->route('upazila.index')->with('update', 'Successfully Data Updated');
     }

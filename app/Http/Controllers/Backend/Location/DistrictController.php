@@ -52,7 +52,7 @@ class DistrictController extends Controller
         District::create([
             'name'        => $request->name,
             'division_id' => $request->division_id,
-            'slug'        => SlugService::createSlug(District::class, 'slug', $request->name),
+            'slug' => make_slug($request->name),
 
         ]);
         return redirect()->route('district.index')->with('success', 'successfully data added');
@@ -94,7 +94,7 @@ class DistrictController extends Controller
     {
         District::where('id',$id)->update([
             'name' => $request->name,
-            'slug' => SlugService::createSlug(District::class, 'slug', $request->name),
+            'slug' => make_slug($request->name),
         ]);
         return redirect()->route('district.index')->with('update', 'Successfully Data Updated');
     }
