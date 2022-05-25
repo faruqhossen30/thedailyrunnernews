@@ -12,8 +12,8 @@ class SinglepostController extends Controller
     public function singlenews(Request $request, $id){
 
         $news = News::firstWhere('id', $id);
-
-        return view('frontend.singlenews', compact('news'));
+        $latestnews   = News::take(6)->get();
+        return view('frontend.singlenews', compact('news','latestnews'));
     }
 
 }

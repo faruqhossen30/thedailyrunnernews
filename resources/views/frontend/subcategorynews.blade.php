@@ -2,7 +2,7 @@
 @section('content')
     <section class="big_category_header hidden-xs" style="background-image: url()">
         <div class="container category_cat_head">
-            <h1><a href="{{ route('category.news', $category->id) }}">{{ $category->name }}</a>
+            <h1><a href="{{ route('subcategory.news', $subcategory->id) }}">{{ $subcategory->name }}</a>
 
             </h1>
 

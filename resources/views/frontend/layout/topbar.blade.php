@@ -26,8 +26,8 @@ use EasyBanglaDate\Types\BnDateTime;
                 <div class="col-md-6 col-sm-12" id="searchdiv">
                     <div class="top-header-right">
                         <div class="search-container d-lg-block d-none">
-                            <form action="/action_page.php">
-                                <input type="text" placeholder="কী খুঁজতে চান ?" name="search">
+                            <form action="{{ route('search.page') }}" method="GET">
+                                <input name="keyword" type="text" placeholder="কী খুঁজতে চান ?" name="search">
                                 <button type="submit"><i class="fas fa-search"></i>সার্স</button>
                             </form>
                         </div>
@@ -48,11 +48,11 @@ use EasyBanglaDate\Types\BnDateTime;
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <form action="">
+                    <form action="{{ route('search.page') }}" method="GET">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="কী খুঁজতে চান ?"
+                            <input name="keyword" type="text" class="form-control" placeholder="কী খুঁজতে চান ?"
                                 aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">সার্স</button>
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">সার্স</button>
                         </div>
                     </form>
                 </div>

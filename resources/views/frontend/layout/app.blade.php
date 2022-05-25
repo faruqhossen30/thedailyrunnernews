@@ -28,6 +28,9 @@
 
 
     <title>Thedailyrunnernews</title>
+    @stack('style')
+
+
 </head>
 
 <body>
@@ -46,7 +49,6 @@
     <!-- Menu-body section-start -->
 
             @yield('content')
-
 
 
     <!-- Menu-body section-end -->
@@ -71,6 +73,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="{{ asset('frontend/asset/js/script.js') }}"></script>
+
+    @stack('script')
 </body>
 
 </html>

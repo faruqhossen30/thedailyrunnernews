@@ -131,7 +131,7 @@
                     <img src="" alt="user-image"
                         class="rounded-circle">
                     <span class="pro-user-name ms-1">
-                     {{Auth::guard('admin')->user()->name}}
+                     {{-- {{Auth::guard('admin')->user()->name}} --}}
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">

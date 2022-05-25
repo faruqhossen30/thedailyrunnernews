@@ -5,6 +5,7 @@ namespace App\Models\Blog;
 use App\Models\District;
 use App\Models\Division;
 use App\Models\Upazila;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -24,9 +25,11 @@ class News extends Model
         'status',
         'thumbnail',
         'category_id',
+        'sub_category_id',
         'division_id',
         'district_id',
-        'upzilla_id'
+        'upazila_id',
+        'user_id'
 
     ];
     public function sluggable(): array
@@ -42,6 +45,10 @@ class News extends Model
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+    public function subcategory()
+    {
+        return $this->hasOne(SubCategory::class, 'id', 'sub_category_id');
     }
     public function getDistrict()
     {
@@ -60,6 +67,10 @@ class News extends Model
 
     public function tags()
     {
-        return $this->hasOne(tags::class, 'id', 'tags');
+        return $this->hasOne(Tags::class, 'id', 'tags');
+    }
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 }

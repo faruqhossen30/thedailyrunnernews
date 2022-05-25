@@ -13,34 +13,63 @@ $categories = App\Models\Blog\Category::get();
                             class="img-fluid" style="height: 50px;" alt="">
                     </a>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            {{-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    জাতীয়
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">এক</a></li>
-                                    <li><a class="dropdown-item" href="#">দুই</a></li>
-                                    <li><a class="dropdown-item" href="#">তিন</a></li>
-                                </ul>
-                            </li> --}}
-                            @foreach ($categories as $category)
-                                <li class="nav-item">
-                                    <a class="nav-link " aria-current="page" href="{{route('category.news',$category->id)}}">{{ $category->name }}</a>
+
+                        @foreach ($categories as $category)
+                            @php
+                                $subcategories = App\Models\Blog\SubCategory::where('category_id', $category->id)->get();
+                            @endphp
+
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-menu">
+                                <li><a href="{{ route('category.news', $category->id) }}">{{ $category->name }} <i class="@if (count($subcategories) > 0)  fa fa-angle-down
+                                    @endif"></i> </a>
+                                    @if (count($subcategories) > 0)
+                                        <ul class="submenu">
+                                            @foreach ($subcategories as $subcategory)
+                                            <li><a href="{{route('subcategory.news',$subcategory->id)}}">{{ $subcategory->name }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
                                 </li>
-                            @endforeach
-                            {{-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    জাতীয়
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">এক</a></li>
-                                    <li><a class="dropdown-item" href="#">দুই</a></li>
-                                    <li><a class="dropdown-item" href="#">তিন</a></li>
-                                </ul>
-                            </li> --}}
+                        @endforeach
+
+                        {{-- @foreach ($categories as $category)
+                                @php
+                                    $subcategories = App\Models\Blog\SubCategory::where('category_id', $category->id)->get();
+                                @endphp
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link @if (count($subcategories) > 0) dropdown-toggle @endif"
+                                        href="{{ route('category.news', $category->id) }}" id="navbarDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ $category->name }}
+                                    </a>
+                                    @if (count($subcategories) > 0)
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            @foreach ($subcategories as $subcategory)
+                                                <li><a class="dropdown-item"
+                                                        href="{{route('subcategory.news',$subcategory->id)}}">{{ $subcategory->name }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+
+                                </li>
+
+
+                            @endforeach --}}
+
+
+
+
+
+
+                        {{-- @foreach ($categories as $category)
+
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="{{route('category.news',$category->id)}}">{{ $category->name }}</a>
+                            </li>
+
+                            @endforeach --}}
+
                         </ul>
                     </div>
                     <div class="col-lg-2 ps-0 ps-md-3">
@@ -57,7 +86,7 @@ $categories = App\Models\Blog\Category::get();
                         <div class="row">
                             @foreach ($categories as $category)
                                 <div class="col-lg-2">
-                                    <a href="{{route('category.news',$category->id)}}">{{ $category->name }}</a>
+                                    <a href="{{ route('category.news', $category->id) }}">{{ $category->name }}</a>
                                 </div>
                             @endforeach
 
@@ -95,7 +124,7 @@ $categories = App\Models\Blog\Category::get();
                     </div>
                 </div>
                 <!-- mega menu  section-end -->
-           </div>
+        </div>
         </nav>
     </div>
 </div>
