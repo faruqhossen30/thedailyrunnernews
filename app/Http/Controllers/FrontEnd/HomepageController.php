@@ -23,7 +23,7 @@ class HomepageController extends Controller
         $latestnews   = News::take(4)->get();
         $natinoal     = News::take(6)->get();
         $categorynews = Category::with('news')->get();
-        $vots          = Vot::take(1)->get();
+        $vots         = Vot::take(1)->get();
         $divissions = Division::all();
         // return $vot;
 

@@ -35,9 +35,10 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/news/{id}',[SinglepostController::class,'singlenews'])->name('singlenews');
+
 Route::get('/category/{id}',[CategorywisenewsController::class,'categoryNews'])->name('category.news');
 
-Route::get('/subcategory/{id}',[SubCategorywiseController::class,'subcategoryNews'])->name('subcategory.news');
+Route::get('/subcategory/{id}',[SubcategorywiseController::class,'subcategoryNews'])->name('subcategory.news');
 
 Route::get('/locationnews',[LocationwisenewsController::class,'locationWisenews'])->name('location.news');
 
