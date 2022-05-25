@@ -20,8 +20,8 @@ class CreateVotsTable extends Migration
             $table->integer('no')->default(0);
             $table->integer('no_comment')->default(0);
             $table->integer('total_vot')->default(0);
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }

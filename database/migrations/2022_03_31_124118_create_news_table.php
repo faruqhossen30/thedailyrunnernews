@@ -18,7 +18,7 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->longText('content');
             $table->string('meta_title')->nullable();
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->longText('blog_meta_description')->nullable();
             $table->string('video_url')->nullable();
             $table->string('tags')->nullable();
@@ -31,6 +31,7 @@ class CreateNewsTable extends Migration
             $table->unsignedBigInteger('district_id')->nullable();
             $table->unsignedBigInteger('upazila_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->integer('view_count')->default(0);
             $table->timestamps();
         });
     }

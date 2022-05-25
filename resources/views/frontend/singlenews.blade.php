@@ -65,8 +65,8 @@ $postdate = $bongabda->getDateTime()->format('l jS F Y');
                     <!-- End Advertisement -->
 
 
-
                     <hr>
+                    <a href="#"><i class="fa-solid fa-eye"></i>views</a>
                     <div class="share-button">
                         <samp style="font-size: 25px"><i class="fa-solid fa-share-nodes"></i> Share!</samp>
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singlenews', $news->id) }}"
