@@ -8,11 +8,13 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <!-- App css -->
     <link href="{{ asset('backend/assets/css/material/bootstrap-material.min.css') }}" rel="stylesheet" type="text/css"
         id="bs-default-stylesheet" />
+    <link href="{{asset('backend/assets/css/material/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/assets/css/material/app-material.min.css') }}" rel="stylesheet" type="text/css"
         id="app-default-stylesheet" />
     <link href="{{ asset('backend/assets/libs/quill/quill.snow.css') }}" rel="stylesheet" type="text/css" />
@@ -68,27 +70,43 @@
     <!-- Right Sidebar -->
     @include('backend.layout.rightsidebar')
     <!-- /Right-bar -->
+
+
+
+
+
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
     <!-- Vendor js -->
+ <script src="{{asset('backend/assets/js/vendor.min.js')}}"></script>
+
+ <!-- KNOB JS -->
+ <script src="{{asset('backend/assets/libs/jquery.knob.min.js')}}"></script>
+ <!-- Apex js-->
+ <script src="{{asset('backend/assets/libs/apexcharts/apexcharts.min.js')}}"></script>
+
+ <!-- Plugins js-->
+ <script src="{{asset('backend/assets/js/pages/jquery-jvectormap-1.2.2.min.js')}}"></script>
+ <script src="{{asset('backend/assets/libs/jquery-jvectormap-world-mill-en.js')}}"></script>
+
+ <!-- Dashboard init-->
+ <script src="{{asset('backend/assets/js/dashboard-sales.init.js')}}"></script>
+
+ <!-- App js -->
+ <script src="{{asset('backend/assets/js/app.min.js')}}"></script>
+    <!-- Vendor js -->
 
     <script src="/public/backend/assets/js/pages/jquery.min.js"></script>
-    <script src="{{ asset('backend/assets/js/vendor.min.js') }}"></script>
+
     <!-- App js -->
     <script src="{{ asset('backend/assets/js/app.min.js') }}"></script>
-    {{-- <script src="{{ asset('backend/assets/js/pages/fontawesome.init.js') }}"></script> --}}
+
 
     <!-- Plugins js -->
     <script src="{{ asset('backend/assets/libs/quill/quill.min.js') }}"></script>
 
-    <!-- Init js-->
-    {{-- <script src="{{ asset('backend/assets/js/pages/form-quilljs.init.js') }}"></script> --}}
 
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" ></script>
-
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
 
     <script src="/public/backend/assets/js/pages/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
