@@ -57,6 +57,7 @@ class SubCategoryController extends Controller
 
         SubCategory::create([
             'name'        => $request->name,
+            'slug'        => make_slug($request->name),
             'description' => $request->description,
             'category_id' => $request->category_id,
             'author_id'   => Auth::guard('admin')->user()->id,

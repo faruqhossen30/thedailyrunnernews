@@ -99,6 +99,7 @@ class UpazilaController extends Controller
         return $request->all();
         Upazila::where('id',$id)->update([
             'name'=> $request->name,
+
             'slug'=> make_slug($request->name),
         ]);
         return redirect()->route('upazila.index')->with('update', 'Successfully Data Updated');

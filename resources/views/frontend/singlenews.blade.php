@@ -69,15 +69,15 @@ $postdate = $bongabda->getDateTime()->format('l jS F Y');
                     <a href="#"><i class="fa-solid fa-eye"></i>views</a>
                     <div class="share-button">
                         <samp style="font-size: 25px"><i class="fa-solid fa-share-nodes"></i> Share!</samp>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singlenews', $news->id) }}"
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singlenews', $news->slug) }}"
                             target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/intent/tweet?url={{ route('singlenews', $news->id) }}"
+                        <a href="https://twitter.com/intent/tweet?url={{ route('singlenews', $news->slug) }}"
                             target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('singlenews', $news->id) }}"
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('singlenews', $news->slug) }}"
                             target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="whatsapp://send?text={{ route('singlenews', $news->id) }}" target="_blank"><i
+                        <a href="whatsapp://send?text={{ route('singlenews', $news->slug) }}" target="_blank"><i
                                 class="fa-brands fa-whatsapp"></i></a>
-                        <a href="//pinterest.com/pin/create/link/?url={{ route('singlenews', $news->id) }}"
+                        <a href="//pinterest.com/pin/create/link/?url={{ route('singlenews', $news->slug) }}"
                             target="_blank"><i class="fa-brands fa-pinterest"></i></a>
                     </div>
                 </article>

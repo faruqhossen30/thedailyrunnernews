@@ -92,7 +92,8 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
        Category :: findOrFail($id)->update([
-        'name'        => $request->name,
+        'name'        => $request->name
+        'slug' => make_slug($request->name),
         'slug'                  => make_slug($request->name),
         'description' => $request->description,
         'update_author_id' => Auth::guard('admin')->user()->id,

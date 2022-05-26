@@ -47,6 +47,7 @@ class DivisionController extends Controller
 
         Division::Create([
             'name' => $request->name,
+
             'slug'=> make_slug($request->name),
         ]);
         return redirect()->route('division.index')->with('success','successfully data added');

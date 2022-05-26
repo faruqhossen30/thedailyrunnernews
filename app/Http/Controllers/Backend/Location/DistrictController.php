@@ -53,7 +53,6 @@ class DistrictController extends Controller
             'name'        => $request->name,
             'division_id' => $request->division_id,
             'slug'                  => make_slug($request->name),
-
         ]);
         return redirect()->route('district.index')->with('success', 'successfully data added');
     }
