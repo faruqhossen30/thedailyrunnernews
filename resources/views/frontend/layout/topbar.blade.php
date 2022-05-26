@@ -28,7 +28,7 @@ use EasyBanglaDate\Types\BnDateTime;
                         <div class="search-container d-lg-block d-none">
                             <form action="{{ route('search.page') }}" method="GET">
                                 <input name="keyword" type="text" placeholder="কী খুঁজতে চান ?" name="search">
-                                <button type="submit"><i class="fas fa-search"></i>সার্স</button>
+                                <button type="submit"><i class="fas fa-search"></i>সার্চ</button>
                             </form>
                         </div>
                         <div class="top-bar-social-icon d-sm-block d-none">

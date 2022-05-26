@@ -165,6 +165,9 @@ $usr = Auth::guard('admin')->user();
                             <li>
                                 <a href="{{route('tags.index')}}">Tags</a>
                             </li>
+                            <li>
+                                <a href="{{route('vot.index')}}"> Add Vot</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
