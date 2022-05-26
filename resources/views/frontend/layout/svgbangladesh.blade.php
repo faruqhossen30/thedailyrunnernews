@@ -115,7 +115,7 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
     }
 
     #rangpur:hover path {
-        fill: #9A1515;
+        fill: #159a19;
     }
 
     #rangpur:hover path.st17 {
@@ -127,7 +127,7 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
     }
 
     #mymensingh:hover path {
-        fill: #9A1515;
+        fill: #055a08;
     }
 
     #mymensingh:hover path.st17 {
@@ -139,7 +139,7 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
     }
 
     #sylhet:hover path {
-        fill: #9A1515;
+        fill: #055a08;
     }
 
     #sylhet:hover path.st17 {
@@ -151,7 +151,7 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
     }
 
     #rajshahi:hover path {
-        fill: #9A1515;
+        fill: #055a08;
     }
 
     #rajshahi:hover path.st17 {
@@ -163,7 +163,7 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
     }
 
     #khulna:hover path {
-        fill: #9A1515;
+        fill: #055a08;
     }
 
     #khulna:hover path.st17 {
@@ -175,7 +175,7 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
     }
 
     #borishal:hover path {
-        fill: #9A1515;
+        fill: #055a08;
     }
 
     #borishal:hover path.st17 {
@@ -187,7 +187,7 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
     }
 
     #chittagong:hover path {
-        fill: #9A1515;
+        fill: #055a08;
     }
 
     #chittagong:hover path.st17 {
@@ -199,7 +199,7 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
     }
 
     #dhaka:hover path {
-        fill: #9A1515;
+        fill: #055a08;
     }
 
     #dhaka:hover path.st17 {
@@ -855,7 +855,8 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
 
 
 <g id="rangpur">
-    <a href="{{url('/locationnews?division_id=5')}}"
+    <a href="{{url('/locationnews?division_id=7')}}"
+
         xlink:href="#">
         <path class="st3" d="M-152-370.6c0,0,0.5,2-2.2,3.8l-1.6,1l0.2,7.5c0,0-3.2,2.5-3.2,3.4l0.2,5c0,0,0.9,1.9,1.6,1.9l1.6-0.9l0.4-3.6
         l1.8-1.4h1l1,0.9l1.1,1.1l2,0.2l4.1,0.1l1.2,0.2l0.9,0.9l1,0.2l0.5,0.5l0.4,1.5v1v1.4v1.4l0.5,1.5c0,0,0.4,1,0.9,1.2
@@ -1041,7 +1042,8 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
 
 
 <g id="sylhet">
-    <a href="{{url('/locationnews?division_id=6')}}"
+    <a href="{{url('/locationnews?division_id=4')}}"
+    {{--  --}}
         xlink:href="#">
         <path class="st3" d="M143.6-178.4l-19.2,0.6l2.3,4l-0.7,2.5l-2.8,0.8l2.3,3.3l-1.7,3.2l1.2,3l-0.5,5.8l6.8,4.5l4.9,0.1
         c0,0,3.7,2.3,6.5,6c1.2,1.6,0.2,5.5,0.2,5.5l6.3-1.3l9.2-1l4.8-1.5l3.2,1.3c0,0,0.5,1,0.7,2.3s-0.2,2.2,0.5,3.7s0.7,2.3,0.7,2.3
@@ -1186,7 +1188,8 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
 
 
 <g id="khulna">
-    <a href="{{ url('/locationnews?division_id=2') }}" xlink:href="#">
+    <a href="{{ url('/locationnews?division_id=8') }}" xlink:href="#">
+        {{-- --}}
         <path class="st3"
             d="M25.8,164.2c0,0-0.9-4.1-0.9-4.6s0.4-2.5,0.4-2.5l-1.4-1.9c0,0-0.6-2-1-2.4c-0.4-0.4-1.4-3-1.4-3l0.6-1.1
         l-2.6-1.6c0,0,0.1-1.2,0.6-1.4s1.2-0.4,1.6-0.6c0.4-0.2,1.4-3.2,1.4-3.2s-0.6-2.4-0.6-2.9s-0.1-1.6,0-2.1c0.1-0.5,0.6-3.4,0.8-3.8
@@ -1391,6 +1394,7 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
 
 <g id="dhaka">
     <a href="{{url('/locationnews?division_id=1')}}" xlink:href="#">
+        {{--  --}}
         <path class="st3"
             d="M49.4-95.6l1.6-3.1l-5.3-1.9l-2.8-3.5l-2.6-4.1l-2.2-4.1v-2.5l1.7-3.5l-0.2-6.7l-4.2-2.7l-1.8-2.3l2.8-3.2
     l-2.6-0.4l-2.7,0.4l-2.2,1.1l-3.5,3l-3.8,2.2l-3.2-1H16l-2,2.7l-0.7,2l-1.3,2.5l-0.5,1.3L9-117.8c0,0-0.2,0.2-0.5,2.8
@@ -1564,7 +1568,8 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
 
 
 <g id="mymensingh">
-    <a href="{{url('/locationnews?division_id=7')}}"
+    <a href="{{url('/locationnews?division_id=5')}}"
+    {{--  --}}
         xlink:href="#">
         <path class="st3"
             d="M6.5-112l2-3l0.5-2.8l2.5-1.8l2.2-5.2L16-128h2.2l3.2,1l4.5-2.5l2.5-2l2.5-1.8l3.5-0.5l1.8,0.5l-2.8,3.2
@@ -1729,7 +1734,8 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
 
 
 <g id="rajshahi">
-    <a href="{{url('/locationnews?division_id=4')}}"
+    <a href="{{url('/locationnews?division_id=2')}}"
+    {{--  --}}
         xlink:href="#">
         <path class="st14"
             d="M-184-149.2l0.6,1.8l1.4,0.2v1.4v1.8l0.4,1l0.6,0.8v1.9c0,0-0.5,0.9-0.9,1.4c-0.4,0.5-1.1,2-1.1,2
@@ -1911,7 +1917,8 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
 
 
 <g id="borishal">
-    <a href="{{url('/locationnews?division_id=3')}}"
+    <a href="{{url('/locationnews?division_id=6')}}"
+
         xlink:href="#">
 
         <path class="st13"
@@ -2162,7 +2169,8 @@ style="enable-background:new -201 -372.5 560 776.5;" xml:space="preserve">
 
 
 <g id="chittagong">
-    <a href="{{url('/locationnews?division_id=8')}}" xlink:href="#">
+    <a href="{{url('/locationnews?division_id=3')}}" xlink:href="#">
+        {{-- {{url('/locationnews?division_id=8')}} --}}
         <path class="st11" d="M355.6,320.6c0-1-0.1-1.6-0.1-2s-1.1-2-1.1-2l-1.8-5l-2.5-10.1l-2.9-27.5l1.2-23.9l1.4-6.1l-0.8-4.1l-1.4-3
             l-1.4-4.6l-0.9-4.6c0,0-0.2-3.6-0.2-4s-1.1-5.9-1.1-5.9l-1.5-0.8c0,0,0-3.2,0.1-3.6s0.8-1.4,0.8-1.4s0,0,0.5,0s1.9,0.1,1.9,0.1
             s1.5-1.1,1.9-1.4s0.1-1.6,0.1-1.6l-1.5-2.6l-1.8-3l-0.2-5l0.2-3.2l-1.4-1.4l-0.8-3.9l0.6-5.1l-0.6-2.6l-2.2-4.4l-0.9-15.9

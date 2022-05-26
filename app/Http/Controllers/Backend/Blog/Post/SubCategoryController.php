@@ -22,7 +22,7 @@ class SubCategoryController extends Controller
 
         $subcategories = SubCategory::with('category')->latest()->get();
         // return $subcategories;
-       return view('backend.blogs.subcategory.index',compact('subcategories'));
+        return view('backend.blogs.subcategory.index', compact('subcategories'));
     }
 
     /**
@@ -33,9 +33,9 @@ class SubCategoryController extends Controller
     public function create()
     {
         $subcategory = SubCategory::all();
-        $categories = Category::all();
+        $categories  = Category::all();
         // return $subcategory;
-        return view('backend.blogs.subcategory.create',compact('categories','categories'));
+        return view('backend.blogs.subcategory.create', compact('categories', 'categories'));
     }
 
     /**
@@ -84,9 +84,10 @@ class SubCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   $categories = Category::all();
+    {
+        $categories  = Category::all();
         $subcategory = SubCategory::where('id', $id)->get()->first();
-        return view('backend.blogs.subcategory.edit', compact('subcategory','categories'));
+        return view('backend.blogs.subcategory.edit', compact('subcategory', 'categories'));
     }
 
     /**
@@ -99,16 +100,17 @@ class SubCategoryController extends Controller
     public function update(Request $request, $id)
     {
 
-       SubCategory :: findOrFail($id)->update([
-        'name'        => $request->name,
-        'slug'        => make_slug($request->name),
-        'description' => $request->description,
-        'category_id' => $request->category_id,
-        'update_author_id'   => Auth::guard('admin')->user()->id,
-       ]);
+        SubCategory::findOrFail($id)->update([
+            
+            'name'             => $request->name,
+            'slug'             => make_slug($request->name),
+            'description'      => $request->description,
+            'category_id'      => $request->category_id,
+            'update_author_id' => Auth::guard('admin')->user()->id,
+        ]);
 
-    //    return "ok";
-       return redirect()->route('subcategory.index')->with('update', 'Successfully Data Updated');
+        //    return "ok";
+        return redirect()->route('subcategory.index')->with('update', 'Successfully Data Updated');
     }
 
     /**
@@ -119,7 +121,6 @@ class SubCategoryController extends Controller
      */
     public function destroy($id)
     {
-
         SubCategory::findOrFail($id)->delete();
         return redirect()->back()->with('delete', 'Successfully Data delete');
     }

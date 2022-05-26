@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog\Category;
 use App\Models\Blog\News;
 use App\Models\Division;
 use App\Models\Upazila;
-use App\Models\Vot\Vot;
 use Illuminate\Http\Request;
 
-class LocationwisenewsController extends Controller
+class LpostController extends Controller
 {
     public function locationWisenews(Request $request)
     {

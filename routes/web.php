@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\CategoryNewsController;
 use App\Http\Controllers\FrontEnd\CategorywisenewsController;
 use App\Http\Controllers\FrontEnd\HomepageController;
 use App\Http\Controllers\Frontend\LocationwisenewsController;
+use App\Http\Controllers\Frontend\LpostController;
 use App\Http\Controllers\Frontend\SearchController;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,7 +42,8 @@ Route::get('/category/{id}',[CategorywisenewsController::class,'categoryNews'])-
 
 Route::get('/subcategory/{id}',[SubcategorypostController::class,'subcategoryNews'])->name('subcategory.news');
 
-Route::get('/locationnews',[LocationwisenewsController::class,'locationWisenews'])->name('location.news');
+// Route::get('/locationnews',[LocationwisenewsController::class,'locationWisenews'])->name('location.news');
+Route::get('/locationnews',[LpostController::class,'locationWisenews'])->name('location.news');
 
 
 Route::get('search', [SearchController::class, 'search'])->name('search.page');

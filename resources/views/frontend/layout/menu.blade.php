@@ -20,16 +20,22 @@ $categories = App\Models\Blog\Category::get();
                             @endphp
 
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-menu">
-                                <li><a href="{{ route('category.news', $category->id) }}">{{ $category->name }} <i class="@if (count($subcategories) > 0)  fa fa-angle-down
-                                    @endif"></i> </a>
+                                <li><a href="{{ route('category.news', $category->id) }}">{{ $category->name }} <i
+                                            class="@if (count($subcategories) > 0) fa fa-angle-down @endif"></i> </a>
+
+
                                     @if (count($subcategories) > 0)
                                         <ul class="submenu">
                                             @foreach ($subcategories as $subcategory)
-                                            <li><a href="{{route('subcategory.news',$subcategory->id)}}">{{ $subcategory->name }}</a></li>
+                                                <li><a
+                                                        href="{{ route('subcategory.news', $subcategory->id) }}">{{ $subcategory->name }}</a>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     @endif
                                 </li>
+
+                            </ul>
                         @endforeach
 
                         {{-- @foreach ($categories as $category)

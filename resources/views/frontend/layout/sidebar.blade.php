@@ -1,9 +1,11 @@
 @php
 use App\Models\Vot\Vot;
 $vot = Vot::get()->last();
-$yes = sprintf('%.2f', (100 * $vot->yes) / $vot->total_vot);
-$no = sprintf('%.2f', (100 * $vot->no) / $vot->total_vot);
-$no_comment = sprintf('%.2f', (100 * $vot->no_comment) / $vot->total_vot);
+if ($vot) {
+    $yes = sprintf('%.2f', (100 * $vot->yes) / $vot->total_vot);
+    $no = sprintf('%.2f', (100 * $vot->no) / $vot->total_vot);
+    $no_comment = sprintf('%.2f', (100 * $vot->no_comment) / $vot->total_vot);
+}
 @endphp
 
 @php
@@ -76,10 +78,9 @@ $divissions = Division::all();
                         <h4>জেলার খবর</h4>
                     </div>
                     <div class="card-body">
-                        {{-- <img src="{{ asset('frontend/asset/img/bangladesh.svg') }}" width="390px" height="300px"
-                            class="img-fluid" alt="map"> --}}
 
-                      @include('frontend.layout.svgbangladesh')
+
+                        @include('frontend.layout.svgbangladesh')
 
                         <form action="{{ route('location.news', $news->upazila_id) }}" method="GET">
                             <div class="row">
@@ -127,101 +128,99 @@ $divissions = Division::all();
                 <div class="card-header">
                     <h4>অনলাইন জরিপ</h4>
                 </div>
-                <div class="card-body">
+                @if ($vot)
+                    <div class="card-body">
+                        <p>{{ $vot->description }}</p>
+                        <div class="row">
+                            <div class="col-sm-12 mt-4">
+                                @if ($vot->yes > 0)
+                                    <label for="">হ্যাঁ</label>
+                                    <div class="row align-items-center g-0 mb-2 pb-1">
+                                        <div class="col">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                    style="width:{{ $yes }}%;" aria-valuenow="7"
+                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
 
-                    <p>{{ $vot->description }}</p>
-
-
-                    <div class="row">
-                        <div class="col-sm-12 mt-4">
-
-                            @if ($vot->yes > 0)
-                                <label for="">হ্যাঁ</label>
-                                <div class="row align-items-center g-0 mb-2 pb-1">
-                                    <div class="col">
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-success" role="progressbar"
-                                                style="width:{{ $yes }}%;" aria-valuenow="7" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
+                                            <div class="fw-medium ms-2">
+                                                {{ $yes }}%</div>
                                         </div>
                                     </div>
-                                    <div class="col-auto">
+                                @endif
 
-                                        <div class="fw-medium ms-2">
-                                            {{ $yes }}%</div>
-                                    </div>
-                                </div>
-                            @endif
+                                @if ($vot->no > 0)
+                                    <label for="">না</label>
+                                    <div class="row align-items-center g-0 mb-2 pb-1">
+                                        <div class="col">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-danger" role="progressbar"
+                                                    style="width:{{ $no }}%;" aria-valuenow="0"
+                                                    aria-valuemin="0" aria-valuemax="0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
 
-                            @if ($vot->no > 0)
-                                <label for="">না</label>
-                                <div class="row align-items-center g-0 mb-2 pb-1">
-                                    <div class="col">
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-danger" role="progressbar"
-                                                style="width:{{ $no }}%;" aria-valuenow="0" aria-valuemin="0"
-                                                aria-valuemax="0"></div>
+                                            <div class="fw-medium ms-2">
+                                                {{ $no }}%</div>
                                         </div>
                                     </div>
-                                    <div class="col-auto">
-
-                                        <div class="fw-medium ms-2">
-                                            {{ $no }}%</div>
-                                    </div>
-                                </div>
-                            @endif
+                                @endif
 
 
-                            @if ($vot->no_comment > 0)
-                                <label for=""> মন্তব্য নেই</label>
-                                <div class="row align-items-center g-0 mb-2 pb-1">
-                                    <div class="col">
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-warning" role="progressbar"
-                                                style="width: {{ $no_comment }}%;" aria-valuenow="0"
-                                                aria-valuemin="0" aria-valuemax="0"></div>
+                                @if ($vot->no_comment > 0)
+                                    <label for=""> মন্তব্য নেই</label>
+                                    <div class="row align-items-center g-0 mb-2 pb-1">
+                                        <div class="col">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-warning" role="progressbar"
+                                                    style="width: {{ $no_comment }}%;" aria-valuenow="0"
+                                                    aria-valuemin="0" aria-valuemax="0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="fw-medium ms-2">
+                                                {{ $no_comment }}%</div>
                                         </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="fw-medium ms-2">
-                                            {{ $no_comment }}%</div>
-                                    </div>
-                                </div>
-                            @endif
+                                @endif
+                            </div>
                         </div>
+
+                        <form class="mt-1 survey-hide" action="{{ route('vot.update', $vot->id) }}" method="post"
+                            id="surveyForm">
+
+                            @csrf
+                            @method('PUT')
+                            <table cellpadding="0" cellspacing="5" border="0" width="100%" class="survey-tbl mb-2">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            <input type="radio" name="vot" value="yes ">
+                                        </td>
+                                        <td>হ্যাঁ </td>
+
+                                        <td class="text-center">
+                                            <input type="radio" name="vot" value="no ">
+                                        </td>
+                                        <td>না </td>
+
+                                        <td class="text-center">
+                                            <input type="radio" name="vot" value="no_comment ">
+                                        </td>
+                                        <td>মন্তব্য নেই</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-success p-2 "> মতামত দিন </button>
+
+                        </form>
+
+
                     </div>
-
-                    <form class="mt-1 survey-hide" action="{{ route('vot.update', $vot->id) }}" method="post"
-                        id="surveyForm">
-
-                        @csrf
-                        @method('PUT')
-                        <table cellpadding="0" cellspacing="5" border="0" width="100%" class="survey-tbl mb-2">
-                            <tbody>
-                                <tr>
-                                    <td class="text-center">
-                                        <input type="radio" name="vot" value="yes ">
-                                    </td>
-                                    <td>হ্যাঁ </td>
-
-                                    <td class="text-center">
-                                        <input type="radio" name="vot" value="no ">
-                                    </td>
-                                    <td>না </td>
-
-                                    <td class="text-center">
-                                        <input type="radio" name="vot" value="no_comment ">
-                                    </td>
-                                    <td>মন্তব্য নেই</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button type="submit" class="btn btn-success p-2 "> মতামত দিন </button>
-
-                    </form>
-
-
-                </div>
+                @endif
             </div>
         </div>
 
