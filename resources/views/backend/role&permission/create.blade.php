@@ -61,7 +61,6 @@
                                         <div class="row">
                                             <div class="col-3">
                                                 <div class="form-check">
-
                                                     <input type="checkbox" class="form-check-input"
                                                         id="{{ $i }}Management" value="{{ $group->name }}"
                                                         onclick="checkPermissionByGroup('role-{{ $i }}-management-checkbox', this)">

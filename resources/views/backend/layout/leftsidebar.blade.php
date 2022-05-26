@@ -6,7 +6,7 @@ $usr = Auth::guard('admin')->user();
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo logo-dark text-center">
+        <a href="{{route('admin.dashboard')}}" class="logo logo-dark text-center">
             <span class="logo-sm">
                 <img src="{{ asset('backend/assets/images/images/logo-sm-dark.png') }}" alt="" height="24">
                 <!-- <span class="logo-lg-text-light">Minton</span> -->
@@ -17,7 +17,7 @@ $usr = Auth::guard('admin')->user();
             </span>
         </a>
 
-        <a href="index.html" class="logo logo-light text-center">
+        <a href="{{route('admin.dashboard')}}" class="logo logo-light text-center">
             <span class="logo-sm">
                 <img src="{{asset('backend/assets/images/images/logo-sm-dark.png')}}" alt="" height="24">
             </span>
@@ -84,23 +84,13 @@ $usr = Auth::guard('admin')->user();
                 </li>
                 @endif --}}
 
-                {{-- @if ($usr->can('dashboard.view')) --}}
                 <li>
-                    <a href="#sidebarDashboard" data-bs-toggle="collapse" aria-expanded="false"
-                        aria-controls="sidebarDashboard">
+                    <a href="{{route('admin.dashboard')}}">
                         <i class="mdi mdi-view-dashboard"></i>
-                        <span>Dashboard</span>
-                        <span class="menu-arrow"></span>
+                        <span> Dashboard </span>
                     </a>
-                    <div class="collapse ">
-                        <ul class="nav-second-level ">
-                            {{-- @if ($usr->can('dashboard.view')) --}}
-                                 <li class="{{ Route::is('admin.dashboard')  ? 'active' : '' }}"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            {{-- @endif --}}
-                        </ul>
-                    </div>
                 </li>
-                {{-- @endif --}}
+
                 {{-- @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete')) --}}
                 <li>
                     <a href="#sidebarRoles" data-bs-toggle="collapse" aria-expanded="false"
@@ -204,6 +194,7 @@ $usr = Auth::guard('admin')->user();
                         <span> Setting </span>
                     </a>
                 </li>
+              
 
                 <li>
                     <a class="dropdown-item notify-item" href="{{ route('admin.logout.submit') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
