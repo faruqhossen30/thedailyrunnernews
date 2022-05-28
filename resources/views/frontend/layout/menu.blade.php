@@ -1,6 +1,6 @@
 @php
 // use App\Http\Controllers\Frontend\CategoryNewsController;
-$categories = App\Models\Blog\Category::get();
+$categories = App\Models\Blog\Category::with('subcategories')->get();
 
 @endphp
 <div class="main-menu header-sticky" style="background-color: #215837; ">
@@ -15,18 +15,16 @@ $categories = App\Models\Blog\Category::get();
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                         @foreach ($categories as $category)
-                            @php
+                            {{-- @php
                                 $subcategories = App\Models\Blog\SubCategory::where('category_id', $category->id)->get();
-                            @endphp
+                            @endphp --}}
 
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-menu">
                                 <li><a href="{{ route('category.news', $category->id) }}">{{ $category->name }} <i
-                                            class="@if (count($subcategories) > 0) fa fa-angle-down @endif"></i> </a>
-
-
-                                    @if (count($subcategories) > 0)
+                                            class="@if (count($category->subcategories) > 0) fa fa-angle-down @endif"></i> </a>
+                                    @if (count($category->subcategories) > 0)
                                         <ul class="submenu">
-                                            @foreach ($subcategories as $subcategory)
+                                            @foreach ($category->subcategories as $subcategory)
                                                 <li><a
                                                         href="{{ route('subcategory.news', $subcategory->id) }}">{{ $subcategory->name }}</a>
                                                 </li>
@@ -35,48 +33,9 @@ $categories = App\Models\Blog\Category::get();
                                     @endif
                                 </li>
 
-                            </ul>
+                                {{-- </ul> --}}
                         @endforeach
 
-                        {{-- @foreach ($categories as $category)
-                                @php
-                                    $subcategories = App\Models\Blog\SubCategory::where('category_id', $category->id)->get();
-                                @endphp
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link @if (count($subcategories) > 0) dropdown-toggle @endif"
-                                        href="{{ route('category.news', $category->id) }}" id="navbarDropdown"
-                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{ $category->name }}
-                                    </a>
-                                    @if (count($subcategories) > 0)
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            @foreach ($subcategories as $subcategory)
-                                                <li><a class="dropdown-item"
-                                                        href="{{route('subcategory.news',$subcategory->id)}}">{{ $subcategory->name }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
-
-                                </li>
-
-
-                            @endforeach --}}
-
-
-
-
-
-
-                        {{-- @foreach ($categories as $category)
-
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="{{route('category.news',$category->id)}}">{{ $category->name }}</a>
-                            </li>
-
-                            @endforeach --}}
-
-                        </ul>
                     </div>
                     <div class="col-lg-2 ps-0 ps-md-3">
                         <div class="right-menu-item" style="float: right;">

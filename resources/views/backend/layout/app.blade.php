@@ -31,7 +31,8 @@
     <!-- icons -->
     <link href="{{ asset('backend') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
-
+    {{-- <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script> --}}
+<link rel="stylesheet" href="/public/backend/assets/css/material/style.css">
 
     @stack('style')
 </head>

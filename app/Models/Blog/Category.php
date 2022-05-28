@@ -31,4 +31,8 @@ class Category extends Model
     {
         return $this->hasMany(News::class, 'category_id', 'id');
     }
+    public function subcategories()
+    {
+        return $this->hasMany(SubCategory::class, 'category_id');
+    }
 }
