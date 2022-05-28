@@ -11,7 +11,7 @@
                     <input type="hidden" name="keyword"
                         value="@if (isset($_GET['keyword'])) {{ trim($_GET['keyword']) }} @endif">
                     <!-- Sidebar Start -->
-                    <div class="col-lg-3 d-none d-lg-block bg-light mt-3">
+                    {{-- <div class="col-lg-3 d-none d-lg-block bg-light mt-3">
                         <div class="card mb-4 ">
                             <div class="card-header ">
                                 <h6 class="text-uppercase fw-bold text-center mt-2 text-secondary">ফিল্টার : </h6>
@@ -29,7 +29,7 @@
                                 @endforeach
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- Sidebar End -->
                     <div class="col-lg-9 col-12">
                         <!-- Filter Start -->
@@ -65,7 +65,7 @@
                                                         class="post-author d-flex justify-content-between align-items-center">
                                                         <div class="blog-author py-3">
                                                             <span><strong><i class="fa fa-user"></i>
-                                                                  {{}}</strong></span> <br>
+                                                                  </strong></span> <br>
                                                             <span><strong><i class="fa-solid fa-blog"></i>
                                                                     Category</strong></span> <br>
                                                             <span><strong><i class="fa-solid fa-clock"></i> May 7,
@@ -85,7 +85,7 @@
                             {{ $posts->links() }}
                         </div> --}}
                     </div>
-                    @include('frontend.layout.sidebar')
+                    {{-- @include('frontend.layout.sidebar') --}}
                 </div>
             </form>
     </section>

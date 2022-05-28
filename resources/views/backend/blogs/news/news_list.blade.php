@@ -1,4 +1,7 @@
 @extends('backend.layout.app')
+@section('title')
+    create News
+@endsection
 @section('content')
     <div class="content">
         <!-- Start Content-->

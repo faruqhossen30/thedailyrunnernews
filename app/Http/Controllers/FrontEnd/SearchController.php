@@ -29,8 +29,8 @@ class SearchController extends Controller
             return $query->where('title', 'like', '%' . $keyword . '%');
         })->get();
         // return  $posts;
-        // $news         = News::all();
+        $news         = News::all();
 
-        return view('frontend.searchpage',compact('posts','latestnews','categories'));
+        return view('frontend.searchpage',compact('posts','latestnews','categories','news'));
     }
 }

@@ -19,16 +19,13 @@ class HomepageController extends Controller
     public function homepage()
     {
         $news         = News::all();
-        $lastnews     = News::first();
-        $latestnews   = News::take(4)->get();
-        $natinoal     = News::take(6)->get();
+        $lastnews     = News::latest()->first();
+        $latestnews   = News::latest()->take(4)->get();
+        $natinoal     = News::take(6)->latest()->get();
         $categorynews = Category::with('news')->get();
-        $vots         = Vot::take(1)->get();
-        $divissions = Division::all();
-        // return $vot;
-
-
-
+        $vots         = Vot::take(1)->latest()->get();
+        $divissions   = Division::all();
+        
         return view('frontend.homepage', compact('news', 'latestnews', 'natinoal', 'categorynews', 'lastnews', 'vots', 'divissions'));
     }
 }

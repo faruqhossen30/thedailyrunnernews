@@ -4,6 +4,12 @@
     use App\Models\Division;
     $divissions = Division::all();
 
+    use App\Models\District;
+    $divissions = District::all();
+
+
+
+
     @endphp
     <section class="big_category_header hidden-xs d-flex " style="background-image: url() ">
 
@@ -15,12 +21,37 @@
                     </div>
 
                 </div>
+                @php
+                    $divid = null;
+                    $divinfo = null;
+                   if( isset($_GET['division_id'])){
+                        $divid = $_GET['division_id'];
+                        $divinfo = Division::firstWhere('id', $divid);
+                    }
+
+
+
+                    $distid = null;
+                    $distinfo = null;
+                    if(isset($_GET['district_id'])){
+                        $distid = $_GET['district_id'];
+                        $distinfo = District::Firstwhere('id',$distid);
+                    }
+
+
+
+
+                @endphp
                 <div class="col-sm-6">
                     <div class="page-title-right" style="float: right">
                         <ol class="breadcrumb p-4">
-                            <li class="breadcrumb-item"> বিভাগ > {{ $upzilla->getDivision->name ?? '' }}</li>
-                            <li class="breadcrumb-item"> জেলা > {{ $upzilla->getDistrict->name ?? '' }}</li>
-                            <li class="breadcrumb-item "> থানা > {{ $upzilla->name ?? ''}}</li>
+                            <li class="breadcrumb-item"> {{ $divinfo->name ?? '' }}</li>
+                           @isset($distinfo->name)
+                           <li class="breadcrumb-item"> {{ $distinfo->name  ?? ''}}</li>
+                           @endisset
+                            @isset( $upzilla->name)
+                            <li class="breadcrumb-item "> {{ $upzilla->name ?? ''}}</li>
+                            @endisset
                         </ol>
                     </div>
                 </div>

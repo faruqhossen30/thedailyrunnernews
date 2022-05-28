@@ -1,17 +1,15 @@
 @php
 use App\Models\Vot\Vot;
 $vot = Vot::get()->last();
-if ($vot) {
-    $yes = sprintf('%.2f', (100 * $vot->yes) / $vot->total_vot);
-    $no = sprintf('%.2f', (100 * $vot->no) / $vot->total_vot);
+if ($vot && $vot->total_vot>0) {
+    $yes        = sprintf('%.2f', (100 * $vot->yes) / $vot->total_vot);
+    $no         = sprintf('%.2f', (100 * $vot->no) / $vot->total_vot);
     $no_comment = sprintf('%.2f', (100 * $vot->no_comment) / $vot->total_vot);
 }
 @endphp
-
 @php
-use App\Models\Division;
-$divissions = Division::all();
-
+    use App\Models\Division;
+    $divissions = Division::all();
 @endphp
 
 <div class="col-sm-12 col-md-3">
@@ -34,7 +32,7 @@ $divissions = Division::all();
             <!-- Sidebar button area start -->
             <div class="sidebar-button-area">
                 <button><i class="fa-solid fa-chart-line"></i> শেয়ার বাজার</button>
-                <button><i class="fa-solid fa-mosque"></i> ইসলাম ও জীবন </button>
+                <button><i class="fa-solid fa-mosque"></i> ধর্ম ও জন্ম </button>
                 <button><i class="fa-solid fa-book-open"></i> টিউটরিয়াল </button>
                 <button><i class="fa-solid fa-images"></i> চিত্র বিচিত্র</button>
 
@@ -103,7 +101,7 @@ $divissions = Division::all();
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-6 mt-2">
                                     <select class="form-select @error('upazila_id') is-invalid @enderror"
                                         name="upazila_id">
                                         <option selected value="">উপজেলা</option>

@@ -18,8 +18,8 @@ $postdate = $bongabda->getDateTime()->format('l jS F Y');
             <div class="col-md-8 col-lg-push-3 col-md-push-0 my-4">
                 <div class="box-white marginBottom20 visible-xs hidden-print">
                     <ol class="breadcrumb">
-                        <li><a href="https://dailyrunnernews.com"> <i class="fa fa-home text-danger"></i></a></li>/
-                        <li><a href="https://dailyrunnernews.com/?cat=4"> {{ $news->category->name }} </a></li>
+                        <li><a href="{{route('homepage')}}"> <i class="fa fa-home text-danger"></i></a></li>/
+                        <li><a href="#"> {{ $news->category->name }} </a></li>
                     </ol>
                 </div>
                 <article class="box-white">

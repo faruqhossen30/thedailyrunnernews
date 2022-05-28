@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Backend\Roles;
-
-use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Http\Controllers\Controller;
+// use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
@@ -105,10 +105,17 @@ class RolesController extends Controller
         //     abort(403, 'Sorry !! You are Unauthorized to edit any role !');
         // }
 
-        $role = Role::findById($id, 'admin');
+        // $role = Role::findById($id, 'admin');
+        // $all_permissions = Permission::all();
+        // $permission_groups = User::getpermissionGroups();
+        // dd($permission_groups);
+        // return view('backend.role&permission.edit', compact('role', 'all_permissions', 'permission_groups'));
+
+
+
+        $role = Role::findById($id);
         $all_permissions = Permission::all();
         $permission_groups = User::getpermissionGroups();
-        // dd($permission_groups);
         return view('backend.role&permission.edit', compact('role', 'all_permissions', 'permission_groups'));
     }
 
