@@ -25,7 +25,7 @@ class LpostController extends Controller
             })->when($upzilaid, function ($query, $upzilaid) {
                 return $query->where('upazila_id', $upzilaid);
             })
-            ->get();
+            ->latest()->paginate(5);
         // return $allnews;
 
         $latestnews   = News::get();

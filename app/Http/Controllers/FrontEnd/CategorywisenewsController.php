@@ -14,11 +14,13 @@ class CategorywisenewsController extends Controller
     {
 
         $category = Category::firstWhere('id', $id);
-        $allnews  = News::where('category_id', $id)->orderBy('id', 'desc')->get();
-
+        $allnews  = News::where('category_id', $id)->orderBy('id', 'desc')->latest()->paginate(2);
         $latestnews   = News::take(6)->get();
+        $latestpost = News::where('category_id', $id)->latest()->first();
 
-        return view('frontend.categorynews', compact('category', 'allnews','latestnews'));
+        // return $latestpost;
+
+        return view('frontend.categorynews', compact('category', 'allnews','latestnews','latestpost'));
     }
 
 
