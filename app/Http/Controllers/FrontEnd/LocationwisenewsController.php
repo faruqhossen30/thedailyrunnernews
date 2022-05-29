@@ -28,7 +28,7 @@ class LocationwisenewsController extends Controller
                 return $query->where('upazila_id', $upzilaid);
             })
             ->get();
-        // return $allnews;
+        return $allnews;
 
         $latestnews   = News::get();
         $division = Division::all();
