@@ -10,14 +10,15 @@ use Illuminate\Http\Request;
 
 class SubcategorypostController extends Controller
 {
-    public function subcategoryNews(Request $request, $id){
+    public function subcategoryNews(Request $request, $id)
+    {
 
-        $category = Category::firstWhere('id', $id);
+        $category    = Category::firstWhere('id', $id);
         $subcategory = SubCategory::firstWhere('id', $id);
-        $allnews  = News::where('sub_category_id', $id)->orderBy('id', 'desc')->get();
+        $allnews     = News::where('sub_category_id', $id)->orderBy('id', 'desc')->latest()->paginate(2);
 
-        $latestnews   = News::take(6)->get();
-
-        return view('frontend.subcategorynews',compact('category', 'allnews','latestnews','subcategory'));
+        $latestnews  = News::take(6)->get();
+        $latestspost = News::where('sub_category_id', $id)->latest()->first();
+        return view('frontend.subcategorynews', compact('category', 'allnews', 'latestnews', 'subcategory', 'latestspost'));
     }
 }

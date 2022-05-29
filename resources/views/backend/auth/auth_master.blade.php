@@ -24,7 +24,7 @@
 
     <body class="loading">
 
-        @yield('auth-comtent')
+        @yield('auth-content')
 
         <footer class="footer footer-alt">
             <script>document.write(new Date().getFullYear())</script> &copy; Minton theme by <a href="" class="text-dark">Coderthemes</a>

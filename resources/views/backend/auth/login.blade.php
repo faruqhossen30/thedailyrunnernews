@@ -3,7 +3,7 @@
 Login | Admin Panel
 @endsection
 
-@section('auth-comtent')
+@section('auth-content')
     <div class="account-pages mt-5 mb-5">
         <div class="container">
             <div class="row justify-content-center">

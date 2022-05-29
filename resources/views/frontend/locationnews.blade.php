@@ -95,7 +95,7 @@
 
 
                 {{-- category page end --}}
-                <div class="text-center paddingBottom20">
+                {{-- <div class="text-center paddingBottom20">
                     <ul class="pagination pagination-sm">
                         <li class="active"><span aria-current="page" class="page-numbers current">১</span></li>
                         <li><a class="page-numbers" href="https://dailyrunnernews.com/?cat=17&amp;paged=2">২</a></li>
@@ -103,6 +103,10 @@
                                 →</a>
                         </li>
                     </ul>
+                </div> --}}
+
+                <div class="d-felx justify-content-center">
+                    {{ $allnews->links() }}
                 </div>
             </div>
             <div class="col-md-4 ">
