@@ -156,7 +156,6 @@ $usr = Auth::guard('admin')->user();
                 <li>
                     <a href="#sidebarvot" data-bs-toggle="collapse" aria-expanded="false" aria-controls="sidebarBlog">
                         <i class="mdi mdi-vote"></i>
-
                         <span> Online poll </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -233,11 +232,3 @@ $usr = Auth::guard('admin')->user();
 
 
 
-@push('style')
-    <style>
-/* span.logo-lg img {
-    width: 50% !important;
-} */
-
-    </style>
-@endpush

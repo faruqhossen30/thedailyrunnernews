@@ -28,9 +28,10 @@ class LpostController extends Controller
             ->latest()->paginate(5);
         // return $allnews;
 
-        $latestnews   = News::get();
-        $division = Division::all();
-        $news = News::get();
-        return view('frontend.locationnews', compact('allnews', 'latestnews', 'division', 'upzilla','news'));
+        $latestnews = News::get();
+        $division   = Division::all();
+        $news       = News::get();
+        
+        return view('frontend.locationnews', compact('allnews', 'latestnews', 'division', 'upzilla', 'news'));
     }
 }
